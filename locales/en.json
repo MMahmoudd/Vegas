@@ -1,0 +1,72 @@
+{
+    "links": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "technology": "Technology",
+        "contact": "Contact",
+        "english": "English",
+        "arabic": "العربية"
+    },
+    "home": {
+        "title": "Alamat",
+        "service-head": "Services",
+        "about-head": "About",
+        "technology-head": "We trust technologies. But we only",
+        "technology-head1": "use what's right for our jobs.",
+        "technology-title": "Here is a selection of what we've used on our recent projects.",
+        "contact-head": "Contact Us"
+
+    },
+    "contact": {
+        "title": "Contact Us",
+        "introduction": "You have a legitimate idea and want to implement it. We are glad to hear your thoughts.",
+        "content": "Send your request to us and we will contact you shortly",
+        "name": "name",
+        "email": "email",
+        "username": "username",
+        "phone": "phone",
+        "message": "message",
+        "send": "send",
+        "address": "address"
+    },
+    "services": {
+        "title": "Services",
+        "hosting": "Web hosting",
+        "hostingDes": "Alamat offers many web hosting packages, we have many packages with competitive price, quality and high efficiency. We provide flexible and evolving hosting solutions that can grow with the success of your business and rely on a wide range of common and modern web technologies to operate your site, allowing us to host your site whether it is a blog, company website, business gallery, online store or news site.",
+        "mobApp": "mobile applications",
+        "mobAppDes": "Alamat has a strong team that can design iPhone and Android applications with a highly qualified and experienced team so that the applications are compatible with all Apple products running on the iOS system and also with all devices running the Android operating system with high quality and great designs.",
+        "webApp": "Web design and development",
+        "webAppDes": "Alamat has a strong team that can help you to design professional websites characterized by sophistication. It is the goal of the company when designing and programming websites. We provide website design service in Alamat company with the latest technologies and technical methods in web design.",
+        "ecommerce": "E-Commerce",
+        "ecommerceDes": "Alamat has a strong team that can help you to increase your sales by using a smart e-commerce application on the mobile with a smart alerts system for all mobile users with a smart alerts and notifications system and a smart control panel. Create your store and start reaping your profits now with ease and ease with any idea you have",
+        "marketing": "E-Marketing",
+        "marketingDes": "Marketing and advertising via social media platforms is one of the most effective axes in electronic marketing, where the company has brands specializing in social media account management service through various platforms such as Facebook, Twitter, Instagram, Linkedin and other ways of marketing and advertising.",
+        "searchEng": "Creating websites for search engines",
+        "searchEngDes": "The Alamat team does a comprehensive search on the most important words related to the field and the highest searches on Google and study the audience of targeted words in terms of their behaviors and interests and an analysis of competitors and identify their strengths and weaknesses. We also write exclusive content commensurate with the customer’s field and the interests of the target audience, and develop a stronger strategy after taking advantage of competitors ’mistakes and weaknesses.",
+        "brandIden": "brand identities",
+        "brandIdenDes": "We are developing the perfect strategy for you to build the distinctive identity of your brands. We support you with everything that entrenches the features of this identity with clients. The logo is neither your trademark nor your identity. Both the logo, identity and brand have different roles which together constitute a concrete picture of the business or product that they represent.",
+        "bootchat": "Boot Chat",
+        "bootchatDes": "The boot is a smart application that can interactively interact with your customers and manage sales, as well as the ability to provide the necessary support to your customers through correspondence that appears to them real and personal. The bot can understand and analyze dialects and dialects and make personal conversations for your customers. Also, the bot handles thousands of conversations at the same moment and can solve clients' problems.",
+        "company": "Corporate services",
+        "companyDes": "Our expertise includes professional member labels who custom-design ERP programs for all areas of their companies in a way that suits them. We also help you make the transition process as smooth as possible, in addition to providing ongoing support. We also develop your new systems through extensive tests that ensure optimal performance. Our teams always make sure that your business, compatibility, performance and security are always reliable."
+    },
+    "offer": {
+        "content": "On the occasion of current global conditions. 30% discount on our offers",
+        "btn": "Connect with sales"
+    },
+    "header": {
+        "head": "We turn your great idea into app that serves your thoughts",
+        "title1": "Allamat Information Technology Company is one of the oldest and best companies specialized",
+        "title2": "in designing and programming smart phone applications for Android, iPhone and iPad.",
+        "title3": "We rely on the latest technologies and have a distinguished team.",
+        "btn":"Contact Us"
+    },
+    "newApp": {
+        "head": "New Apps",
+        "aladarbi": "Ala Darbi app",
+        "aladarbiTitle": "An application on a soul mate dedicated to the employment of workers and the search for skilled technicians in various services within the Kingdom",
+        "rakeb": "Rakeb App",
+        "rakebTitle": "An application on a soul mate dedicated to the employment of workers and the search for skilled technicians in various services within the Kingdom"
+    }
+}

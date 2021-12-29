@@ -1,0 +1,35 @@
+@import './pages';
+@import './varibails';
+@import './responsive';
+// Global style
+body {
+    direction: rtl;
+    text-align: right;
+    font-family: $mainFont;
+    background-color: $secondColor !important;
+    line-height: 1.5;
+    font-size: 16px;
+    font-weight: 400;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box !important;
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+textarea,
+p {
+    font-family: $mainFont;
+}
+// End Components

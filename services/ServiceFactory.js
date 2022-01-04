@@ -1,7 +1,9 @@
-import companiesService from './CompaniesService'
+import CategoryService from './CategoryService'
+import ProductService from './ProductService'
 
 const services = {
-  companies: companiesService,
+  Category: CategoryService,
+  Products: ProductService,
 }
 
 export const ServiceFactory = {

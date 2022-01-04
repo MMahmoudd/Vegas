@@ -1,13 +1,11 @@
 <template>
-  <v-app>
+  <div class="wrapper">
     <navbarComponent />
-    <v-main>
-      <v-container>
+      <div class="pages">
         <Nuxt />
-      </v-container>
-    </v-main>
+      </div>
     <FooterComponent />
-  </v-app>
+  </div>
 </template>
 
 <script>
@@ -20,25 +18,6 @@ export default {
   },
   data () {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
     }
   }
 }

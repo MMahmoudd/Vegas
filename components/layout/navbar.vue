@@ -1,38 +1,56 @@
 <template>
   <div class="navbar">
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
-    </v-app-bar>
+    <b-navbar toggleable="lg" type="dark">
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item>
+            <nuxt-link to="/">Home</nuxt-link>
+          </b-nav-item>
+          <b-nav-item>
+            <nuxt-link to="/menu">Menu</nuxt-link>
+          </b-nav-item>
+          <b-nav-item>
+            <nuxt-link to="#">Search</nuxt-link>
+          </b-nav-item>
+          <b-nav-item>
+            <nuxt-link to="#">Branchs</nuxt-link>
+          </b-nav-item>
+        </b-navbar-nav>
+
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+        <!--<b-nav-item class="radio">
+          <b-form-group v-slot="{ ariaDescribedby }">
+            <b-form-radio-group
+              id="btn-radios-1"
+              v-model="selected"
+              :options="options"
+              :aria-describedby="ariaDescribedby"
+              name="radios-btn-default"
+              buttons
+            ></b-form-radio-group>
+          </b-form-group>
+        </b-nav-item>-->
+        <b-nav-item>
+          <nuxt-link to="#">
+            <i class="fa fa-power-off"></i>
+          </nuxt-link>
+        </b-nav-item>
+        <b-nav-item>
+          <nuxt-link to="#">
+            <i class="fa fa-shopping-cart"></i>
+          </nuxt-link>
+        </b-nav-item>
+        <b-nav-item>
+          <nuxt-link to="#">
+            <i class="fa fa-user"></i>
+          </nuxt-link>
+        </b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </div>
 </template>
 
@@ -40,25 +58,11 @@
 export default {
   data () {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      selected: 'radio1',
+      options: [
+          { text: 'ar', value: 'ar' },
+          { text: 'en', value: 'en' },
+      ]
     }
   }
 }

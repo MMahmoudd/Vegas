@@ -24,4 +24,14 @@ export default {
             }
         })
     },
+    getsearchedProducts (keyword) {
+      let keywordQuery = (keyword && keyword !== '') ? '&name=' + keyword : '';
+          let filterQuery = keywordQuery;
+      return Service.get(`${resource}/search_items?${filterQuery}`)
+      .then((response) => {
+          if (response.status === 200) {
+              return response.data
+          }
+      })
+  },
 }

@@ -12,10 +12,10 @@
             <nuxt-link to="/menu">Menu</nuxt-link>
           </b-nav-item>
           <b-nav-item>
-            <nuxt-link to="#">Search</nuxt-link>
+            <nuxt-link to="/search">Search</nuxt-link>
           </b-nav-item>
           <b-nav-item>
-            <nuxt-link to="#">Branchs</nuxt-link>
+            <nuxt-link to="/branches">Branchs</nuxt-link>
           </b-nav-item>
         </b-navbar-nav>
 

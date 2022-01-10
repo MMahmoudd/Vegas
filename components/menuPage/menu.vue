@@ -9,10 +9,10 @@
         <div class="col-md-2">
           <h2 class="header-section text-left">Category</h2>
           <div class="menue-items pt-5">
-            <div v-for="(item, i) in categories" :key="i">
+            <div v-for="(item) in categories" :key="item">
               <div class="category-item text-left">
                 <b-form-group v-slot="{ ariaDescribedby }">
-                  <b-form-radio @input="fetchAllItems()" v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" :value="item.id">{{item.name_translate}}</b-form-radio>
+                  <b-form-radio @change="fetchAllItems()" v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" :value="item.id">{{item.name_translate}}</b-form-radio>
                 </b-form-group>
               </div>
             </div>

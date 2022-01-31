@@ -8,8 +8,8 @@ export default {
     let categoryQuery = (category && category !== '') ? '&main_category_id=' + category : '';
     let mainPriceQuery = (minValue && minValue !== '') ? '&min_price=' + minValue : '';
     let maxPriceQuery = (maxValue && maxValue !== '') ? '&max_price=' + maxValue : '';
-        let filterQuery = categoryQuery + mainPriceQuery + maxPriceQuery;
-    return Service.get(`${resource}/items?${filterQuery}`)
+    let filterQuery = categoryQuery + mainPriceQuery + maxPriceQuery;
+    return Service.get(`${resource}/items?restaurant_id=2&${filterQuery}`)
     .then((response) => {
         if (response.status === 200) {
             return response.data
@@ -17,7 +17,7 @@ export default {
     })
 },
   getAllTopItems () {
-        return Service.get(`${resource}/topItems`)
+        return Service.get(`${resource}/topItems?restaurant_id=2`)
         .then((response) => {
             if (response.status === 200) {
                 return response.data
@@ -27,7 +27,7 @@ export default {
     getsearchedProducts (keyword) {
       let keywordQuery = (keyword && keyword !== '') ? '&name=' + keyword : '';
           let filterQuery = keywordQuery;
-      return Service.get(`${resource}/search_items?${filterQuery}`)
+      return Service.get(`${resource}/search_items?restaurant_id=2&${filterQuery}`)
       .then((response) => {
           if (response.status === 200) {
               return response.data

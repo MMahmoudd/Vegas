@@ -1,8 +1,8 @@
 export default {
-
+  target: 'static',
     env: {
-        APP_URL: process.env.APP_URL || 'http://localhost:3000',
-        API_URL: process.env.API_URL || 'http://197.51.199.78/api'
+        APP_URL: 'http://localhost:3000',
+        API_URL: './config/index.js' || 'http://104.248.89.169:6100/api'
     },
 
   // Global page headers: https://go.nuxtjs.dev/config-head

@@ -5,7 +5,7 @@ const resource = `${API_URL}`
 
 export default {
   getAllBranchess () {
-        return Service.get(`${resource}/branches`)
+        return Service.get(`${resource}/branches?restaurant_id=2`)
         .then((response) => {
             if (response.status === 200) {
                 return response.data

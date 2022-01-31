@@ -6,7 +6,7 @@ const resource = `${API_URL}`
 
 export default {
   getAllCategories () {
-        return Service.get(`${resource}/categories`)
+        return Service.get(`${resource}/categories?restaurant_id=2`)
         .then((response) => {
             if (response.status === 200) {
                 return response.data

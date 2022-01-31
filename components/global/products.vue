@@ -39,7 +39,7 @@
             </div>
             <div class="content">
               <h4>{{product.name_translate}}</h4>
-              <p>{{product.description_translate}}</p>
+              <p v-html="product.description_translate"></p>
               <p>{{product.price}} LE</p>
             </div>
           </div>

@@ -28,7 +28,7 @@
                 <nuxt-link to="#">Addess book</nuxt-link>
               </p>
               <p>
-                <nuxt-link to="#">contact us </nuxt-link>
+                <nuxt-link to="/contactUs">contact us </nuxt-link>
               </p>
               <p>
                 <nuxt-link to="#">about us</nuxt-link>

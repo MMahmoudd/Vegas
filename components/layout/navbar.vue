@@ -33,18 +33,18 @@
             ></b-form-radio-group>
           </b-form-group>
         </b-nav-item>-->
-        <b-nav-item>
+        <!-- <b-nav-item class="text-center">
           <nuxt-link to="#">
             <i class="fa fa-power-off"></i>
           </nuxt-link>
-        </b-nav-item>
-        <b-nav-item>
-          <nuxt-link to="#">
-            <i class="fa fa-shopping-cart"></i>
+        </b-nav-item> -->
+        <b-nav-item class="text-center">
+          <nuxt-link to="/cart">
+            <i class="fa fa-shopping-cart"><span class="qty" v-if="products > 0">{{products}}</span></i>
           </nuxt-link>
         </b-nav-item>
-        <b-nav-item>
-          <nuxt-link to="#">
+        <b-nav-item class="text-center">
+          <nuxt-link to="/login">
             <i class="fa fa-user"></i>
           </nuxt-link>
         </b-nav-item>
@@ -64,6 +64,11 @@ export default {
           { text: 'en', value: 'en' },
       ]
     }
-  }
+  },
+    computed: {
+    products() {
+      return this.$store.state.products.length;
+    },
+  },
 }
 </script>

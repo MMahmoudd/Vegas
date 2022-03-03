@@ -4,12 +4,12 @@
       <div class="row pt-5">
         <div class="col-md-10">
         <h2 class="header-section text-left">Menu</h2>
-          <ProductComponent class="pt-5" :data="products" />
+          <ProductComponent class="pt-5" :allProducts="products" />
         </div>
         <div class="col-md-2">
           <h2 class="header-section text-left">Category</h2>
           <div class="menue-items pt-5">
-            <div v-for="(item) in categories" :key="item">
+            <div v-for="(item) in categories" :key="item.id">
               <div class="category-item text-left">
                 <b-form-group v-slot="{ ariaDescribedby }">
                   <b-form-radio @change="fetchAllItems()" v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" :value="item.id">{{item.name_translate}}</b-form-radio>

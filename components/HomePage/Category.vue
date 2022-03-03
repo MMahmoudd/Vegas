@@ -3,8 +3,8 @@
     <div class="container">
       <h2 class="header-section">Category</h2>
       <div class="category-items">
-      <div class="row">
-      <div class="col-sm-2" v-for="(item, i) in data" :key="i">
+      <div class="row justify-content-center items">
+      <div v-for="(item, i) in data" :key="i">
           <div class="category-item mt-2">
             <div class="category-image">
               <img :src="item.image" alt="category-image">

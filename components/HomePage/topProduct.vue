@@ -3,7 +3,7 @@
     <div class="container">
       <h2 class="header-section">Top Products</h2>
       <div class="topProduct-items pt-5">
-        <ProductComponent :data="data" />
+        <ProductComponent :allProducts="data" />
       </div>
     </div>
   </div>
@@ -28,6 +28,7 @@ export default {
         this.dataLoading = true
         const items = await topProductService.getAllTopItems()
         this.data = items.top_items
+        // console.log('this.data :>> ', this.data)
         this.dataLoading = false
       },
     }

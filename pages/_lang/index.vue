@@ -1,21 +1,21 @@
 <template>
-  <v-row justify="center" align="center">
-  <div class="headerComponent">
-    <headerComponent />
+  <div class="HomePage text-center">
+    <div class="headerComponent">
+      <headerComponent />
+    </div>
+    <div class="categoryComponent">
+      <categoryComponent />
+    </div>
+    <div class="topProductComponent">
+      <topProductComponent />
+    </div>
+    <div class="orderNowComponent">
+      <orderNowComponent />
+    </div>
+    <div class="OurPortfolioComponent">
+      <OurPortfolioComponent />
+    </div>
   </div>
-  <div class="categoryComponent">
-    <categoryComponent />
-  </div>
-  <div class="topProductComponent">
-    <topProductComponent />
-  </div>
-  <div class="orderNowComponent">
-    <orderNowComponent />
-  </div>
-  <div class="OurPortfolioComponent">
-    <OurPortfolioComponent />
-  </div>
-  </v-row>
 </template>
 <script>
 import headerComponent from '../../components/global/header.vue'

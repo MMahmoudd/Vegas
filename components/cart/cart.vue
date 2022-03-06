@@ -172,6 +172,7 @@ export default {
           this.SuccessMessage = 'Cart Sent Success'
           setTimeout(() => {
             this.SuccessMessage = ''
+            this.$router.push('/checkout')
           }, 1500)
         } else {
           this.ErrorMessage = sendData

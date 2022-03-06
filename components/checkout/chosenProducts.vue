@@ -1,160 +1,259 @@
 <template>
-  <div class="cart-component">
-    <h2 class="header-section">My Cart</h2>
-    <div class="container">
-      <div class="row" v-if="products.length > 0">
-          <div class="cart-item" v-for="(item, i) in products" :key="item.id">
-              <div class="cart-image">
-                  <!--<img :src="allProducts.filter(product => item.item_id === product.id)[0].image" alt="product-image">-->
-                  <img :src="item.item_image" alt="product-image">
-              </div>
-            <div class="cart-details row">
-              <p class="font-weight-bold text-left col-sm-3" @click="showProductDetails(item)">
-              <!--{{ allProducts.filter(product => item.item_id === product.id)[0].name_translate }}-->
-              {{ item.item_name }}
-              </p>
-              <p class="font-weight-bold text-left col-sm-2">
-              {{ item.name }}
-              </p>
-              <p class="font-weight-bold text-left main-color col-sm-2">{{ item.price }} LE</p>
-              <div v-if="item.quantity > 0" class="quantity text-left col-sm-3">
-                <i class="add fas fa-plus" @click="increase(item)"></i>
-                <span class="font-weight-bold mx-2">{{item.quantity}}</span>
-                <i class="minus fas fa-minus" @click="decrease(item, i)"></i>
-              </div>
-              <p class="font-weight-bold col-sm-2 text-right">
-              {{ item.total_price }}LE</p>
+    <div class="cart-component checkout-component">
+        <div class="deliveryMethod">
+            <div class="container" v-if="UserData.addresses">
+            <div class="row">
+              <div class="col-md-4" v-for="i in UserData.addresses" :key="i.id">
+                    <div class="address">
+                        <b-form-group v-slot="{ ariaDescribedby }">
+                            <b-form-radio v-model="selectedAddress" :aria-describedby="ariaDescribedby" name="some-radios" :value="i.id">{{i.governrate.name_translate}} {{i.area.name_translate}} {{i.street_address}}</b-form-radio>
+                        </b-form-group>
+                    </div>
+                </div>
             </div>
-            <b-bottom class="delete" @click="deleteProductFromCart(item)">
-              x
-            </b-bottom>
-          </div>
-          <div class="tatal-details d-flex justify-content-between">
-            <div class="back">
-              <nuxt-link to="/"><i class="fas fa-arrow-left"></i>  back to shop</nuxt-link>
+            <div class="actions my-4">
+                <b-button class="success" @click="addNewAddress()">Choose New Location</b-button>
             </div>
-            <div class="total">
-              <p class="font-weight-bold mr-3"><span class="header-section">Subtotal:</span>  {{ total }} L.E</p>
             </div>
-          </div>
-          <div class="shop">
-            <b-button @click="continueShipping()" class="btn">
-              Continue
-            </b-button>
-          </div>
-      </div>
-      <div v-else>
-        No Items In Cart
-      </div>
-      <div class="mt-5">
-              <b-alert
-                v-if="ErrorMessage"
-                show
-                class="text-center alert"
-                dismissible
-                variant="danger"
-              >
+            <div class="container my-4 actions" v-else>
+                <b-button class="success" @click="addNewAddress()">Add New Address</b-button>
+            </div>
+        </div>
+        <div class="container products">
+            <div class="row">
+                <div class="cart-item" v-for="(item) in Products" :key="item.id">
+                    <div class="cart-image">
+                        <img :src="item.cartable.image" alt="product-image">
+                    </div>
+                    <div class="cart-details row">
+                        <p class="font-weight-bold text-left col-sm-3">
+                            {{ item.cartable.name_translate }}
+                        </p>
+                        <p class="font-weight-bold text-left main-color col-sm-2">{{ item.cartable.price }} LE</p>
+                        <div class="quantity text-left col-sm-3">
+                            <span class="font-weight-bold mx-2">{{item.qty}}</span>
+                        </div>
+                        <p class="font-weight-bold col-sm-2 text-right">
+                            {{ item.total_price }} LE</p>
+                    </div>
+                </div>
+                <div class="tatal-details d-flex justify-content-between">
+                    <div class="back">
+                        <nuxt-link to="/"><i class="fas fa-arrow-left"></i> back to shop</nuxt-link>
+                    </div>
+                    <div class="total">
+                        <p class="font-weight-bold mr-3"><span class="header-section">Subtotal:</span> {{ total }} L.E
+                        </p>
+                    </div>
+                </div>
+                <div class="shop">
+                    <b-button @click="createOrder()" class="btn">
+                        Continue
+                    </b-button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5">
+            <b-alert v-if="ErrorMessage" show class="text-center alert" dismissible variant="danger">
                 {{ ErrorMessage }}
             </b-alert>
-            <b-alert
-                v-if="SuccessMessage"
-                show
-                class="text-center alert"
-                dismissible
-                variant="success"
-              >
+            <b-alert v-if="SuccessMessage" show class="text-center alert" dismissible variant="success">
                 {{ SuccessMessage }}
             </b-alert>
+        </div>
+        <b-modal
+        v-model="addLocation"
+        size="xl"
+        centered
+        title="BootstrapVue"
+        >
+        <template #modal-header="{ close }">
+          <!-- Emulate built in modal header close button action -->
+          <b-button class="close" size="sm" variant="outline-danger" @click="close()">
+            <i class="fas fa-times"></i>
+          </b-button>
+        </template>
+        <h2 class="text-center header-section">Add New Address</h2>
+          <div class="row">
+            <div class="col-md-6">
+            <label>select governrate</label>
+              <b-form-select
+                v-model="locationData.governrate_id"
+                :options="governrate"
+                class="mb-3"
+                value-field="id"
+                text-field="name_translate"
+                @input="getAreas(locationData.governrate_id)"
+              ></b-form-select>
             </div>
+            <div class="col-md-6">
+            <label>select area</label>
+              <b-form-select
+                v-model="locationData.area_id"
+                :options="area"
+                class="mb-3"
+                value-field="id"
+                text-field="name_translate"
+              ></b-form-select>
+            </div>
+            <div class="col-md-6">
+            <label>street address</label>
+              <b-input
+                v-model="locationData.street_address"
+                type="text"
+                class="mb-3"
+              ></b-input>
+            </div>
+            <div class="col-md-6">
+            <label>phone</label>
+              <b-input
+                v-model="locationData.phone"
+                type="tel"
+                class="mb-3"
+              ></b-input>
+            </div>
+            <div class="actions text-center m-auto">
+                    <b-button @click="createNewAddress()" class="btn">
+                        Create address
+                    </b-button>
+                </div>
+          </div>
+      </b-modal>
     </div>
-  </div>
 </template>
+
 <script>
 import { ServiceFactory } from '../../services/ServiceFactory'
-const CartService = ServiceFactory.get('Cart')
-export default {
-  name: 'products',
-  data: () => ({
-    product: {},
-    allProducts: [],
-    ErrorMessage: '',
-    SuccessMessage: '',
-    showDetails: false,
-    product: {},
-  }),
-  computed: {
-    products() {
-      return this.$store.state.products;
-    },
-    total() {
-      return this.$store.state.products.reduce((p, item) => p + +item.total_price, 0)
-    },
-    // totalWithAddons() {
-    //   return this.$store.state.products.reduce((p, item) => p + +item.total_price, 0)
-    // },
-  },
-  methods: {
-    showProductDetails(productItem){
-      this.showDetails = true
-      this.product = productItem
-    },
-    increase(item, index) {
-      this.$store.commit("increase", item);
-    },
-    decrease(item, index) {
-      if (this.products[index].quantity >= 1) {
-        this.$store.commit("decrease", item);
-      }
-    },
-    deleteProductFromCart (item) {
-      this.$store.commit("delete", item);
-    },
-    showProductDetails(item) {
-      this.showDetails = true
-      this.product = item
-    },
-    async continueShipping () {
-      if (localStorage.getItem('token')) {
-        const cartData = this.products.map(item => {
-          return ({
-            id: item.item_id,
-            qty: item.quantity,
-            size_name: item.name,
-            addons: item.selectedAddons || []
-        })
-        })
-        const formData = new FormData()
-        /**
-         * ? converting the json object to a form-data format
-         */
-        function buildFormData (formData, data, parentKey) {
-          if (data && typeof data === 'object' && !(data instanceof Date) && !(data instanceof File)) {
-            Object.keys(data).forEach(key => {
-              buildFormData(formData, data[key], parentKey ? `${parentKey}[${key}]` : key)
-            })
-          } else {
-            const value = data == null ? '' : data
+const Service = ServiceFactory.get('Cart')
+const profileService = ServiceFactory.get('profile')
+const ordersService = ServiceFactory.get('orders')
 
-            formData.append(parentKey, value)
-          }
-        }
-        buildFormData(formData, {items: cartData})
-        const sendData = await CartService.sendCartData(formData)
-        if (sendData.status === 200) {
-          this.SuccessMessage = 'Cart Sent Success'
-          setTimeout(() => {
-            this.SuccessMessage = ''
-          }, 1500)
-        } else {
-          this.ErrorMessage = sendData
-          // setTimeout(() => {
-          //     this.$router.push('/login')
-          //   }, 1500)
-        }
-      } else {
-        this.$router.push('/login')
-      }
-    }
-  }
+
+export default {
+    name: 'products',
+    data: () => ({
+        product: {},
+        Products: [],
+        UserData: {},
+        selectedAddress: 0,
+        ErrorMessage: '',
+        SuccessMessage: '',
+        showDetails: false,
+        addLocation: false,
+        locationData: {
+          governrate_id: 0,
+          area_id: 0,
+          street_address: '',
+          phone: '',
+        },
+        governrate: [],
+        area: [],
+        product: {},
+        payment_type: 'cash'
+    }),
+    created() {
+        this.getCart()
+    },
+    computed: {
+        total() {
+            return this.Products.reduce((p, item) => p + +item.total_price, 0)
+        },
+    },
+    methods: {
+      async addNewAddress () {
+          this.getGovernrates()
+          this.addLocation = true
+        },
+        async getGovernrates() {
+            const Governrates = await profileService.getGovernrate()
+            console.log('getGovernrate', Governrates)
+            // if (getGovernrate.status === true) {
+                this.governrate = Governrates.governrates
+            // } else {
+            //     this.ErrorMessage = 'Something Error'
+            //     // this.ErrorMessage = getGovernrate.message[0]
+            //     setTimeout(() => {
+            //         this.ErrorMessage = ''
+            //       }, 1500)
+            // }
+        },
+        async getAreas (id) {
+          // console.log('id', id)
+              const areas = await profileService.getAreas(id)
+            console.log('getGovernrate', areas)
+            if (areas.status === true) {
+                this.area = areas.areas
+            // } else {
+            //     this.ErrorMessage = 'Something Error'
+            //     // this.ErrorMessage = getGovernrate.message[0]
+            //     setTimeout(() => {
+            //         this.ErrorMessage = ''
+            //       }, 1500)
+            }
+        },
+        async getCart() {
+            const getCart = await Service.getCart()
+            if (getCart.status === true) {
+                console.log('getCart', getCart)
+                this.Products = getCart.data
+                this.getAddress()
+            } else {
+                this.ErrorMessage = getCart.message[0]
+                setTimeout(() => {
+                    this.ErrorMessage = ''
+                  }, 1500)
+            }
+        },
+        async getAddress() {
+            const UserData = await profileService.getUserData()
+            // console.log('UserData', UserData)
+            if (UserData.data.status === true) {
+                this.UserData = UserData.data.data
+                console.log('UserData', this.UserData)
+            } else {
+                this.ErrorMessage = UserData.message[0]
+            }
+        },
+        async createOrder() {
+            const data = {
+                address_id : this.selectedAddress,
+                payment_type : this.payment_type
+            }
+            if (this.selectedAddress) {
+                const createOrder = await ordersService.sendOrderData(data)
+                console.log('createOrder', createOrder)
+                if (createOrder.data.status === true) {
+                  // this.UserData = UserData.data.data
+                  // console.log('createOrder', createOrder)
+                  this.SuccessMessage = 'The Order is Created Successfully'
+                  // this.SuccessMessage = createOrder.data.message
+                } else {
+                  this.ErrorMessage = createOrder.message[0]
+                }
+            } else {
+                this.ErrorMessage = 'please choose address'
+            }
+        },
+        async createNewAddress() {
+                const createAddress = await profileService.addAddress(this.locationData)
+                if (createAddress.status === true) {
+                  this.getCart()
+                  // this.getAddress()
+                  this.addLocation = false
+                  this.SuccessMessage = 'The address is Created Successfully'
+                  setTimeout(() => {
+                    this.SuccessMessage = ''
+                    this.$router.push('/')
+                  }, 1500)
+                } else {
+                  this.ErrorMessage = createAddress.message[0]
+                  setTimeout(() => {
+                    this.ErrorMessage = ''
+                  }, 1500)
+                }
+        },
+    },
+
 }
 </script>
+9

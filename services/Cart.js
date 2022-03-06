@@ -19,4 +19,20 @@ export default {
                 return error.response.data.errors || error.response.data.message
             })
     },
+    getCart() {
+        return Service.get(`${resource}/cart`, {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
+            },
+        }).then((response) => {
+            if (response.status === 200) {
+                // if (response.data.data) {
+                //     response.data.data.map(item => {
+                //         item.tatalPrice = item.price * item.qty
+                //     })
+                // }
+                return response.data
+            }
+        })
+    },
 }

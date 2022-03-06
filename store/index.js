@@ -36,7 +36,6 @@ export const mutations = {
         if (hasProduct > -1) {
             //   state.products[hasProduct].quantity += 1
             //   state.products[hasProduct].total_price = state.products[hasProduct].quantity * state.products[hasProduct].price
-            // console.log('state.products :>> ', state.products);
         } else {
             state.products.push(productData)
         }
@@ -44,16 +43,20 @@ export const mutations = {
             if (item.id === productData.id) {
                 item.quantity += 1
                 item.total_price = item.quantity * item.price
-                const priceOfAllAddons = item.selectedAddons.reduce((p, c) => { return c.price + p }, 0)
-                item.totalPriceWithAddons = item.quantity * (item.price + priceOfAllAddons)
-                    // item.totalPriceWithAddons =
-                    // item.selectedAddons.map(addon => {
-                    //     addon.quantity += 1
-                    //     addon.total_price = addon.quantity * addon.price
-                    //     item.totalPriceWithAddons += addon.total_price + item.total_price
-                    // })
+                if (item.selectedAddons) {
+                    const priceOfAllAddons = item.selectedAddons.reduce((p, c) => { return c.price + p }, 0)
+                    item.totalPriceWithAddons = item.quantity * (item.price + priceOfAllAddons)
+                } else {
+                    item.totalPriceWithAddons = item.quantity * item.price
+                }
+
+                // item.totalPriceWithAddons =
+                // item.selectedAddons.map(addon => {
+                //     addon.quantity += 1
+                //     addon.total_price = addon.quantity * addon.price
+                //     item.totalPriceWithAddons += addon.total_price + item.total_price
+                // })
             }
-            console.log('state.products :>> ', state.products)
             return item;
         })
     },
@@ -66,12 +69,16 @@ export const mutations = {
                 const hasProducts = state.products[hasProduct]
                 hasProducts.quantity -= 1
                 hasProducts.total_price = hasProducts.quantity * hasProducts.price
-                const priceOfAllAddons = hasProducts.selectedAddons.reduce((p, c) => { return c.price + p }, 0)
-                hasProducts.totalPriceWithAddons = hasProducts.quantity * (hasProducts.price + priceOfAllAddons)
-                    // state.products.map(item => {
-                    //     item.quantity -= 1
-                    //     item.total_price = item.quantity * item.price
-                    // })
+                if (hasProducts.selectedAddons) {
+                    const priceOfAllAddons = hasProducts.selectedAddons.reduce((p, c) => { return c.price + p }, 0)
+                    hasProducts.totalPriceWithAddons = hasProducts.quantity * (hasProducts.price + priceOfAllAddons)
+                } else {
+                    hasProducts.totalPriceWithAddons = hasProducts.quantity * hasProducts.price
+                }
+                // state.products.map(item => {
+                //     item.quantity -= 1
+                //     item.total_price = item.quantity * item.price
+                // })
             }
         }
     },

@@ -1,0 +1,52 @@
+<template>
+  <div class="profile-component container">
+  <h2 class="text-center header-section">My Account</h2>
+  <b-tabs content-class="mt-3" align="center">
+    <b-tab title="Account" active>
+      <account />
+    </b-tab>
+    <b-tab title="My Order">
+      <!-- <myOrder /> -->
+      No Order Yet
+    </b-tab>
+  </b-tabs>
+</div>
+</template>
+<script>
+// import { ServiceFactory } from '../../services/ServiceFactory'
+import account from './account.vue'
+// import myOrder from './myOrders.vue'
+
+// const Service = ServiceFactory.get('profile')
+export default {
+  name: 'products',
+  components: {
+    account,
+    // myOrder,
+  },
+    data: () => ({
+        // UserData: {},
+    }),
+    created() {
+        // this.getUserData()
+    },
+    computed: {
+
+    },
+    methods: {
+      // async getUserData() {
+      //   const UserData = await Service.getUserData()
+      //       console.log('UserData', UserData)
+      //       if (UserData.data.status === true) {
+      //           this.UserData = UserData.data.data
+      //       } else {
+      //           this.ErrorMessage = 'Something Error'
+      //           // this.ErrorMessage = getGovernrate.message[0]
+      //           setTimeout(() => {
+      //               this.ErrorMessage = ''
+      //             }, 1500)
+      //       }
+      // }
+    }
+}
+</script>

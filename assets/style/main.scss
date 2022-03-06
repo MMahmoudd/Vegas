@@ -887,3 +887,90 @@ p {
 }
 
 // End ContactUs Page
+// Start checkout-component
+.checkout-component {
+    .deliveryMethod {
+        .address {
+            margin: 5px;
+            padding: 15px;
+            height: 100px;
+            background-color: #D9B3B4;
+            .custom-control-input:checked~.custom-control-label::before {
+                border-color: $mainColor;
+                background-color: $mainColor;
+                box-shadow: none;
+            }
+        }
+    }
+    .actions {
+        justify-content: center;
+        .btn {
+            background-color: transparent;
+            border: 1px solid $mainColor;
+            border-radius: 25px;
+            font-size: 16px;
+            color: $mainColor;
+            transition: all .4s ease-in-out;
+            &:hover {
+                color: $secondColor;
+                background-color: $mainColor;
+                i {
+                    color: $secondColor;
+                }
+            }
+            i {
+                height: unset;
+                width: unset;
+                border: unset;
+                border-radius: unset;
+                -webkit-border-radius: unset;
+                -moz-border-radius: unset;
+                -ms-border-radius: unset;
+                -o-border-radius: unset;
+                line-height: unset;
+                font-size: unset;
+                transition: all .4s ease-in-out;
+            }
+        }
+    }
+}
+
+// End checkout-component
+// Start account
+.account {
+    background-color: #F5F5F5;
+    padding: 30px;
+    margin: 30px 0;
+    .title {
+        color: $mainColor;
+    }
+    hr {
+        border-top: 1px solid $mainColor;
+    }
+}
+
+// End account
+// Start profile-component
+.profile-component {
+    .nav-tabs {
+        border: unset !important;
+    }
+    .nav-tabs .nav-link {
+        font-weight: bold;
+        background-color: transparent !important;
+        color: $thirdColor;
+        border: unset;
+    }
+    .nav-tabs .nav-link.active,
+    .nav-tabs .nav-item.show .nav-link {
+        font-weight: bold;
+        background-color: transparent !important;
+        color: $thirdColor;
+        border-top: unset;
+        border-right: unset;
+        border-left: unset;
+        border-bottom: 3px solid $mainColor !important;
+    }
+}
+
+// End profile-component

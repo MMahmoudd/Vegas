@@ -12,11 +12,25 @@ export default {
         return Service.get(`${resource}/items?restaurant_id=2&${filterQuery}`)
             .then((response) => {
                 if (response.status === 200) {
-                    console.log('getAllProducts :>> ', response)
                     if (response.data.items.length > 0) {
                         response.data.items.map((item) => {
                             item.quantity = 1;
                             item.total_price = item.price;
+                            item.sizes.map((size) => {
+                                size.quantity = 0;
+                                size.total_price = size.price;
+                                size.item_image = item.image;
+                                size.item_name = item.name_translate;
+                                size.totalPriceWithAddons = 0
+                                return size;
+                            })
+                            if (item.addson.length > 0) {
+                                item.addson.map(addon => {
+                                    addon.item_id = item.id
+                                    addon.quantity = 0;
+                                    addon.total_price = addon.price;
+                                })
+                            }
                             return item;
                         });
                     }
@@ -50,7 +64,6 @@ export default {
                             return item;
                         });
                     }
-                    console.log('response', response)
                     return response.data
                 }
             })
@@ -59,7 +72,6 @@ export default {
         return Service.get(`${resource}/items/${id}?restaurant_id=2`)
             .then((response) => {
                 if (response.status === 200) {
-                    console.log('response', response)
                     return response.data
                 }
             })
@@ -74,6 +86,21 @@ export default {
                         response.data.items.map((item) => {
                             item.quantity = 1;
                             item.total_price = item.price;
+                            item.sizes.map((size) => {
+                                size.quantity = 0;
+                                size.total_price = size.price;
+                                size.item_image = item.image;
+                                size.item_name = item.name_translate;
+                                size.totalPriceWithAddons = 0
+                                return size;
+                            })
+                            if (item.addson.length > 0) {
+                                item.addson.map(addon => {
+                                    addon.item_id = item.id
+                                    addon.quantity = 0;
+                                    addon.total_price = addon.price;
+                                })
+                            }
                             return item;
                         });
                     }

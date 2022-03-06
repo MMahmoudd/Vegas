@@ -3,19 +3,19 @@
     <div class="headerComponent">
       <headerComponent />
     </div>
-    <div class="contactUsComponent">
-      <contactUsComponent />
+    <div class="chosenProductsComponent">
+      <chosenProductsComponent />
     </div>
   </div>
 </template>
 <script>
 import headerComponent from '../../components/global/header.vue'
-import contactUsComponent from '../../components/contactUs/contactUs.vue'
+import chosenProductsComponent from '../../components/checkout/chosenProducts.vue'
 
 export default {
   components: {
     headerComponent,
-    contactUsComponent,
+    chosenProductsComponent,
   },
 }
 </script>

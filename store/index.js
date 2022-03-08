@@ -88,6 +88,9 @@ export const mutations = {
             state.products.splice(index, 1);
         }
     },
+    resetCart(state) {
+        state.products = []
+    }
 }
 export const modules = {
     login,

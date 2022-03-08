@@ -10,8 +10,11 @@ export default {
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
                 },
             }).then((response) => {
-                // console.log('responseFrom Service', response)
                 if (response.status === 200) {
+                    response.data.data.addresses.map(item => {
+                        item.price = item.area.price
+                    })
+                    console.log('responseFrom Service', response)
                     return response
                 }
             })

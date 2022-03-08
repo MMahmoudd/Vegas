@@ -18,4 +18,15 @@ export default {
                 return error.response.data.errors
             })
     },
+    getSlider() {
+        return Service.get(`${resource}/sliders?restaurant_id=2`)
+            .then((response) => {
+                if (response.status === 200) {
+                    return response
+                }
+            })
+            .catch(error => {
+                return error.response.data.errors
+            })
+    },
 }

@@ -21,6 +21,7 @@
       <div class="col-md-10">
          {{UserData.phone}}
       </div>
+
     </div>
   </div>
 </template>

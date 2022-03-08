@@ -1,11 +1,13 @@
 @import './pages';
 @import './varibails';
 @import './responsive';
+@import './fonts';
 // Global style
 body {
     direction: ltr;
     text-align: left;
-    font-family: $mainFont;
+    font-family: 'gobold_thin_lightregular';
+    font-weight: normal;
     background-color: $secondColor !important;
     line-height: 1.5;
     font-size: 16px;
@@ -409,6 +411,36 @@ p {
 }
 
 // End Modal
+// start sliderHeader-component
+.sliderHeader-component {
+    position: relative;
+    height: 75vh;
+    overflow: hidden;
+    background-color: $mainColor;
+    .carousel {
+        height: 100%;
+        .carousel-inner {
+            height: 100%;
+            .carousel-item {
+                height: 100%;
+                img {
+                    height: 100%;
+                    width: auto;
+                    margin: auto;
+                }
+                .btn {
+                    background-color: $secondColor;
+                    color: $mainColor;
+                }
+            }
+        }
+        img {
+            height: 100%;
+        }
+    }
+}
+
+// End sliderHeader-component
 // End Global Component
 //  Start HomePage Components
 // Start Category
@@ -974,3 +1006,31 @@ p {
 }
 
 // End profile-component
+// Start myOrders-component
+.myOrders-component {
+    .table {
+        thead {
+            th {
+                border-bottom: unset;
+            }
+        }
+    }
+    .text-color {
+        color: $mainColor
+    }
+    .click {
+        cursor: pointer;
+        text-align: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        border: 1px solid $mainColor;
+        line-height: 30px;
+    }
+}
+
+// End myOrders-component

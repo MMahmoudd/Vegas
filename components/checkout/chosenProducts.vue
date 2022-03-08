@@ -1,12 +1,13 @@
 <template>
     <div class="cart-component checkout-component">
+      <div v-if="Products.length > 0">
         <div class="deliveryMethod">
             <div class="container" v-if="UserData.addresses">
             <div class="row">
               <div class="col-md-4" v-for="i in UserData.addresses" :key="i.id">
                     <div class="address">
                         <b-form-group v-slot="{ ariaDescribedby }">
-                            <b-form-radio v-model="selectedAddress" :aria-describedby="ariaDescribedby" name="some-radios" :value="i.id">{{i.governrate.name_translate}} {{i.area.name_translate}} {{i.street_address}}</b-form-radio>
+                            <b-form-radio v-model="selectedAddress" :aria-describedby="ariaDescribedby" name="some-radios" :value="i">{{i.governrate.name_translate}} {{i.area.name_translate}} {{i.street_address}}</b-form-radio>
                         </b-form-group>
                     </div>
                 </div>
@@ -42,17 +43,31 @@
                         <nuxt-link to="/"><i class="fas fa-arrow-left"></i> back to shop</nuxt-link>
                     </div>
                     <div class="total">
-                        <p class="font-weight-bold mr-3"><span class="header-section">Subtotal:</span> {{ total }} L.E
+                        <div v-if="selectedAddress.id">
+                        <p class="font-weight-bold mr-3" >
+                          <span class="header-section">Delivery:</span> {{ selectedAddress.price }} L.E
+                        </p>
+                        <p class="font-weight-bold mr-3"><span class="header-section">Subtotal:</span> {{ total + selectedAddress.price }}  L.E
+                        </p>
+                        </div>
+                        <p v-else class="font-weight-bold mr-3" >
+                          <span class="header-section">Subtotal:</span> {{ total }}  L.E
                         </p>
                     </div>
                 </div>
                 <div class="shop">
                     <b-button @click="createOrder()" class="btn">
-                        Continue
+                        checkout
                     </b-button>
                 </div>
             </div>
         </div>
+      </div>
+      <div v-else>
+        <h3 class="header-section">
+          No Orders Yet <nuxt-link to="/">back to Add your Products</nuxt-link>
+        </h3>
+      </div>
         <div class="mt-5">
             <b-alert v-if="ErrorMessage" show class="text-center alert" dismissible variant="danger">
                 {{ ErrorMessage }}
@@ -135,7 +150,7 @@ export default {
         product: {},
         Products: [],
         UserData: {},
-        selectedAddress: 0,
+        selectedAddress: {},
         ErrorMessage: '',
         SuccessMessage: '',
         showDetails: false,
@@ -215,17 +230,19 @@ export default {
             }
         },
         async createOrder() {
-            const data = {
-                address_id : this.selectedAddress,
-                payment_type : this.payment_type
-            }
             if (this.selectedAddress) {
+              const data = {
+                address_id : this.selectedAddress.id,
+                payment_type : this.payment_type
+              }
                 const createOrder = await ordersService.sendOrderData(data)
                 console.log('createOrder', createOrder)
                 if (createOrder.data.status === true) {
-                  // this.UserData = UserData.data.data
-                  // console.log('createOrder', createOrder)
                   this.SuccessMessage = 'The Order is Created Successfully'
+                  setTimeout(() => {
+                    this.SuccessMessage = ''
+                    this.$router.push('/')
+                  }, 1500)
                   // this.SuccessMessage = createOrder.data.message
                 } else {
                   this.ErrorMessage = createOrder.message[0]
@@ -243,7 +260,7 @@ export default {
                   this.SuccessMessage = 'The address is Created Successfully'
                   setTimeout(() => {
                     this.SuccessMessage = ''
-                    this.$router.push('/')
+
                   }, 1500)
                 } else {
                   this.ErrorMessage = createAddress.message[0]

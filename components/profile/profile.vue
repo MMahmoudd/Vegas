@@ -6,8 +6,7 @@
       <account />
     </b-tab>
     <b-tab title="My Order">
-      <!-- <myOrder /> -->
-      No Order Yet
+      <myOrder />
     </b-tab>
   </b-tabs>
 </div>
@@ -15,14 +14,14 @@
 <script>
 // import { ServiceFactory } from '../../services/ServiceFactory'
 import account from './account.vue'
-// import myOrder from './myOrders.vue'
+import myOrder from './myOrders.vue'
 
 // const Service = ServiceFactory.get('profile')
 export default {
   name: 'products',
   components: {
     account,
-    // myOrder,
+    myOrder,
   },
     data: () => ({
         // UserData: {},

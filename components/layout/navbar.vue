@@ -44,6 +44,11 @@
           </nuxt-link>
         </b-nav-item>
         <b-nav-item class="text-center">
+          <nuxt-link to="/checkout">
+            <i class="fa fa-clipboard-check"></i>
+          </nuxt-link>
+        </b-nav-item>
+        <b-nav-item class="text-center">
           <nuxt-link to="/profile">
             <i class="fa fa-user"></i>
           </nuxt-link>

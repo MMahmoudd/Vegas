@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="tatal-details d-flex justify-content-between">
-                    <div class="back">
+                    <div @click="resetCart()" class="back">
                         <nuxt-link to="/"><i class="fas fa-arrow-left"></i> back to shop</nuxt-link>
                     </div>
                     <div class="total">
@@ -269,6 +269,12 @@ export default {
                   }, 1500)
                 }
         },
+        async resetCart() {
+          const reset = await Service.resetCart()
+          if (reset.status === true) {
+            this.$router.push('/')
+          }
+        }
     },
 
 }

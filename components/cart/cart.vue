@@ -173,7 +173,7 @@ export default {
           setTimeout(() => {
             this.SuccessMessage = ''
             this.$router.push('/checkout')
-            this.$store.commit("resetCart");
+            // this.$store.commit("resetCart");
           }, 1500)
         } else {
           this.ErrorMessage = sendData

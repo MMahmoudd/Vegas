@@ -149,6 +149,7 @@ p {
     a {
         color: $secondColor;
         text-decoration: none;
+        cursor: pointer;
     }
     .form-control {
         background-color: transparent;
@@ -482,7 +483,7 @@ p {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background-color: #9a1c1e65;
+            background-color: #00000065;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -750,7 +751,7 @@ p {
             color: $mainColor;
             font-weight: bold;
             text-align: center;
-            line-height: 23px;
+            line-height: 28px;
             margin: auto 15px auto 0px;
             cursor: pointer;
         }
@@ -979,6 +980,16 @@ p {
     hr {
         border-top: 1px solid $mainColor;
     }
+    .btn {
+        background-color: $mainColor;
+        width: 200px;
+        padding: 10px 0;
+        border-radius: 25px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        -ms-border-radius: 25px;
+        -o-border-radius: 25px;
+    }
 }
 
 // End account
@@ -1034,3 +1045,24 @@ p {
 }
 
 // End myOrders-component
+// Start Ads
+.Ads {
+    position: relative;
+    height: 400px;
+    padding: 30px 0;
+    .image {
+        height: 400px;
+        img {
+            height: 100%;
+            width: -webkit-fill-available;
+        }
+    }
+}
+
+// End ADS
+// Start page-component
+.page-component {
+    padding: 40px 0;
+}
+
+// End page-component

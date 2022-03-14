@@ -29,4 +29,37 @@ export default {
                 return error.response.data.errors
             })
     },
+    getAds() {
+        return Service.get(`${resource}/ads?restaurant_id=2`)
+            .then((response) => {
+                if (response.status === 200) {
+                    return response
+                }
+            })
+            .catch(error => {
+                return error.response.data.errors
+            })
+    },
+    getPages() {
+        return Service.get(`${resource}/pages?restaurant_id=2`)
+            .then((response) => {
+                if (response.status === 200) {
+                    return response
+                }
+            })
+            .catch(error => {
+                return error.response.data.errors
+            })
+    },
+    getPageById(id) {
+        return Service.get(`${resource}/pages/${id}?restaurant_id=2`)
+            .then((response) => {
+                if (response.status === 200) {
+                    return response
+                }
+            })
+            .catch(error => {
+                return error.response.data.errors
+            })
+    },
 }

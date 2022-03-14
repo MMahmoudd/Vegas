@@ -19,39 +19,21 @@
             <div class="my-account">
               <h4>My Account</h4>
               <p>
-                <nuxt-link to="#">My account</nuxt-link>
+                <nuxt-link to="/profile">My account</nuxt-link>
               </p>
               <p>
-                <nuxt-link to="#">Order history</nuxt-link>
-              </p>
-              <p>
-                <nuxt-link to="#">Addess book</nuxt-link>
+                <nuxt-link to="/profile">Order history</nuxt-link>
               </p>
               <p>
                 <nuxt-link to="/contactUs">contact us </nuxt-link>
-              </p>
-              <p>
-                <nuxt-link to="#">about us</nuxt-link>
               </p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="my-account">
               <h4>Information</h4>
-              <p>
-                <nuxt-link to="#">Shipping information</nuxt-link>
-              </p>
-              <p>
-                <nuxt-link to="#">Termes & condition</nuxt-link>
-              </p>
-              <p>
-                <nuxt-link to="#">Privacy policy</nuxt-link>
-              </p>
-              <p>
-                <nuxt-link to="#">Refound policy</nuxt-link>
-              </p>
-              <p>
-                <nuxt-link to="#">Delivery information</nuxt-link>
+              <p v-for="i in pages" :key="i.id">
+                <a @click="goToPage(i)">{{i.title}}</a>
               </p>
             </div>
           </div>
@@ -72,3 +54,28 @@
     </footer>
     </div>
 </template>
+
+<script>
+import { ServiceFactory } from '../../services/ServiceFactory'
+const Service = ServiceFactory.get('pages')
+export default {
+  name: 'footer',
+  data: () => ({
+    pages: [],
+  }),
+  created() {
+    this.getPages()
+  },
+  methods: {
+    async getPages() {
+      const pages = await Service.getPages()
+      if (pages.data.status === true) {
+        this.pages = pages.data.pages
+      }
+    },
+    goToPage(i) {
+      this.$router.push('/pages/' + i.id)
+    }
+  }
+}
+</script>

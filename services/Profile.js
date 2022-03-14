@@ -35,6 +35,18 @@ export default {
             }
         })
     },
+    editUserData(data) {
+        return Service.post(`${resource}/edit_profile`, data, {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
+            },
+        }).then((response) => {
+            console.log('response', response)
+            if (response.status === 200) {
+                return response
+            }
+        })
+    },
     getGovernrate() {
         return Service.get(`${resource}/governrates?restaurant_id=2`, {
             headers: {

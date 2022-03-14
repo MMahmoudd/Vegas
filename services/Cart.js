@@ -35,4 +35,21 @@ export default {
             }
         })
     },
+    resetCart() {
+        return Service.post(`${resource}/empty_cart`, {
+                _method: 'DELETE'
+            }, {
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
+                },
+            }).then((response) => {
+                console.log(response)
+                if (response.status === 200) {
+                    return response
+                }
+            })
+            .catch(error => {
+                return error.response.data.errors || error.response.data.message
+            })
+    }
 }

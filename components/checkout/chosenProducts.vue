@@ -37,11 +37,17 @@
                         <p class="font-weight-bold col-sm-2 text-right">
                             {{ item.total_price }} LE</p>
                     </div>
+                    <b-button class="delete" @click="deleteProductFromCart(item)">
+                    x
+                  </b-button>
                 </div>
                 <div class="tatal-details d-flex justify-content-between">
-                    <div @click="resetCart()" class="back">
+                    <div class="back">
                         <nuxt-link to="/"><i class="fas fa-arrow-left"></i> back to shop</nuxt-link>
                     </div>
+                    <b-button class="delete" @click="resetCart()">
+                      Delete All Cart Data
+                    </b-button>
                     <div class="total">
                         <div v-if="selectedAddress.id">
                         <p class="font-weight-bold mr-3" >
@@ -181,7 +187,6 @@ export default {
         },
         async getGovernrates() {
             const Governrates = await profileService.getGovernrate()
-            console.log('getGovernrate', Governrates)
             // if (getGovernrate.status === true) {
                 this.governrate = Governrates.governrates
             // } else {
@@ -193,9 +198,7 @@ export default {
             // }
         },
         async getAreas (id) {
-          // console.log('id', id)
               const areas = await profileService.getAreas(id)
-            console.log('getGovernrate', areas)
             if (areas.status === true) {
                 this.area = areas.areas
             // } else {
@@ -209,7 +212,6 @@ export default {
         async getCart() {
             const getCart = await Service.getCart()
             if (getCart.status === true) {
-                console.log('getCart', getCart)
                 this.Products = getCart.data
                 this.getAddress()
             } else {
@@ -221,10 +223,8 @@ export default {
         },
         async getAddress() {
             const UserData = await profileService.getUserData()
-            // console.log('UserData', UserData)
             if (UserData.data.status === true) {
                 this.UserData = UserData.data.data
-                console.log('UserData', this.UserData)
             } else {
                 this.ErrorMessage = UserData.message[0]
             }
@@ -236,8 +236,8 @@ export default {
                 payment_type : this.payment_type
               }
                 const createOrder = await ordersService.sendOrderData(data)
-                console.log('createOrder', createOrder)
                 if (createOrder.data.status === true) {
+                  this.$store.commit("resetCart");
                   this.SuccessMessage = 'The Order is Created Successfully'
                   setTimeout(() => {
                     this.SuccessMessage = ''
@@ -269,9 +269,20 @@ export default {
                   }, 1500)
                 }
         },
+        async deleteProductFromCart (item) {
+          const remove = await Service.deleteProductFromCart(item.id)
+          if (remove.data.status === true) {
+            const index = this.Products.indexOf(item);
+            if (index > -1) {
+                this.Products.splice(index, 1);
+            }
+            this.getCart()
+          }
+        },
         async resetCart() {
           const reset = await Service.resetCart()
-          if (reset.status === true) {
+          if (reset.data.status === true) {
+            this.$store.commit("resetCart");
             this.$router.push('/')
           }
         }

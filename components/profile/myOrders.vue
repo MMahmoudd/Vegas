@@ -73,7 +73,6 @@ export default {
     methods: {
       async getUserOrder() {
         const UserOrders = await Service.getOrders()
-            console.log('UserOrders', UserOrders)
             if (UserOrders.status === true) {
                 this.orders = UserOrders.my_orders
             } else {
@@ -85,7 +84,6 @@ export default {
             }
       },
       showData(productItem){
-        console.log('productItem', productItem)
       this.showDetails = true
       this.product = productItem
     },

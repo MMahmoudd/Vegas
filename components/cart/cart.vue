@@ -25,9 +25,9 @@
               <p class="font-weight-bold col-sm-2 text-right">
               {{ item.totalPriceWithAddons }}LE</p>
             </div>
-            <b-bottom class="delete" @click="deleteProductFromCart(item)">
+            <b-button class="delete" @click="deleteProductFromCart(item)">
               x
-            </b-bottom>
+            </b-button>
           </div>
           <div class="tatal-details d-flex justify-content-between">
             <div class="back">

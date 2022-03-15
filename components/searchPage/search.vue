@@ -32,7 +32,6 @@ export default {
         this.dataLoading = true
         if(this.search) {
           const items = await ProductService.getsearchedProducts(this.search)
-          console.log(`items`, items)
           this.products = items.items
         } else {
           this.products === []

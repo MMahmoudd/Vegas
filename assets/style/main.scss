@@ -250,6 +250,7 @@ p {
                     cursor: pointer;
                     transition: all .4s ease-in-out;
                     margin: auto;
+                    text-align: center;
                     &:hover {
                         color: $secondColor;
                         background-color: $mainColor;
@@ -739,7 +740,7 @@ p {
             }
         }
         .delete {
-            font-size: 25px;
+            font-size: 18px;
             width: 35px;
             height: 35px;
             border-radius: 50%;
@@ -749,9 +750,10 @@ p {
             -o-border-radius: 50%;
             border: 2px solid $mainColor;
             color: $mainColor;
+            background-color: $secondColor;
             font-weight: bold;
             text-align: center;
-            line-height: 28px;
+            line-height: 18px;
             margin: auto 15px auto 0px;
             cursor: pointer;
         }
@@ -765,6 +767,16 @@ p {
                 text-decoration: none;
                 color: $thirdColor;
             }
+        }
+        .delete {
+            background-color: $mainColor;
+            border: none;
+            border-radius: 30px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            -o-border-radius: 30px;
+            padding: 7px 15px;
         }
     }
     .shop {
@@ -1066,3 +1078,13 @@ p {
 }
 
 // End page-component
+// start gallery-page-component
+.gallery-page-component {
+    img {
+        margin: auto;
+        width: 75%;
+        margin-bottom: 30px;
+    }
+}
+
+// End gallery-page-component

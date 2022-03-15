@@ -9,7 +9,6 @@ export default {
                 ...data
             })
             .then((response) => {
-                console.log(response)
                 if (response.status === 200) {
                     localStorage.setItem('token', response.data.token)
                     this.$cookies.set('token', response.data.token)

@@ -22,7 +22,6 @@ export default {
     methods: {
       async getADS() {
         const ads = await Service.getAds()
-            console.log('ads', ads.data.ad)
             if (ads.data.status === true) {
                 this.ad = ads.data.ad
             } else {

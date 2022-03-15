@@ -10,7 +10,6 @@ export default {
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
                 },
             }).then((response) => {
-                console.log(response)
                 if (response.status === 200) {
                     return response
                 }

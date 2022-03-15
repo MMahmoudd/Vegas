@@ -22,10 +22,8 @@ export default {
   methods: {
     async getPageById() {
       const pages = await Service.getPageById(+this.pageId)
-      console.log('pages.data.page', pages.data)
       if (pages.data.status === true) {
         this.details = pages.data.page
-        console.log('this.details', this.details)
       }
     },
   }

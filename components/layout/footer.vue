@@ -22,10 +22,16 @@
                 <nuxt-link to="/profile">My account</nuxt-link>
               </p>
               <p>
-                <nuxt-link to="/profile">Order history</nuxt-link>
+                <nuxt-link to="/profile">Order History</nuxt-link>
               </p>
               <p>
-                <nuxt-link to="/contactUs">contact us </nuxt-link>
+                <nuxt-link to="/contactUs">Contact Us </nuxt-link>
+              </p>
+              <p>
+                <nuxt-link to="/gallery">Gallery</nuxt-link>
+              </p>
+              <p>
+                <nuxt-link to="/news">News</nuxt-link>
               </p>
             </div>
           </div>

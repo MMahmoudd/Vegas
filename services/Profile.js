@@ -14,7 +14,6 @@ export default {
                     response.data.data.addresses.map(item => {
                         item.price = item.area.price
                     })
-                    console.log('responseFrom Service', response)
                     return response
                 }
             })
@@ -28,9 +27,7 @@ export default {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
             },
         }).then((response) => {
-            console.log('response', response)
             if (response.status === 200) {
-                // console.log('response', response)
                 return response.data
             }
         })
@@ -41,7 +38,6 @@ export default {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
             },
         }).then((response) => {
-            console.log('response', response)
             if (response.status === 200) {
                 return response
             }
@@ -53,7 +49,6 @@ export default {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
             },
         }).then((response) => {
-            // console.log('response', response)
             if (response.status === 200) {
                 return response.data
             }
@@ -65,7 +60,6 @@ export default {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
             },
         }).then((response) => {
-            // console.log('response', response)
             if (response.status === 200) {
                 return response.data
             }

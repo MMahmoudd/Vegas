@@ -34,7 +34,6 @@ const Login = {
             axios.post(`${API_URL}/login`, userData)
                 .then((response) => {
                     if (response.status === 200) {
-                        // console.log('response :>> ', response.data)
                         localStorage.setItem('token', response.data.token)
                         this.$cookies.set('token', response.data.token)
                         localStorage.setItem('userData', JSON.stringify(response.data.user))

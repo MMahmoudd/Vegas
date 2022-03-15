@@ -120,7 +120,6 @@ export default {
 
     //   // We have to move our method to a handler field
     //   handler(){
-    //     console.log('The list of colours has changed!')
     //     this.productsState.map(item => {
     //       if (item.id = this.product.id) {
     //         this.product.sizes = item.sizes;

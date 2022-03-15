@@ -9,7 +9,6 @@ export default {
                 ...data
             })
             .then((response) => {
-                console.log(response)
                 if (response.status === 200) {
                     return response
                 }
@@ -53,6 +52,50 @@ export default {
     },
     getPageById(id) {
         return Service.get(`${resource}/pages/${id}?restaurant_id=2`)
+            .then((response) => {
+                if (response.status === 200) {
+                    return response
+                }
+            })
+            .catch(error => {
+                return error.response.data.errors
+            })
+    },
+    getGalleries() {
+        return Service.get(`${resource}/galleries?restaurant_id=2`)
+            .then((response) => {
+                if (response.status === 200) {
+                    return response
+                }
+            })
+            .catch(error => {
+                return error.response.data.errors
+            })
+    },
+    getGalleryById(id) {
+        return Service.get(`${resource}/galleries/${id}?restaurant_id=2`)
+            .then((response) => {
+                if (response.status === 200) {
+                    return response
+                }
+            })
+            .catch(error => {
+                return error.response.data.errors
+            })
+    },
+    getNews() {
+        return Service.get(`${resource}/news?restaurant_id=2`)
+            .then((response) => {
+                if (response.status === 200) {
+                    return response
+                }
+            })
+            .catch(error => {
+                return error.response.data.errors
+            })
+    },
+    getNewsById(id) {
+        return Service.get(`${resource}/news/${id}?restaurant_id=2`)
             .then((response) => {
                 if (response.status === 200) {
                     return response

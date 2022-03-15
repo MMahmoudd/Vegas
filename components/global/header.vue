@@ -46,7 +46,6 @@ const Service = ServiceFactory.get('pages')
         const SliderData = await Service.getSlider()
             if (SliderData.data.status === true) {
                 this.images = SliderData.data.sliders
-                console.log('this.images', this.images)
             } else {
                 this.ErrorMessage = 'Something Error'
                 // this.ErrorMessage = getGovernrate.message[0]

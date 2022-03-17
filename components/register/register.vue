@@ -63,7 +63,7 @@
                   required
                 ></b-form-input>
               </b-form-group>
-              <b-button type="submit">Login</b-button>
+              <b-button type="submit">Register</b-button>
               <div class="mt-1">
               <b-alert
                 v-if="registerErrorMessage"

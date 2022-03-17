@@ -3,13 +3,13 @@
     <h2 class="header-section">Contact Us</h2>
     <div class="container text-left">
       <p class="header-section font-weight-bold">Get In Touch & Let's Make Something Awesome Aogether.</p>
-      <p class="content">
+      <!-- <p class="content">
         1-677-124-44227
         <br>
         184 Main Collins Street West Victoria 8007
         <br>
         Mon – Sat 8.00 – 18.00 Sunday CLOSED
-      </p>
+      </p> -->
       <div class="contact-form">
             <b-form @submit.prevent="onSubmit()" v-if="show">
             <div class="row">

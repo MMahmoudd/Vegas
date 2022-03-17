@@ -3,7 +3,7 @@
     <footer>
       <div class="container">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="logo">
               <img src="../../assets/images/VegasLogo.svg" alt="logo">
               <div class="social">
@@ -15,7 +15,7 @@
             </div>
 
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="my-account">
               <h4>My Account</h4>
               <p>
@@ -35,7 +35,7 @@
               </p>
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="my-account">
               <h4>Information</h4>
               <p v-for="i in pages" :key="i.id">
@@ -43,7 +43,7 @@
               </p>
             </div>
           </div>
-          <div class="col-md-3">
+          <!-- <div class="col-md-3">
             <div class="my-account">
               <h4>Newsletter</h4>
               <p>
@@ -54,7 +54,7 @@
                 placeholder="Email Address"
               ></b-input>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </footer>

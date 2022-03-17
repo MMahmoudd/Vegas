@@ -13,7 +13,7 @@ export default {
                     localStorage.setItem('token', response.data.token)
                     this.$cookies.set('token', response.data.token)
                     localStorage.setItem('userData', JSON.stringify(response.data.data))
-                    return response
+                    return response.data
                 }
             })
             .catch(error => {

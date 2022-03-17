@@ -1,6 +1,6 @@
 <template>
   <div class="products-component py-5">
-    <h2 class="header-section">News</h2>
+    <h2 class="header-section py-3">News</h2>
     <div class="container text-left">
     <div class="row">
       <div class="col-md-4" v-for="item in list" :key="item.id">

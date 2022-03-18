@@ -1,8 +1,10 @@
 <template>
   <div class="navbar">
     <b-navbar toggleable="lg" type="dark">
+    <b-navbar-brand to="/">
+      <img src="../../assets/images/VegasLogo.svg" alt="logo">
+    </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item>
@@ -12,7 +14,7 @@
             <nuxt-link to="/menu">Menu</nuxt-link>
           </b-nav-item>
           <b-nav-item>
-            <nuxt-link to="/search">Search</nuxt-link>
+            <nuxt-link to="/contactUs">Contact Us</nuxt-link>
           </b-nav-item>
           <b-nav-item>
             <nuxt-link to="/branches">Branchs</nuxt-link>
@@ -38,6 +40,11 @@
             <i class="fa fa-power-off"></i>
           </nuxt-link>
         </b-nav-item> -->
+        <b-nav-item class="text-center">
+          <nuxt-link to="/search">
+            <i class="fa fa-search"></i>
+          </nuxt-link>
+        </b-nav-item>
         <b-nav-item class="text-center">
           <nuxt-link to="/cart">
             <i class="fa fa-shopping-cart"><span class="qty" v-if="products > 0">{{products}}</span></i>

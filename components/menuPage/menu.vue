@@ -17,14 +17,14 @@
               </div>
             </div>
           </div>
-          <h4 class="header-section text-left pt-3">Filter By Price</h4>
+          <!-- <h4 class="header-section text-left pt-3">Filter By Price</h4>
           <div class="range-filter">
             <div class='range-slider'>
               <input type="range" min="1" max="500" step="1" v-model="sliderMin" @change="fetchAllItems()">
               <input type="range" min="1" max="500" step="1" v-model="sliderMax" @change="fetchAllItems()">
             </div>
             <p class="pt-3"><span>Price {{ sliderMin }} LE</span> : <span>{{ sliderMax }}LE</span></p>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

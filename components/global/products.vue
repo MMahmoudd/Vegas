@@ -48,6 +48,11 @@
                 </b-form-group>
               </div>
               </div>
+              <div v-if="selecetdSize.quantity >= 0" class="quantity text-center">
+                <i class="add fas fa-plus" @click="increaseSelecetdSize(selecetdSize)"></i>
+                <span class="font-weight-bold mx-2">{{selecetdSize.quantity}}</span>
+                <i class="minus fas fa-minus" @click="decreaseSelecetdSize(selecetdSize, i)"></i>
+              </div>
             </div>
           </div>
           <hr>
@@ -131,6 +136,15 @@ export default {
   methods: {
     countDownChanged(dismissCountDown) {
         this.dismissCountDown = dismissCountDown
+      },
+      increaseSelecetdSize(selecetdSize) {
+        selecetdSize.quantity +=1
+      },
+      decreaseSelecetdSize(selecetdSize, i){
+        if (selecetdSize.quantity >= 2) {
+          selecetdSize.quantity -=1
+        }
+
       },
     increase() {
       this.$store.commit("increase", this.selecetdSize);

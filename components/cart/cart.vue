@@ -3,6 +3,12 @@
     <h2 class="header-section">My Cart</h2>
     <div class="container">
       <div class="row" v-if="products.length > 0">
+      <!-- <div class="row justify-content-between w-100">
+        <div class="col-md-3">الاسم</div>
+        <div class="col-md-3">الحجم</div>
+        <div class="col-md-1">السعر</div>
+        <div class="col-md-5 text-right">الاجمالي</div>
+      </div> -->
           <div class="cart-item" v-for="(item, i) in products" :key="item.id">
               <div class="cart-image">
                   <!--<img :src="allProducts.filter(product => item.item_id === product.id)[0].image" alt="product-image">-->

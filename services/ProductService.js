@@ -17,7 +17,7 @@ export default {
                             item.quantity = 1;
                             item.total_price = item.price;
                             item.sizes.map((size) => {
-                                size.quantity = 0;
+                                size.quantity = 1;
                                 size.total_price = size.price;
                                 size.item_image = item.image;
                                 size.item_name = item.name_translate;
@@ -47,7 +47,7 @@ export default {
                             item.quantity = 0;
                             item.total_price = item.price;
                             item.sizes.map((size) => {
-                                size.quantity = 0;
+                                size.quantity = 1;
                                 size.total_price = size.price;
                                 size.item_image = item.image;
                                 size.item_name = item.name_translate;
@@ -87,7 +87,7 @@ export default {
                             item.quantity = 1;
                             item.total_price = item.price;
                             item.sizes.map((size) => {
-                                size.quantity = 0;
+                                size.quantity = 1;
                                 size.total_price = size.price;
                                 size.item_image = item.image;
                                 size.item_name = item.name_translate;

@@ -41,6 +41,8 @@
                     x
                   </b-button>
                 </div>
+                <!-- coupon -->
+                <coupon />
                 <div class="tatal-details d-flex justify-content-between">
                     <div class="back">
                         <nuxt-link to="/"><i class="fas fa-arrow-left"></i> back to shop</nuxt-link>
@@ -145,12 +147,14 @@
 
 <script>
 import { ServiceFactory } from '../../services/ServiceFactory'
+import coupon from './coupon.vue'
 const Service = ServiceFactory.get('Cart')
 const profileService = ServiceFactory.get('profile')
 const ordersService = ServiceFactory.get('orders')
 
 
 export default {
+  components: { coupon },
     name: 'products',
     data: () => ({
         product: {},

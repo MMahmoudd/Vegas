@@ -39,7 +39,7 @@
             <div class="content">
               <h4>{{product.name_translate}}</h4>
               <p v-html="product.description_translate"></p>
-              <p>Sizes:</p>
+              <p>{{$t('sizes')}}:</p>
               <div class="row">
               <div class="col-md-3" v-for="(size) in product.sizes" :key="size.id">
               <b-form-group v-slot="{ ariaDescribedby }">
@@ -75,7 +75,7 @@
               </div>
               <div v-if="selecetdSize.id" class="row actions">
                 <b-button class="btn" @click="increase()"><i class="fas fa-shopping-cart"></i>
-                  Add To Cart
+                  {{$t('home.addToCart')}}
                 </b-button>
               </div>
 
@@ -88,7 +88,7 @@
           @dismissed="dismissCountDown=0"
           @dismiss-count-down="countDownChanged"
           >
-            Item Added To Your Cart <nuxt-link to="/cart">Go To Your Cart</nuxt-link>
+            {{$t('home.itemAdded')}} <nuxt-link to="/cart">{{$t('home.goToCart')}}</nuxt-link>
         </b-alert>
     </div>
   </div>

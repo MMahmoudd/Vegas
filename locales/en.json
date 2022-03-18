@@ -1,1 +1,12 @@
-{}
+{
+    "home" : {
+        "itemAdded" : "Item Added To Your Cart",
+        "goToCart": "Go To Your Cart",
+        "addToCart" : "Add To Cart",
+        "sizes" : "Sizes"
+    },
+    "menu" : {
+        "category" : "Category",
+        "menu": "Menu"
+    }
+}

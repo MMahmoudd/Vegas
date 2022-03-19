@@ -106,6 +106,7 @@
 <script>
 import { ServiceFactory } from '../../services/ServiceFactory'
 const CartService = ServiceFactory.get('Cart')
+
 export default {
   name: 'products',
   data: () => ({

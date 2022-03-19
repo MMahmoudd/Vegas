@@ -107,7 +107,10 @@
         "createAddress" :"إنشاء عنوان",
 
         "couponPlaceholder" : "ادخل الكوبون",
-        "submitCoupon" :"إرسال"
+        "submitCoupon" :"إرسال",
+
+        "discount": "الخصم"
+
     },
 
     "profile" : {

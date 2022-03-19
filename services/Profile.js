@@ -5,7 +5,7 @@ const resource = `${API_URL}`
 
 export default {
     getUserData() {
-        return Service.get(`${resource}/user_addresses`, {
+        return Service.get(`${resource}/user_addresses?restaurant_id=2`, {
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
                 },

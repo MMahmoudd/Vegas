@@ -30,7 +30,36 @@ export const mutations = {
             state.locale = locale
         }
     },
+    // increaseX(state, productData) {
+    //     increase(state,productData,true)
+    // },
+     addItem (state, productData) {
+        const hasProduct = state.products.findIndex(item => item.id === productData.id)
+        if (hasProduct > -1) {
+        } else {
+            state.products.push(productData)
+        }
+        state.products.map(item => {
+            if (item.id === productData.id) {
+                item = productData
+                item.total_price = item.quantity * item.price
+                if (item.selectedAddons) {
+                    const priceOfAllAddons = item.selectedAddons.reduce((p, c) => { return c.price + p }, 0)
+                    item.totalPriceWithAddons = item.quantity * (item.price + priceOfAllAddons)
+                } else {
+                    item.totalPriceWithAddons = item.quantity * item.price
+                }
 
+                // item.totalPriceWithAddons =
+                // item.selectedAddons.map(addon => {
+                //     addon.quantity += 1
+                //     addon.total_price = addon.quantity * addon.price
+                //     item.totalPriceWithAddons += addon.total_price + item.total_price
+                // })
+            }
+            return item;
+        })
+    },
     increase(state, productData) {
         const hasProduct = state.products.findIndex(item => item.id === productData.id)
         if (hasProduct > -1) {

@@ -107,7 +107,9 @@
         "createAddress" :"Create address",
 
         "couponPlaceholder" : "Enter Coupon",
-        "submitCoupon" :"Apply Coupon"
+        "submitCoupon" :"Apply Coupon",
+
+        "discount": "Discount"
     },
 
     "profile" : {

@@ -138,6 +138,7 @@ export default {
         this.dismissCountDown = dismissCountDown
       },
       increaseSelecetdSize(selecetdSize) {
+        console.log(this.selecetdSize)
         selecetdSize.quantity +=1
       },
       decreaseSelecetdSize(selecetdSize, i){
@@ -147,7 +148,7 @@ export default {
 
       },
     increase() {
-      this.$store.commit("increase", this.selecetdSize);
+      this.$store.commit("addItem", this.selecetdSize);
       this.dismissCountDown = this.dismissSecs
       this.selecetdSize = {
         selectedAddons: [],

@@ -1,138 +1,138 @@
 {
-    "global" : {
-        "visitLink":  "visit link",
-        "itemAdded" : "تم إضافة العنصر إلى سلة التسويق",
+    "global": {
+        "visitLink": "زيارة الرابط",
+        "itemAdded": "تم إضافة العنصر إلى سلة التسويق",
         "goToCart": "اذهب إلى سلة التسويق",
         "goToHome": "اذهب للصفحة الرئيسية",
-        "addToCart" : "إضافة",
-        "home" : "الرئيسية",
-        "menu" : "القائمة",
+        "addToCart": "إضافة",
+        "home": "الرئيسية",
+        "menu": "القائمة",
         "contactUs": "تواصل معنا",
-        "branches" : "الفروع",
+        "branches": "الفروع",
         "myAccount": "حسابي",
         "orderHistory": "تاريخ الطلبات",
-        "gallery" : "Gallery",
+        "gallery": "معرض الصور",
         "news": "أخبار",
-        "information" : "معلومات"
+        "information": "معلومات"
     },
 
-    "home" : {
-        "sizes" : "الأحجام",
-        "category" : "القسم",
+    "home": {
+        "sizes": "الأحجام",
+        "category": "القسم",
         "spicyZingerWrap": "Spicy Zinger Wrap",
-        "orderNow" : "اطلب الآن",
+        "orderNow": "اطلب الآن",
 
-        "ourPortifolioGallery": "Our Portifolio Gallery",
-    
-        "topProducts" : "أفضل المنتجات"
+        "ourPortifolioGallery": "معرض الصور لدينا",
+
+        "topProducts": "أفضل المنتجات"
     },
 
-    "login" : {
+    "login": {
         "login": "تسجيل دخول",
-        "emailDescription" : "لن يتم مشاركة بريدك الإلكتروني مع أي شخص آخر",
-        "emailPlaceholder" : "ادخل بريدك",
-        "passwordPlaceholder" : "ادخل كلمة المرور"
+        "emailDescription": "لن يتم مشاركة بريدك الإلكتروني مع أي شخص آخر",
+        "emailPlaceholder": "ادخل بريدك",
+        "passwordPlaceholder": "ادخل كلمة المرور"
     },
 
     "register": {
         "register": "التسجيل",
-        "createNew" : "إنشاء حساب جديد",
-        
-        "nameLabel" : "الإسم",
+        "createNew": "إنشاء حساب جديد",
+
+        "nameLabel": "الإسم",
         "namePlaceholder": "إسمك",
 
         "phoneLabel": "رقم الهاتف",
         "phonePlaceholder": "رقم هاتفك",
 
-        "emailDescription" : "لن يتم مشاركة بريدك الإلكتروني مع أي شخص آخر",
+        "emailDescription": "لن يتم مشاركة بريدك الإلكتروني مع أي شخص آخر",
 
-        "emailPlaceholder" : "ادخل بريدك",
+        "emailPlaceholder": "ادخل بريدك",
 
         "passwordLabel": "كلمة المرور",
-        "passwordPlaceholder" : "ادخل كلمة المرور"
+        "passwordPlaceholder": "ادخل كلمة المرور"
 
     },
 
-    "menu" : {
-        "category" : "القسم",
+    "menu": {
+        "category": "القسم",
         "menu": "الفائمة"
     },
 
     "search": {
         "results": "نتائج البحث",
-        "noResults" : "لا يوجد نتائج"
+        "noResults": "لا يوجد نتائج"
     },
 
 
     "contactUs": {
         "contactUs": "تواصل معنا",
-        "getInTouch" : "تواصل معنا، لنصنع شيء رائعا معا",
+        "getInTouch": "تواصل معنا، لنصنع شيء رائعا معا",
         "namePlaceholder": "الإسم",
-        "emailPlaceholder" : "البريد الإلكتروني",
-        "messagePlaceholder" : "الرسالة",
+        "emailPlaceholder": "البريد الإلكتروني",
+        "messagePlaceholder": "الرسالة",
         "send": "إرسال"
     },
 
-    "branches" : {
+    "branches": {
         "branches": "الفروع",
         "workdays": "أيام العمل",
-        "timesofWork" :"أوقات العمل",
-        "noBranchesYet":"لا توجد فروع حالية"
+        "timesofWork": "أوقات العمل",
+        "noBranchesYet": "لا توجد فروع حالية"
     },
 
     "cart": {
-        "myCart" : "سلة التسويق",
-        "backToShop" : "الرجوع للتسوق",
+        "myCart": "سلة التسويق",
+        "backToShop": "الرجوع للتسوق",
         "subtotal": "المجموع",
-        "continue" : "أكمل",
-        "noItemsInCart" : "لا يوجد عناصر في سلة التسويق",
+        "continue": "أكمل",
+        "noItemsInCart": "لا يوجد عناصر في سلة التسويق",
         "sizeSelcted": "الأحجام المُختارة",
         "addOnName": "Add on Name",
         "addOnPrice": "Add on Price"
     },
 
-    "checkout" : {
-        "checkout":"checkout",
-        "chooseNewLocation" : "اختار عنوان جديد",
+    "checkout": {
+        "checkout": "الدفع",
+        "chooseNewLocation": "اختار عنوان جديد",
         "deleteAllCartData": "احذف جميع عناصر السلة",
-        "subtotal" : "المجموع",
+        "subtotal": "المجموع",
         "delivery": "التوصيل",
         "addNewAddress": "إضافة عنوان جديد",
         "noOrdersYet": "لا توجد طلبات بعد",
         "backToProducts": "الرجوع لمنتجاتك",
-        "selectGovernrate": "select governrate",
-        "selectArea":"اختار منطقة",
-        "steetAddress" : "عنوان الشارع",
-        "phone" : "الهاتف",
-        "createAddress" :"إنشاء عنوان",
+        "selectGovernrate": "اختر محافظة",
+        "selectArea": "اختار منطقة",
+        "steetAddress": "عنوان الشارع",
+        "phone": "الهاتف",
+        "createAddress": "إنشاء عنوان",
 
-        "couponPlaceholder" : "ادخل الكوبون",
-        "submitCoupon" :"إرسال"
+        "couponPlaceholder": "ادخل الكوبون",
+        "submitCoupon": "إرسال"
     },
 
-    "profile" : {
-        "hello" : "مرحبا",
-        "name" : "الإسم",
-        "email" : "البريد الإلكتروني",
+    "profile": {
+        "hello": "مرحبا",
+        "name": "الإسم",
+        "email": "البريد الإلكتروني",
         "mobile": "الهاتف",
-        "editProfile" : "تعديل الحساب",
-        "edit" : "تعديل",
+        "editProfile": "تعديل الحساب",
+        "edit": "تعديل",
 
         "namePlaceholder": "ادخل اسمك",
 
         "phonePlaceholder": "ادخل رقم هاتفك",
 
-        "emailDescription" : "لن يتم مشاركة بريدك الإلكتروني مع أي شخص آخر",
+        "emailDescription": "لن يتم مشاركة بريدك الإلكتروني مع أي شخص آخر",
 
-        "emailPlaceholder" : "ادخل بريدك",
+        "emailPlaceholder": "ادخل بريدك",
 
 
-        "orderDetails" : "تفاصيل الطلبات",
-        "addressCastoumer": "Address Castoumer",
+        "orderDetails": "تفاصيل الطلبات",
+        "addressCastoumer": "عنوان العميل",
 
         "myAccount": "حسابي",
-        "account" : "الحساب",
-        "myOrder":"طلباتي"
+        "account": "الحساب",
+        "myOrder": "طلباتي"
 
     }
 

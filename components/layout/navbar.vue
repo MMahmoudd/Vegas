@@ -23,19 +23,23 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-        <b-nav-item class="radio">
-          <b-form-group v-slot="{ ariaDescribedby }">
-            <b-form-radio-group
+        <div class="radio">
+          <b-form-group>
+            <!-- <b-form-radio-group
               id="btn-radios-1"
               v-model="selected"
               :options="options"
               :aria-describedby="ariaDescribedby"
               name="radios-btn-default"
               buttons
+              switch
               @change="value => handleChangeLanguage(value)"
-            ></b-form-radio-group>
+            ></b-form-radio-group> -->
+            <b-form-checkbox v-model="selected" switch size="lg" @change="value => handleChangeLanguage(value)">
+              {{ selected }}
+            </b-form-checkbox>
           </b-form-group>
-        </b-nav-item>
+        </div>
         <!-- <b-nav-item class="text-center">
           <nuxt-link to="#">
             <i class="fa fa-power-off"></i>
@@ -71,7 +75,7 @@
 export default {
   data () {
     return {
-      selected: 'radio1',
+      selected: Boolean,
       options: [
           { text: 'ar', value: 'ar' },
           { text: 'en', value: 'en' },
@@ -83,9 +87,25 @@ export default {
       return this.$store.state.products.length;
     },
   },
+  created () {
+      if (this.$i18n.locale) {
+        const userLang = this.$i18n.locale
+        userLang === 'ar' ? this.$i18n.locale = 'en' : this.$i18n.locale = 'ar'
+      }
+      // console.log('this.$i18n.locale', this.$i18n.locale)
+    },
   methods : {
     handleChangeLanguage (value) {
-      console.log({value})
+      console.log('this.$router', this.localePath)
+      if (value === false) {
+        localStorage.setItem('lang', 'en')
+        this.$i18n.locale = 'en'
+        this.$router.push('/en')
+      } else{
+        localStorage.setItem('lang', 'ar')
+        this.$i18n.locale = 'ar'
+        this.$router.push('/ar')
+      }
     }
   }
 }

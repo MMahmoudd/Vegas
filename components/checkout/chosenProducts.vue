@@ -41,8 +41,10 @@
                     x
                   </b-button>
                 </div>
+
                 <!-- coupon -->
-                <coupon />
+                <coupon @change="(value) => {this.coupon = value.coupon; this.discount_amount = value.discount_amount}" />
+                
                 <div class="tatal-details d-flex justify-content-between">
                     <div class="back">
                         <nuxt-link :to="localePath('/')"><i class="fas fa-arrow-left"></i> {{$t('cart.backToShop')}}</nuxt-link>
@@ -51,6 +53,9 @@
                       {{$t('checkout.deleteAllCartData')}}
                     </b-button>
                     <div class="total">
+                        <p class="font-weight-bold mr-3" v-if="this.discount_amount>0">
+                          <span class="header-section">{{$t('checkout.discount')}}:</span> - {{ this.discount_amount }} L.E
+                        </p>
                         <div v-if="selectedAddress.id">
                         <p class="font-weight-bold mr-3" >
                           <span class="header-section">{{$t('checkout.delivery')}}:</span> {{ selectedAddress.price }} L.E
@@ -59,7 +64,7 @@
                         </p>
                         </div>
                         <p v-else class="font-weight-bold mr-3" >
-                          <span class="header-section">{{$t('checkout.subtotal')}}:</span> {{ total }}  L.E
+                          <span class="header-section">{{$t('checkout.subtotal')}}:</span> {{ finalTotal }}  L.E
                         </p>
                     </div>
                 </div>
@@ -174,18 +179,26 @@ export default {
         governrate: [],
         area: [],
         product: {},
-        payment_type: 'cash'
+        payment_type: 'cash',
+        coupon: '',
+        discount_amount: 0,
     }),
     created() {
         this.getCart()
     },
     computed: {
         total() {
-            return this.Products.reduce((p, item) => p + +item.total_price, 0)
+          return this.Products.reduce((p, item) => p + +item.total_price, 0) || 0
         },
+
+        finalTotal () {
+          // TODO : don't calc the address price. do the discount on total only
+          return (this.total + (this.selectedAddress.price || 0))
+           - ((this.discount_amount) * (this.total + (this.selectedAddress.price || 0)) )
+        }
     },
     methods: {
-      async addNewAddress () {
+        async addNewAddress () {
           this.getGovernrates()
           this.addLocation = true
         },
@@ -235,11 +248,16 @@ export default {
         },
         async createOrder() {
             if (this.selectedAddress) {
+
               const data = {
-                address_id : this.selectedAddress.id,
-                payment_type : this.payment_type
+                address_id : 1 || this.selectedAddress.id,
+                payment_type : this.payment_type,
+                // TODO : Not Applied by backend
+                code: this.coupon
               }
+
                 const createOrder = await ordersService.sendOrderData(data)
+
                 if (createOrder.data.status === true) {
                   this.$store.commit("resetCart");
                   this.SuccessMessage = 'The Order is Created Successfully'

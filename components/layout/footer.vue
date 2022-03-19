@@ -19,27 +19,27 @@
           </div>
           <div class="col-md-4">
             <div class="my-account">
-              <h4>My Account</h4>
+              <h4>{{$t('global.myAccount')}}</h4>
               <p>
-                <nuxt-link to="/profile">My account</nuxt-link>
+                <nuxt-link :to="localePath('/profile')">{{$t('global.myAccount')}}</nuxt-link>
               </p>
               <p>
-                <nuxt-link to="/profile">Order History</nuxt-link>
+                <nuxt-link :to="localePath('/profile')">{{$t('global.orderHistory')}}</nuxt-link>
               </p>
               <p>
-                <nuxt-link to="/contactUs">Contact Us </nuxt-link>
+                <nuxt-link :to="localePath('/contactUs')">{{$t('global.contactUs')}}</nuxt-link>
               </p>
               <p>
-                <nuxt-link to="/gallery">Gallery</nuxt-link>
+                <nuxt-link :to="localePath('/gallery')">{{$t('global.gallery')}}</nuxt-link>
               </p>
               <p>
-                <nuxt-link to="/news">News</nuxt-link>
+                <nuxt-link :to="localePath('/news')">{{$t('global.news')}}</nuxt-link>
               </p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="my-account">
-              <h4>Information</h4>
+              <h4>{{$t('global.information')}}</h4>
               <p v-for="i in pages" :key="i.id">
                 <a @click="goToPage(i)">{{i.title}}</a>
               </p>
@@ -82,7 +82,7 @@ export default {
       }
     },
     goToPage(i) {
-      this.$router.push('/pages/' + i.id)
+      this.$router.push(this.localePath('/pages/' + i.id))
     }
   }
 }

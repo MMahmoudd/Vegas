@@ -1,27 +1,28 @@
 <template>
   <div class="account">
-    <h2 class="header-section text-center">Hello ! {{UserData.name}}</h2>
+    <h2 class="header-section text-center">{{$t('profile.hello')}} {{UserData.name}} !</h2>
     <hr>
     <div class="row">
       <div class="col-md-2 title">
-        Name
+        {{$t('profile.name')}}
       </div>
       <div class="col-md-10">
          {{UserData.name}}
       </div>
       <div class="col-md-2 title">
-        E-mail
+        {{$t('profile.email')}}
       </div>
       <div class="col-md-10">
          {{UserData.email}}
       </div>
       <div class="col-md-2 title">
-        Mobile
+        {{$t('profile.mobile')}}
       </div>
       <div class="col-md-10">
          {{UserData.phone}}
       </div>
-      <b-button class="text-center m-auto" @click="openEdit()">Edit Profile</b-button>
+      
+      <b-button class="text-center m-auto" @click="openEdit()">{{$t('profile.editProfile')}}</b-button>
     </div>
     <b-modal
         v-model="showDetails"
@@ -36,19 +37,19 @@
           </b-button>
         </template>
           <div class="data-form">
-            <h3 class="text-center header-section">Edit Profile</h3>
+            <h3 class="text-center header-section">{{$t('profile.editProfile')}}</h3>
             <b-form @submit.prevent="editUserData()">
               <b-form-group
                 id="input-group-1"
                 label-for="input-1"
                 class="mt-5 text-left"
-                description="We'll never share your email with anyone else."
+                :description="$t('profile.emailDescription')"
               >
                 <b-form-input
                   id="input-1"
                   v-model="UserData.email"
                   type="email"
-                  placeholder="Enter email"
+                  :placeholder="$t('profile.emailPlaceholder')"
                   required
                 ></b-form-input>
               </b-form-group>
@@ -58,7 +59,7 @@
                   id="input-2"
                   v-model="UserData.name"
                   type="text"
-                  placeholder="Enter Your Name"
+                  :placeholder="$t('profile.namePlaceholder')"
                   required
                 ></b-form-input>
               </b-form-group>
@@ -67,12 +68,12 @@
                   id="input-2"
                   v-model="UserData.phone"
                   type="text"
-                  placeholder="Enter Your Phone"
+                  :placeholder="$t('profile.phonePlaceholder')"
                   required
                 ></b-form-input>
               </b-form-group>
               <div class="row actions">
-                <b-button class="btn" type="submit">Edit</b-button>
+                <b-button class="btn" type="submit">{{$t('profile.edit')}}</b-button>
               </div>
             </b-form>
         </div>

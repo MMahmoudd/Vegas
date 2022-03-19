@@ -37,7 +37,7 @@ const Login = {
                         localStorage.setItem('token', response.data.token)
                         this.$cookies.set('token', response.data.token)
                         localStorage.setItem('userData', JSON.stringify(response.data.user))
-                        this.$router.push('/profile')
+                        this.$router.push(this.localePath('/profile'))
                     } else {
                         commit('loginErrorMessage', response.data.errors.email[0] || response.data.errors.password[0] || response.data.message)
                         state.isLoading = true

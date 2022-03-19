@@ -20,7 +20,7 @@
           >
         </template>
         <a class="btn" :href="image.link" target="_blank" rel="noopener noreferrer">
-          visit link
+          {{$t('global.visitLink')}}
         </a>
       </b-carousel-slide>
     </b-carousel>

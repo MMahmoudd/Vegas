@@ -42,7 +42,7 @@ const Service = ServiceFactory.get('pages')
         }
       },
       goToPage(i) {
-      this.$router.push('/news/' + i.id)
+      this.$router.push(this.localePath('/news/' + i.id))
     }
     }
   }

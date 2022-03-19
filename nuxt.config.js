@@ -1,3 +1,5 @@
+import i18n from './config/i18n'
+
 export default {
     target: 'static',
     env: {
@@ -31,13 +33,13 @@ export default {
         '@/assets/style/main.scss',
         '@/assets/style/styleEn.scss',
     ],
-    router: {
-        middleware: 'i18n'
-    },
+    // router: {
+    //     middleware: 'i18n'
+    // },
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: [
-        { src: '~/plugins/i18n.js' },
-    ],
+    // plugins: [
+    //     { src: '~/plugins/i18n.js' },
+    // ],
     //   generate: {
     //     routes: ['/', '/contact', '/ar', '/ar/contact']
     // },
@@ -46,6 +48,24 @@ export default {
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
     buildModules: [
+        [
+            'nuxt-i18n',
+        {
+            vueI18nLoader: true,
+            defaultLocale: 'en',
+             locales: [
+              {
+                 code: 'en',
+                 name: 'English'
+              },
+              {
+                 code: 'ar',
+                 name: 'Arabic'
+              }
+            ],
+            vueI18n: i18n
+          }
+        ]
         // https://go.nuxtjs.dev/vuetify
     ],
 

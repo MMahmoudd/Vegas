@@ -13,11 +13,11 @@
                 </div>
             </div>
             <div class="actions my-4">
-                <b-button class="success" @click="addNewAddress()">Choose New Location</b-button>
+                <b-button class="success" @click="addNewAddress()">{{$t('checkout.chooseNewLocation')}}</b-button>
             </div>
             </div>
             <div class="container my-4 actions" v-else>
-                <b-button class="success" @click="addNewAddress()">Add New Address</b-button>
+                <b-button class="success" @click="addNewAddress()">{{$t('checkout.addNewAddress')}}</b-button>
             </div>
         </div>
         <div class="container products">
@@ -45,27 +45,27 @@
                 <coupon />
                 <div class="tatal-details d-flex justify-content-between">
                     <div class="back">
-                        <nuxt-link to="/"><i class="fas fa-arrow-left"></i> back to shop</nuxt-link>
+                        <nuxt-link :to="localePath('/')"><i class="fas fa-arrow-left"></i> {{$t('cart.backToShop')}}</nuxt-link>
                     </div>
                     <b-button class="delete" @click="resetCart()">
-                      Delete All Cart Data
+                      {{$t('checkout.deleteAllCartData')}}
                     </b-button>
                     <div class="total">
                         <div v-if="selectedAddress.id">
                         <p class="font-weight-bold mr-3" >
-                          <span class="header-section">Delivery:</span> {{ selectedAddress.price }} L.E
+                          <span class="header-section">{{$t('checkout.delivery')}}:</span> {{ selectedAddress.price }} L.E
                         </p>
-                        <p class="font-weight-bold mr-3"><span class="header-section">Subtotal:</span> {{ total + selectedAddress.price }}  L.E
+                        <p class="font-weight-bold mr-3"><span class="header-section">{{$t('checkout.subtotal')}}:</span> {{ total + selectedAddress.price }}  L.E
                         </p>
                         </div>
                         <p v-else class="font-weight-bold mr-3" >
-                          <span class="header-section">Subtotal:</span> {{ total }}  L.E
+                          <span class="header-section">{{$t('checkout.subtotal')}}:</span> {{ total }}  L.E
                         </p>
                     </div>
                 </div>
                 <div class="shop">
                     <b-button @click="createOrder()" class="btn">
-                        checkout
+                        {{$t('checkout.checkout')}}
                     </b-button>
                 </div>
             </div>
@@ -73,7 +73,7 @@
       </div>
       <div v-else>
         <h3 class="header-section">
-          No Orders Yet <nuxt-link to="/">back to Add your Products</nuxt-link>
+          {{$t('checkout.noOrdersYet')}} <nuxt-link :to="localePath('/')">{{$t('checkout.backToProducts')}}</nuxt-link>
         </h3>
       </div>
         <div class="mt-5">
@@ -96,10 +96,10 @@
             <i class="fas fa-times"></i>
           </b-button>
         </template>
-        <h2 class="text-center header-section">Add New Address</h2>
+        <h2 class="text-center header-section">{{$t('checkout.addNewAddress')}}</h2>
           <div class="row">
             <div class="col-md-6">
-            <label>select governrate</label>
+            <label>{{$t('checkout.selectGovernrate')}}</label>
               <b-form-select
                 v-model="locationData.governrate_id"
                 :options="governrate"
@@ -110,7 +110,7 @@
               ></b-form-select>
             </div>
             <div class="col-md-6">
-            <label>select area</label>
+            <label>{{$t('checkout.selectArea')}}</label>
               <b-form-select
                 v-model="locationData.area_id"
                 :options="area"
@@ -120,7 +120,7 @@
               ></b-form-select>
             </div>
             <div class="col-md-6">
-            <label>street address</label>
+            <label>{{$t('checkout.steetAddress')}}</label>
               <b-input
                 v-model="locationData.street_address"
                 type="text"
@@ -128,7 +128,7 @@
               ></b-input>
             </div>
             <div class="col-md-6">
-            <label>phone</label>
+            <label>{{$t('checkout.phone')}}</label>
               <b-input
                 v-model="locationData.phone"
                 type="tel"
@@ -137,7 +137,7 @@
             </div>
             <div class="actions text-center m-auto">
                     <b-button @click="createNewAddress()" class="btn">
-                        Create address
+                        {{$t('checkout.createAddress')}}
                     </b-button>
                 </div>
           </div>
@@ -245,7 +245,7 @@ export default {
                   this.SuccessMessage = 'The Order is Created Successfully'
                   setTimeout(() => {
                     this.SuccessMessage = ''
-                    this.$router.push('/')
+                    this.$router.push(this.localePath('/'))
                   }, 1500)
                   // this.SuccessMessage = createOrder.data.message
                 } else {
@@ -287,7 +287,7 @@ export default {
           const reset = await Service.resetCart()
           if (reset.data.status === true) {
             this.$store.commit("resetCart");
-            this.$router.push('/')
+            this.$router.push(this.localePath('/'))
           }
         }
     },

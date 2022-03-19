@@ -9,18 +9,18 @@
       <div class="col-md-6 m-0 p-0">
         <div class="login-form">
             <b-form @submit.prevent="onSubmit()" v-if="show">
-              <h2 class="header-section text-center">Login</h2>
+              <h2 class="header-section text-center">{{$t('login.login')}}</h2>
               <b-form-group
                 id="input-group-1"
                 label-for="input-1"
                 class="mt-5 text-left"
-                description="We'll never share your email with anyone else."
+                :description="$t('login.emailDescription')"
               >
                 <b-form-input
                   id="input-1"
                   v-model="form.email"
                   type="email"
-                  placeholder="Enter email"
+                  :placeholder="$t('login.emailPlaceholder')"
                   required
                 ></b-form-input>
               </b-form-group>
@@ -30,13 +30,13 @@
                   id="input-2"
                   v-model="form.password"
                   type="password"
-                  placeholder="Enter Password"
+                  :placeholder="$t('login.passwordPlaceholder')"
                   required
                 ></b-form-input>
               </b-form-group>
-              <b-button type="submit">Login</b-button>
+              <b-button type="submit">{{$t('login.login')}}</b-button>
               <div class="register">
-                <nuxt-link to="/register">Create a new Account</nuxt-link>
+                <nuxt-link :to="localePath('/register')">{{$t('register.createNew')}}</nuxt-link>
               </div>
               <div class="mt-5">
               <b-alert
@@ -46,7 +46,7 @@
                 dismissible
                 variant="danger"
               >
-                {{ loginErrorMessage }} <nuxt-link to="/"> Go To HomePage </nuxt-link>
+                {{ loginErrorMessage }} <nuxt-link :to="localePath('/')"> {{$t('global.goToHome')}} </nuxt-link>
             </b-alert>
             </div>
             </b-form>

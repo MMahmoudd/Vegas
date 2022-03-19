@@ -1,11 +1,11 @@
 <template>
   <div class="profile-component container">
-  <h2 class="text-center header-section">My Account</h2>
+  <h2 class="text-center header-section">{{$t('profile.myAccount')}}</h2>
   <b-tabs content-class="mt-3" align="center">
-    <b-tab title="Account" active>
+    <b-tab :title="$t('profile.account')" active>
       <account />
     </b-tab>
-    <b-tab title="My Order">
+    <b-tab :title="$t('profile.myOrder')">
       <myOrder />
     </b-tab>
   </b-tabs>

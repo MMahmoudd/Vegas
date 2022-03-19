@@ -1,6 +1,6 @@
 <template>
   <div class="cart-component">
-    <h2 class="header-section">My Cart</h2>
+    <h2 class="header-section">{{$t('cart.myCart')}}</h2>
     <div class="container">
       <div class="row" v-if="products.length > 0">
       <!-- <div class="row justify-content-between w-100">
@@ -37,20 +37,20 @@
           </div>
           <div class="tatal-details d-flex justify-content-between">
             <div class="back">
-              <nuxt-link to="/"><i class="fas fa-arrow-left"></i>  back to shop</nuxt-link>
+              <nuxt-link :to="localePath('/')"><i class="fas fa-arrow-left"></i>  {{$t('cart.backToShop')}}</nuxt-link>
             </div>
             <div class="total">
-              <p class="font-weight-bold mr-3"><span class="header-section">Subtotal:</span>  {{ total }} L.E</p>
+              <p class="font-weight-bold mr-3"><span class="header-section">{{$t('cart.subtotal')}}:</span>  {{ total }} L.E</p>
             </div>
           </div>
           <div class="shop">
             <b-button @click="continueShipping()" class="btn">
-              Continue
+              {{$t('cart.continue')}}
             </b-button>
           </div>
       </div>
       <div v-else>
-        No Items In Cart
+        {{$t('cart.noItemsInCart')}}
       </div>
       <div class="mt-5">
               <b-alert
@@ -91,11 +91,11 @@
             </div>
             <div class="content">
               <h4>{{product.item_name}}</h4>
-              <p>Size selcted: {{product.name}}</p>
+              <p>{{$t('cart.sizeSelcted')}}: {{product.name}}</p>
               <div v-if="product.selectedAddons">
               <div class="row border" v-for="(addon) in product.selectedAddons" :key="addon.id">
-                <p class="col-md-6">Add on Name: <span class="price">{{addon.name_translate}}</span> </p>
-                <p class="col-md-6">Add on Price: <span class="price">{{addon.price}}</span></p>
+                <p class="col-md-6">{{$t('cart.addOnName')}}: <span class="price">{{addon.name_translate}}</span> </p>
+                <p class="col-md-6">{{$t('cart.addOnPrice')}}: <span class="price">{{addon.price}}</span></p>
               </div>
               </div>
             </div>
@@ -178,7 +178,7 @@ export default {
           this.SuccessMessage = 'Cart Sent Success'
           setTimeout(() => {
             this.SuccessMessage = ''
-            this.$router.push('/checkout')
+            this.$router.push(this.localePath('/checkout'))
             // this.$store.commit("resetCart");
           }, 1500)
         } else {
@@ -188,7 +188,7 @@ export default {
           //   }, 1500)
         }
       } else {
-        this.$router.push('/login')
+        this.$router.push(this.localePath('/login'))
       }
     }
   }

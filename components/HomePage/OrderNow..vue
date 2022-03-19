@@ -4,9 +4,9 @@
     <div class="container">
     <div class="content">
       <h2 class="orderNow-name">
-        Spicy Zinger Wrap
+        {{$t('home.spicyZingerWrap')}}
       </h2>
-      <b-button to="#">Order Now</b-button>
+      <b-button to="#">{{$t('home.orderNow')}}</b-button>
     </div>
 
     </div>

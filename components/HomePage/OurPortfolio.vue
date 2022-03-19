@@ -1,7 +1,7 @@
 <template>
   <div class="OurPortfolio-component">
     <div class="container">
-      <h2 class="header-section">Our Portifolio Gallery</h2>
+      <h2 class="header-section">{{$t('home.ourPortifolioGallery')}}</h2>
       <div class="row">
         <div class="col-md-4">
           <img src="../../assets/images/O-P-1.png" alt="OurPortfolio-img1">

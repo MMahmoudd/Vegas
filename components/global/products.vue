@@ -75,7 +75,7 @@
               </div>
               <div v-if="selecetdSize.id" class="row actions">
                 <b-button class="btn" @click="increase()"><i class="fas fa-shopping-cart"></i>
-                  {{$t('home.addToCart')}}
+                  {{$t('global.addToCart')}}
                 </b-button>
               </div>
 
@@ -88,7 +88,7 @@
           @dismissed="dismissCountDown=0"
           @dismiss-count-down="countDownChanged"
           >
-            {{$t('home.itemAdded')}} <nuxt-link to="/cart">{{$t('home.goToCart')}}</nuxt-link>
+            {{$t('global.itemAdded')}} <nuxt-link :to="localePath('/cart')">{{$t('global.goToCart')}}</nuxt-link>
         </b-alert>
     </div>
   </div>

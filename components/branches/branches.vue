@@ -2,7 +2,7 @@
   <div class="branches-component">
     <div class="container">
     <h2 class="text-center header-section">
-          Branches
+          {{$t('branches.branches')}}
         </h2>
       <div v-if="data.length > 0" class="row details">
         <div v-for="(item, i) in data" :key="i" class="col-md-6">
@@ -14,7 +14,7 @@
           </div>
           <div class="row workdays">
             <div class="col-md-4">
-              workdays
+              {{$t('branches.workdays')}}
             </div>
             <div class="col-md-8">
               {{item.work_days}}
@@ -22,7 +22,7 @@
           </div>
           <div class="row Times">
             <div class="col-md-4">
-              Times of Work
+              {{$t('branches.timesofWork')}}
             </div>
             <div class="col-md-4">
               {{item.time_from}}
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div v-else>
-        <h4>No Branches Yet</h4>
+        <h4>{{$t('branches.noBranchesYet')}}</h4>
       </div>
   </div>
   </div>

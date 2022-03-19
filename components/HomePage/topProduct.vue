@@ -1,7 +1,7 @@
 <template>
   <div class="topProduct-component">
     <div class="container">
-      <h2 class="header-section">Top Products</h2>
+      <h2 class="header-section">{{$t('home.topProducts')}}</h2>
       <div class="topProduct-items pt-5">
         <ProductComponent :allProducts="data" />
       </div>

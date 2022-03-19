@@ -42,7 +42,7 @@ const Service = ServiceFactory.get('pages')
         }
       },
       goToPage(i) {
-      this.$router.push('/gallery/' + i.id)
+      this.$router.push(this.localePath('/gallery/' + i.id))
     }
     }
   }

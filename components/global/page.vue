@@ -12,7 +12,7 @@ import { ServiceFactory } from '../../services/ServiceFactory'
 const Service = ServiceFactory.get('pages')
 export default {
   name: 'pages',
-  props:['pageId'],
+  props: ['pageId'],
   data: () => ({
     details: {}
   }),

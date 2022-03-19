@@ -1,8 +1,8 @@
 <template>
   <div class="contact-us-component">
-    <h2 class="header-section">Contact Us</h2>
+    <h2 class="header-section">{{$t('contactUs.contactUs')}}</h2>
     <div class="container text-left">
-      <p class="header-section font-weight-bold">Get In Touch & Let's Make Something Awesome Aogether.</p>
+      <p class="header-section font-weight-bold">{{$t('contactUs.getInTouch')}}</p>
       <!-- <p class="content">
         1-677-124-44227
         <br>
@@ -22,7 +22,7 @@
                     id="input-1"
                     v-model="form.name"
                     type="text"
-                    placeholder="Name"
+                    :placeholder="$t('contactUs.namePlaceholder')"
                     required
                   ></b-form-input>
                 </b-form-group>
@@ -33,7 +33,7 @@
                     id="input-2"
                     v-model="form.email"
                     type="email"
-                    placeholder="Email"
+                    :placeholder="$t('contactUs.emailPlaceholder')"
                     required
                   ></b-form-input>
                 </b-form-group>
@@ -43,7 +43,7 @@
                   <b-form-textarea
                     id="textarea"
                     v-model="form.message"
-                    placeholder="message"
+                    :placeholder="$t('contactUs.messagePlaceholder')"
                     rows="3"
                     max-rows="6"
                   ></b-form-textarea>
@@ -51,7 +51,7 @@
               </div>
             </div>
             <div class="submit-button text-right mt-3">
-              <b-button type="submit">Send</b-button>
+              <b-button type="submit">{{$t('contactUs.send')}}</b-button>
             </div>
               <div class="mt-5">
               <b-alert

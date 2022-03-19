@@ -9,32 +9,32 @@
       <div class="col-md-6 m-0 p-0">
         <div class="login-form">
             <b-form @submit.prevent="registerSubmit()" v-if="show">
-              <h2 class="header-section text-center">Register</h2>
+              <h2 class="header-section text-center">{{$t('register.register')}}</h2>
               <b-form-group
                 id="input-group-3"
                 label-for="input-3"
-                label="Name"
+                :label="$t('register.nameLabel')"
                 class="mt-5 text-left"
               >
                 <b-form-input
                   id="input-3"
                   v-model="form.name"
                   type="text"
-                  placeholder="Your Name"
+                  :placeholder="$t('register.namePlaceholder')"
                   required
                 ></b-form-input>
               </b-form-group>
                 <b-form-group
                 id="input-group-4"
                 label-for="input-4"
-                label="Phone Number"
+                :label="$t('register.phoneLabel')"
                 class="text-left"
               >
                 <b-form-input
                   id="input-4"
                   v-model="form.phone"
                   type="tel"
-                  placeholder="Your Phone"
+                  :placeholder="$t('register.phonePlaceholder')"
                   required
                 ></b-form-input>
               </b-form-group>
@@ -43,27 +43,28 @@
                 label-for="input-1"
                 class="text-left"
                 label="Email"
-                description="We'll never share your email with anyone else."
+                :description="$t('register.emailDescription')"
               >
                 <b-form-input
                   id="input-1"
                   v-model="form.email"
                   type="email"
-                  placeholder="Enter email"
+                  :placeholder="$t('register.emailPlaceholder')"
                   required
                 ></b-form-input>
               </b-form-group>
 
-              <b-form-group class="text-left" id="input-group-2" label="Password" label-for="input-2">
+              <b-form-group class="text-left" id="input-group-2" 
+              :label="$t('register.passwordLabel')" label-for="input-2">
                 <b-form-input
                   id="input-2"
                   v-model="form.password"
                   type="password"
-                  placeholder="Enter Password"
+                  :placeholder="$t('register.passwordPlaceholder')"
                   required
                 ></b-form-input>
               </b-form-group>
-              <b-button type="submit">Register</b-button>
+              <b-button type="submit">{{$t('register.register')}}</b-button>
               <div class="mt-1">
               <b-alert
                 v-if="registerErrorMessage"
@@ -72,7 +73,7 @@
                 dismissible
                 variant="danger"
               >
-                {{ registerErrorMessage }} <nuxt-link to="/"> Go To HomePage </nuxt-link>
+                {{ registerErrorMessage }} <nuxt-link :to="localePath('/')"> {{$t('global.goToHome')}} </nuxt-link>
             </b-alert>
             <b-alert
               v-if="registerSuccessMessage"
@@ -122,11 +123,11 @@ const RegisterService = ServiceFactory.get('Register')
           this.registerSuccessMessage = 'Welcome ' + register.data.data.name
           if (products.length > 0) {
             setTimeout(() => {
-              this.$router.push('/cart')
+              this.$router.push(this.localePath('/cart'))
             }, 1500)
           } else {
             setTimeout(() => {
-              this.$router.push('/')
+              this.$router.push(this.localePath('/'))
             }, 1500)
           }
         } else {

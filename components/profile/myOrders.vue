@@ -29,7 +29,7 @@
             <i class="fas fa-times"></i>
           </b-button>
         </template>
-        <h2 class="header-section text-center mb-5">Order Details</h2>
+        <h2 class="header-section text-center mb-5">{{$t('profile.orderDetails')}}</h2>
         <div class="row text-center mb-3" v-for="item in product.producuts" :key="item.id">
           <div class="col-md-4 price">
             {{item.qty}}
@@ -43,7 +43,7 @@
         </div>
         <div class="row mt-5 text-center">
           <div class="col-md-4 price">
-            Address Castoumer
+            {{$t('profile.addressCastoumer')}}
           </div>
           <div class="col-md-8" v-if="product.address">
             <p v-text="product.address.street_address" />

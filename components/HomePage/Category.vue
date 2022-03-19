@@ -1,7 +1,7 @@
 <template>
   <div class="category-component">
     <div class="container">
-      <h2 class="header-section">Category</h2>
+      <h2 class="header-section">{{$t('home.category')}}</h2>
       <b-carousel controls >
         <b-carousel-slide v-for="(slide, sIndex) in data" :key="sIndex">
           <template v-slot:img>

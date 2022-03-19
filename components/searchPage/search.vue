@@ -4,12 +4,12 @@
         <b-form-input type="search" v-model="search" @input="fetchAllItems" />
     </div>
     <div class="container">
-      <h2 class="header-section text-center pt-3">research results</h2>
+      <h2 class="header-section text-center pt-3">{{$t('search.results')}}</h2>
       <div v-if="products.length > 0 || search.length <= 0" class="row pt-3">
           <ProductComponent class="pt-3" :allProducts="products" />
       </div>
       <div v-else>
-        <h4>No Result</h4>
+        <h4>{{$t('search.noResults')}}</h4>
       </div>
     </div>
   </div>

@@ -1,8 +1,10 @@
 <template>
-  <div class="Ads">
+  <div class="container">
+    <div class="Ads">
       <a :href="ad.link" class="image" target="_blank" rel="noopener noreferrer">
         <img :src="ad.image" alt="image ad">
       </a>
+    </div>
   </div>
 </template>
 <script>

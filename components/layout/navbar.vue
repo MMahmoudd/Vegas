@@ -23,9 +23,9 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-        <div class="radio">
+        <!-- <div class="radio">
           <b-form-group>
-            <!-- <b-form-radio-group
+              <b-form-radio-group
               id="btn-radios-1"
               v-model="selected"
               :options="options"
@@ -34,12 +34,12 @@
               buttons
               switch
               @change="value => handleChangeLanguage(value)"
-            ></b-form-radio-group> -->
+            ></b-form-radio-group>
             <b-form-checkbox v-model="selected" switch size="lg" @change="value => handleChangeLanguage(value)">
               {{ selected }}
             </b-form-checkbox>
           </b-form-group>
-        </div>
+        </div> -->
         <!-- <b-nav-item class="text-center">
           <nuxt-link to="#">
             <i class="fa fa-power-off"></i>

@@ -105,17 +105,9 @@
         "steetAddress": "عنوان الشارع",
         "phone": "الهاتف",
         "createAddress": "إنشاء عنوان",
-
-<<<<<<< HEAD
         "couponPlaceholder": "ادخل الكوبون",
-        "submitCoupon": "إرسال"
-=======
-        "couponPlaceholder" : "ادخل الكوبون",
-        "submitCoupon" :"إرسال",
-
+        "submitCoupon": "إرسال",
         "discount": "الخصم"
-
->>>>>>> 164bd8500cfa2e1ff143bb869e08f65d878e3ce4
     },
 
     "profile": {

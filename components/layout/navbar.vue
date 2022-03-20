@@ -36,7 +36,7 @@
               @change="value => handleChangeLanguage(value)"
             ></b-form-radio-group>
             <b-form-checkbox v-model="selected" switch size="lg" @change="value => handleChangeLanguage(value)">
-              {{ selected }}
+              {{ !selected ? 'AR' : 'EN' }}
             </b-form-checkbox>
           </b-form-group>
         </div> -->
@@ -75,7 +75,7 @@
 export default {
   data () {
     return {
-      selected: Boolean,
+      selected: false,
       options: [
           { text: 'ar', value: 'ar' },
           { text: 'en', value: 'en' },
@@ -88,24 +88,40 @@ export default {
     },
   },
   created () {
-      if (this.$i18n.locale) {
-        const userLang = this.$i18n.locale
-        userLang === 'ar' ? this.$i18n.locale = 'en' : this.$i18n.locale = 'ar'
-      }
+      // if (this.$i18n.locale) {
+      //   const userLang = this.$i18n.locale
+      //   userLang === 'ar' ? this.$i18n.locale = 'en' : this.$i18n.locale = 'ar'
+      // }
       // console.log('this.$i18n.locale', this.$i18n.locale)
     },
   methods : {
-    handleChangeLanguage (value) {
-      console.log('this.$router', this.localePath)
+    async handleChangeLanguage (value) {
+      // console.log('this.$router', this.localePath)
       if (value === false) {
-        localStorage.setItem('lang', 'en')
-        this.$i18n.locale = 'en'
-        this.$router.push('/en')
+        // this.$cookies.set('i18n_redirected', 'en')
+        // this.$router.push(this.$i18n.switchLocalePath(this.$route.fullPath, 'en'))
+        await this.$i18n.setLocale('en')
+        // document.location = (this.switchLocalePath('en'))
+
+        // document.location = document.location
+        // localStorage.setItem('lang', 'en')
+        // this.$i18n.locale = 'en'
+        // this.$router.push('/en')
+
       } else{
-        localStorage.setItem('lang', 'ar')
-        this.$i18n.locale = 'ar'
-        this.$router.push('/ar')
+        // this.$cookies.set('i18n_redirected', 'xz')
+        // this.$router.push(this.$i18n.switchLocalePath(this.$route.fullPath, 'ar'))
+
+        await this.$i18n.setLocale('ar')
+        // document.location = (this.switchLocalePath('ar'))
+        // document.location = document.location
+        // localStorage.setItem('lang', 'ar')
+        // this.$i18n.locale = 'ar'
+        // this.$router.push('/ar')
+
       }
+
+
     }
   }
 }

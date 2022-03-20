@@ -1,7 +1,7 @@
 import login from './modules/login'
 export const state = () => ({
-    locales: ['en', 'ar'],
-    locale: 'ar',
+    // locales: ['en', 'ar'],
+    // locale: 'ar',
     shipping_to: {
         full_name: '',
         city: '',

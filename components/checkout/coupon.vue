@@ -50,10 +50,12 @@ export default {
       const response = await cartService.getCouponData(this.couponNumber)
 
       if( response.message && response.status === '200' ) {
+        // TODO: Add $t
         this.SuccessMessage = 'تم تطبيق الخصم بنجاح'
         this.$emit('change' , { coupon: this.couponNumber, discount_amount: response.data.discount_amount })
         this.couponNumber = ''
       }else {
+        // TODO: Add $t
         this.ErrorMessage = 'هذا الكود غير متاح'
       }
 

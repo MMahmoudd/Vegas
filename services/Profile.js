@@ -23,7 +23,7 @@ export default {
             })
     },
     getUserAddress() {
-        return Service.get(`${resource}/my_addressess`, {
+        return Service.get(`${resource}/my_addressess?restaurant_id=2`, {
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
                 },

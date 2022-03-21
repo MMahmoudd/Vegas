@@ -53,8 +53,8 @@
                       {{$t('checkout.deleteAllCartData')}}
                     </b-button>
                     <div class="total">
-                        <p class="font-weight-bold mr-3" v-if="this.discount_amount>0">
-                          <span class="header-section">{{$t('checkout.discount')}}:</span> - {{ this.discount_amount }} L.E
+                        <p class="font-weight-bold mr-3" v-if="discount_amount > 0">
+                          <span class="header-section">{{$t('checkout.discount')}}:</span> - {{ discount_amount }} L.E
                         </p>
                         <div v-if="selectedAddress.id">
                         <p class="font-weight-bold mr-3" >
@@ -63,7 +63,7 @@
                         </p>
                         <p class="font-weight-bold mr-3">
                           <span class="header-section">{{$t('checkout.subtotal')}}:</span>
-                          {{ total + selectedAddress.price }} L.E
+                          {{ total + selectedAddress.price - discount_amount }} L.E
                         </p>
                         </div>
                         <p v-else class="font-weight-bold mr-3" >
@@ -195,13 +195,13 @@ export default {
         },
 
         finalTotal () {
+          //  * (this.total + (this.selectedAddress.price || 0))
           // TODO : don't calc the address price. do the discount on total only
           if (this.selectedAddress.price) {
-            return (this.total + (this.selectedAddress.price || 0))
-           - ((this.discount_amount) * (this.total + (this.selectedAddress.price || 0)) )
+            return (this.total + (this.selectedAddress.price || 0)) - (this.discount_amount )
           } else {
-            return (this.total + (0))
-           - ((this.discount_amount) * (this.total + (0)) )
+            return (this.total + 0) - (this.discount_amount )
+            //  * (this.total + 0)
           }
 
         }

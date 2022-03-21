@@ -11,7 +11,7 @@
         <b class="text-color">{{ item.item.status}}</b>
       </template>
       <template #cell(Total)="item">
-        <p>{{ item.item.total}} LE</p>
+        <p>{{ item.item.total + item.item.delivery_price}} LE</p>
       </template>
       <template #cell(Actions)="item">
         <p class="text-color click" @click="showData(item.item)"><i class="fa fa-eye"></i></p>

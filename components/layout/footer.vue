@@ -6,6 +6,7 @@
           <div class="col-md-4">
             <div class="logo">
               <img src="../../assets/images/VegasLogo.svg" alt="logo">
+              <div>15567</div>
               <div class="social">
                 <i class="fab fa-facebook-square"></i>
                 <i class="fab fa-instagram"></i>

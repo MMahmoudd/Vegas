@@ -5,16 +5,37 @@ const resource = `${API_URL}`
 
 export default {
     getUserData() {
-        return Service.get(`${resource}/user_addresses?restaurant_id=2`, {
+        return Service.get(`${resource}/my_profile`, {
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
+                },
+            }).then((response) => {
+                // console.log('response', response)
+                if (response.status === 200) {
+                    // response.data.data.addresses.map(item => {
+                    //     item.price = item.area.price
+                    // })
+                    return response
+                }
+            })
+            .catch(error => {
+                return error.response.data.errors || error.response.data.message
+            })
+    },
+    getUserAddress() {
+        return Service.get(`${resource}/my_addressess`, {
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
                 },
             }).then((response) => {
                 if (response.status === 200) {
-                    response.data.data.addresses.map(item => {
-                        item.price = item.area.price
+                    response.data.data.map(item => {
+                        if (item.restaurants.length > 0) {
+                            item.price = item.restaurants[0].pivot.price
+                        }
                     })
-                    return response
+                    console.log('response.data', response.data)
+                    return response.data
                 }
             })
             .catch(error => {

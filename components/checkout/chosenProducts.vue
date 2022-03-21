@@ -2,12 +2,12 @@
     <div class="cart-component checkout-component">
       <div v-if="Products.length > 0">
         <div class="deliveryMethod">
-            <div class="container" v-if="UserData.addresses">
+            <div class="container" v-if="UserData.length > 0">
             <div class="row">
-              <div class="col-md-4" v-for="i in UserData.addresses" :key="i.id">
+              <div class="col-md-4" v-for="i in UserData" :key="i.id">
                     <div class="address">
                         <b-form-group v-slot="{ ariaDescribedby }">
-                            <b-form-radio v-model="selectedAddress" :aria-describedby="ariaDescribedby" name="some-radios" :value="i">{{i.governrate.name_translate}} {{i.area.name_translate}} {{i.street_address}}</b-form-radio>
+                            <b-form-radio v-model="selectedAddress" :aria-describedby="ariaDescribedby" name="some-radios" :value="i">{{i.name_translate}}</b-form-radio>
                         </b-form-group>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
 
                 <!-- coupon -->
                 <coupon @change="(value) => {this.coupon = value.coupon; this.discount_amount = value.discount_amount}" />
-                
+
                 <div class="tatal-details d-flex justify-content-between">
                     <div class="back">
                         <nuxt-link :to="localePath('/')"><i class="fas fa-arrow-left"></i> {{$t('cart.backToShop')}}</nuxt-link>
@@ -58,9 +58,12 @@
                         </p>
                         <div v-if="selectedAddress.id">
                         <p class="font-weight-bold mr-3" >
-                          <span class="header-section">{{$t('checkout.delivery')}}:</span> {{ selectedAddress.price }} L.E
+                          <span class="header-section">{{$t('checkout.delivery')}}:</span>
+                          {{ selectedAddress.price }} L.E
                         </p>
-                        <p class="font-weight-bold mr-3"><span class="header-section">{{$t('checkout.subtotal')}}:</span> {{ total + selectedAddress.price }}  L.E
+                        <p class="font-weight-bold mr-3">
+                          <span class="header-section">{{$t('checkout.subtotal')}}:</span>
+                          {{ total + selectedAddress.price }} L.E
                         </p>
                         </div>
                         <p v-else class="font-weight-bold mr-3" >
@@ -164,7 +167,7 @@ export default {
     data: () => ({
         product: {},
         Products: [],
-        UserData: {},
+        UserData: [],
         selectedAddress: {},
         ErrorMessage: '',
         SuccessMessage: '',
@@ -193,8 +196,14 @@ export default {
 
         finalTotal () {
           // TODO : don't calc the address price. do the discount on total only
-          return (this.total + (this.selectedAddress.price || 0))
+          if (this.selectedAddress.price) {
+            return (this.total + (this.selectedAddress.price || 0))
            - ((this.discount_amount) * (this.total + (this.selectedAddress.price || 0)) )
+          } else {
+            return (this.total + (0))
+           - ((this.discount_amount) * (this.total + (0)) )
+          }
+
         }
     },
     methods: {
@@ -239,9 +248,10 @@ export default {
             }
         },
         async getAddress() {
-            const UserData = await profileService.getUserData()
-            if (UserData.data.status === true) {
-                this.UserData = UserData.data.data
+            const UserData = await profileService.getUserAddress()
+            console.log('UserData', UserData)
+            if (UserData.status === true) {
+                this.UserData = UserData.data
             } else {
                 this.ErrorMessage = UserData.message[0]
             }
@@ -250,7 +260,7 @@ export default {
             if (this.selectedAddress) {
 
               const data = {
-                address_id : 1 || this.selectedAddress.id,
+                address_id : this.selectedAddress.id,
                 payment_type : this.payment_type,
                 // TODO : Not Applied by backend
                 code: this.coupon
@@ -263,7 +273,7 @@ export default {
                   this.SuccessMessage = 'The Order is Created Successfully'
                   setTimeout(() => {
                     this.SuccessMessage = ''
-                    this.$router.push(this.localePath('/'))
+                    this.$router.push(this.localePath('/profile'))
                   }, 1500)
                   // this.SuccessMessage = createOrder.data.message
                 } else {

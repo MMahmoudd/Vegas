@@ -21,7 +21,7 @@
       <div class="col-md-10">
          {{UserData.phone}}
       </div>
-      
+
       <b-button class="text-center m-auto" @click="openEdit()">{{$t('profile.editProfile')}}</b-button>
     </div>
     <b-modal
@@ -124,9 +124,9 @@ export default {
       },
       async getUserData() {
         const UserData = await Service.getUserData()
-        // console.log(UserData, '<<<< user data')
+        console.log('user data>>>>>', UserData)
             if (UserData.data.status === true) {
-                this.UserData = UserData.data.data
+                this.UserData = UserData.data.user
             } else {
                 this.ErrorMessage = 'Something Error'
                 setTimeout(() => {

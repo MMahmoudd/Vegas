@@ -109,7 +109,10 @@
         "couponPlaceholder" : "Enter Coupon",
         "submitCoupon" :"Apply Coupon",
 
-        "discount": "Discount"
+        "discount": "Discount",
+
+        "deliveryTime" : "Delivery Time",
+        "min" : "Min"
     },
 
     "profile" : {

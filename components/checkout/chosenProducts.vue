@@ -65,6 +65,7 @@
             </b-button>
           </div>
 
+          <div  class="couponContainer">
           <!-- coupon -->
           <coupon
             @input="
@@ -76,7 +77,11 @@
             "
           />
 
-          <div class="tatal-details d-flex justify-content-between">
+
+          <div class="delivery-time--container"> {{$t('checkout.deliveryTime')}}: {{deliveryTime || 0}} {{$t('checkout.min')}} </div>
+          </div>
+
+          <div class="tatal-details d-flex justify-content-between align-items-start">
             <div class="back">
               <nuxt-link :to="localePath('/')"
                 ><i class="fas fa-arrow-left"></i>
@@ -246,6 +251,7 @@ export default {
     payment_type: "cash",
 
     deliveryPrice: 0,
+    deliveryTime: '',
     // discount data
     discount_type: "",
     coupon: "",
@@ -404,6 +410,7 @@ export default {
         
         if(data.status === true) {
           this.deliveryPrice = data.fees[0].price
+          this.deliveryTime = data.fees[0].delivery_time
         }
 
         if(data.status !== true) {
@@ -417,4 +424,17 @@ export default {
   },
 };
 </script>
-9
+
+
+<style scoped>
+.couponContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.delivery-time--container {
+  display: inline-flex;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="couponContainer">
+  <div>
     <b-form @submit.prevent="submit" class="d-flex">
       <b-input
         v-model="couponNumber"
@@ -81,9 +81,6 @@ export default {
 </script>
 
 <style scoped>
-.couponContainer {
-  display: flex;
-}
 
 .couponContainer input[type="text"] {
   width: 250px;

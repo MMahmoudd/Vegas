@@ -23,28 +23,16 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-        <!-- <div class="radio">
+        <b-nav-item class="text-center">
           <b-form-group>
-              <b-form-radio-group
-              id="btn-radios-1"
-              v-model="selected"
-              :options="options"
-              :aria-describedby="ariaDescribedby"
-              name="radios-btn-default"
-              buttons
-              switch
-              @change="value => handleChangeLanguage(value)"
-            ></b-form-radio-group>
-            <b-form-checkbox v-model="selected" switch size="lg" @change="value => handleChangeLanguage(value)">
-              {{ !selected ? 'AR' : 'EN' }}
-            </b-form-checkbox>
+            <div
+              v-for="locale in $i18n.locales"
+              :key="locale.code"
+              @click="switchLocalePath(locale.code)">
+                <p v-if="locale.code !== $i18n.locale">{{ locale.code }}</p>
+              </div>
           </b-form-group>
-        </div> -->
-        <!-- <b-nav-item class="text-center">
-          <nuxt-link to="#">
-            <i class="fa fa-power-off"></i>
-          </nuxt-link>
-        </b-nav-item> -->
+        </b-nav-item>
         <b-nav-item class="text-center">
           <nuxt-link :to="localePath('/search')">
             <i class="fa fa-search"></i>
@@ -87,42 +75,13 @@ export default {
       return this.$store.state.products.length;
     },
   },
-  created () {
-      // if (this.$i18n.locale) {
-      //   const userLang = this.$i18n.locale
-      //   userLang === 'ar' ? this.$i18n.locale = 'en' : this.$i18n.locale = 'ar'
-      // }
-      // console.log('this.$i18n.locale', this.$i18n.locale)
-    },
   methods : {
-    async handleChangeLanguage (value) {
-      // console.log('this.$router', this.localePath)
-      if (value === false) {
-        // this.$cookies.set('i18n_redirected', 'en')
-        // this.$router.push(this.$i18n.switchLocalePath(this.$route.fullPath, 'en'))
-        await this.$i18n.setLocale('en')
-        // document.location = (this.switchLocalePath('en'))
-
-        // document.location = document.location
-        // localStorage.setItem('lang', 'en')
-        // this.$i18n.locale = 'en'
-        // this.$router.push('/en')
-
-      } else{
-        // this.$cookies.set('i18n_redirected', 'xz')
-        // this.$router.push(this.$i18n.switchLocalePath(this.$route.fullPath, 'ar'))
-
-        await this.$i18n.setLocale('ar')
-        // document.location = (this.switchLocalePath('ar'))
-        // document.location = document.location
-        // localStorage.setItem('lang', 'ar')
-        // this.$i18n.locale = 'ar'
-        // this.$router.push('/ar')
-
-      }
-
-
-    }
+     async switchLocalePath(lang) {
+      console.log('this.currentLocation', this.$router)
+      this.$cookies.set('i18n_redirected', lang)
+      this.$i18n.locale = lang
+      window.location.href = '/'+lang
+    },
   }
 }
 </script>

@@ -4,7 +4,12 @@
       <div class="row pt-5">
         <div class="col-md-10">
         <h2 class="header-section text-left">{{$t('menu.menu')}}</h2>
-          <ProductComponent class="pt-5" :allProducts="products" />
+          <div v-if="products.length > 0">
+            <ProductComponent class="pt-5" :allProducts="products" />
+          </div>
+          <div v-else>
+            {{$t('global.noData')}}
+          </div>
         </div>
         <div class="col-md-2">
           <h2 class="header-section text-left">{{$t('menu.category')}}</h2>

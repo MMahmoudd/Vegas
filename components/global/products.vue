@@ -1,23 +1,29 @@
 <template>
   <div class="products-component">
     <div class="container">
-      <div class="row">
-      <div class="col-md-3" v-for="(item) in allProducts" :key="item.id">
-          <div class="product-item" @click="showProductDetails(item)">
-            <div class="product-image">
-              <img :src="item.image" alt="product-image">
-              <div class="overlay">
-              <div class="addToCart d-flex justify-content-center">
-                <i class="fas fa-eye" @click="showProductDetails(item)"></i>
-                <!-- <b-button class="btn" @click="addToCart(item, i)"><i class="fas fa-shopping-cart"></i> Add To Cart</b-button> -->
+      <div class="pt-3" v-for="(item) in productsTest" :key="item.id">
+        <h4 v-if="item.products.length > 0" class="header-section">{{item.categoryName}}</h4>
+          <div class="row">
+              <div class="menue-items col-md-3" v-for="(product) in item.products" :key="product.id">
+                    <div class="product-item" @click="showProductDetails(product)">
+                      <div class="product-image">
+                        <img :src="product.image" alt="product-image">
+                        <div class="overlay">
+                        <div class="addToCart d-flex justify-content-center">
+                          <i class="fas fa-eye" @click="showProductDetails(product)"></i>
+                          <!-- <b-button class="btn" @click="addToCart(item, i)"><i class="fas fa-shopping-cart"></i> Add To Cart</b-button> -->
+                        </div>
+                      </div>
+                      </div>
+                      <div class="product-details d-flex justify-content-center">
+                        <p>{{ product.name_translate }}</p>
+                      </div>
+                    </div>
               </div>
-            </div>
-            </div>
-            <div class="product-details d-flex justify-content-center">
-              <p>{{ item.name_translate }}</p>
-            </div>
-          </div>
-      </div>
+              </div>
+          <!-- <div v-else>
+            {{$t('global.noData')}}
+          </div> -->
       </div>
     </div>
     <b-modal
@@ -95,6 +101,8 @@
 </template>
 <script>
 // import { mapGetters } from "vuex";
+import { ServiceFactory } from '../../services/ServiceFactory'
+const CategoryService = ServiceFactory.get('Category')
 export default {
   name: 'products',
   props:['allProducts'],
@@ -102,6 +110,8 @@ export default {
     disabled: true,
     showDetails: false,
     product: {},
+    categories: [],
+    finalProducts: [],
     selectedAddons: [],
     dismissSecs: 5,
     dismissCountDown: 0,
@@ -110,8 +120,27 @@ export default {
     }
   }),
   computed: {
-    products() {
-      return this.allProducts
+    productsTest() {
+      if (this.categories.length > 0) {
+        const all = []
+        this.categories.forEach(category => {
+            const test =  this.allProducts.filter((product) => {
+                if (product.main_category_id === category.id) {
+                  return true
+                }
+            })
+            if (test.length > 0){
+              all.push({categoryName: category.name_translate, products: test})
+            }
+        });
+        // all.forEach(i => {
+        //   if (i.products.length > 0) {
+            this.finalProducts = all
+            // console.log('this.finalProducts', this.finalProducts)
+        //   }
+        // })
+        }
+        return this.finalProducts
     },
     productsState() {
       return this.$store.state.products;
@@ -133,7 +162,33 @@ export default {
     //   }
     //   }
     },
+    created () {
+      this.fetchAllCategories()
+    },
   methods: {
+    async fetchAllCategories () {
+        this.dataLoading = true
+        const items = await CategoryService.getAllCategories()
+        this.categories = items.categories
+        // if (this.categories.length > 0 && this.allProducts.length > 0) {
+        //   this.categoriesWithProducts()
+        //   // console.log('this.allProducts', this.allProducts)
+        // }
+        this.dataLoading = false
+      },
+      // categoriesWithProducts () {
+      //   const all = []
+      //   this.categories.forEach(category => {
+      //       const test =  this.allProducts.filter((product) => {
+      //           if (product.main_category_id === category.id) {
+      //             return true
+      //           }
+      //       })
+      //     all.push({categoryName: category.name_translate, products: test})
+      //   });
+      //   this.finalProducts = all
+      //   console.log('this.finalProducts', this.finalProducts)
+      // },
     countDownChanged(dismissCountDown) {
         this.dismissCountDown = dismissCountDown
       },
@@ -160,12 +215,8 @@ export default {
       }
     },
     showProductDetails(productItem){
+      console.log('test', productItem)
       this.showDetails = true
-      // this.productsState.map(item => {
-      //     if (item.id = productItem.id) {
-      //       productItem.sizes = item.sizes;
-      //     }
-      //   })
       this.product = productItem
     },
   }

@@ -1,143 +1,144 @@
 {
-    "global" : {
-        "visitLink":  "visit link",
-        "itemAdded" : "Item Added To Your Cart",
+    "global": {
+        "visitLink": "visit link",
+        "itemAdded": "Item Added To Your Cart",
         "goToCart": "Go To Your Cart",
         "goToHome": "Go To Home Page",
-        "addToCart" : "Add To Cart",
-        "home" : "Home",
-        "menu" : "Menu",
+        "addToCart": "Add To Cart",
+        "home": "Home",
+        "menu": "Menu",
         "contactUs": "Contact US",
-        "branches" : "Branches",
+        "branches": "Branches",
         "myAccount": "My Account",
         "orderHistory": "Order History",
-        "gallery" : "Gallery",
+        "gallery": "Gallery",
         "news": "News",
-        "information" : "Information"
+        "information": "Information",
+        "noData": "No data for now"
     },
 
-    "home" : {
-        "sizes" : "Sizes",
-        "category" : "Category",
+    "home": {
+        "sizes": "Sizes",
+        "category": "Category",
         "spicyZingerWrap": "Spicy Zinger Wrap",
-        "orderNow" : "Order Now",
+        "orderNow": "Order Now",
 
         "ourPortifolioGallery": "Our Portifolio Gallery",
-    
-        "topProducts" : "Top Products"
+
+        "topProducts": "Top Products"
     },
 
-    "login" : {
+    "login": {
         "login": "Login",
-        "emailDescription" : "We'll never share your email with anyone else.",
-        "emailPlaceholder" : "Enter email",
-        "passwordPlaceholder" : "Enter Password"
+        "emailDescription": "We'll never share your email with anyone else.",
+        "emailPlaceholder": "Enter email",
+        "passwordPlaceholder": "Enter Password"
     },
 
     "register": {
         "register": "Register",
-        "createNew" : "Create a new Account",
-        
-        "nameLabel" : "Name",
+        "createNew": "Create a new Account",
+
+        "nameLabel": "Name",
         "namePlaceholder": "Your Name",
 
         "phoneLabel": "Phone Number",
         "phonePlaceholder": "Your Phone",
 
-        "emailDescription" : "We'll never share your email with anyone else.",
+        "emailDescription": "We'll never share your email with anyone else.",
 
-        "emailPlaceholder" : "Enter email",
+        "emailPlaceholder": "Enter email",
 
         "passwordLabel": "Password",
-        "passwordPlaceholder" : "Enter Password"
+        "passwordPlaceholder": "Enter Password"
 
     },
 
-    "menu" : {
-        "category" : "Category",
+    "menu": {
+        "category": "Category",
         "menu": "Menu"
     },
 
     "search": {
         "results": "research results",
-        "noResults" : "No Results"
+        "noResults": "No Results"
     },
 
 
     "contactUs": {
         "contactUs": "Contact Us",
-        "getInTouch" : "Get In Touch & Let's Make Something Awesome Aogether.",
+        "getInTouch": "Get In Touch & Let's Make Something Awesome Aogether.",
         "namePlaceholder": "Name",
-        "emailPlaceholder" : "Email",
-        "messagePlaceholder" : "message",
+        "emailPlaceholder": "Email",
+        "messagePlaceholder": "message",
         "send": "Send"
     },
 
-    "branches" : {
+    "branches": {
         "branches": "Branches",
         "workdays": "workdays",
-        "timesofWork" :"Times of Work",
-        "noBranchesYet":"No Branches Yet"
+        "timesofWork": "Times of Work",
+        "noBranchesYet": "No Branches Yet"
     },
 
     "cart": {
-        "myCart" : "My Cart",
-        "backToShop" : "back to shop",
+        "myCart": "My Cart",
+        "backToShop": "back to shop",
         "subtotal": "Subtotal",
-        "continue" : "Continue",
-        "noItemsInCart" : "No Items In Cart",
+        "continue": "Continue",
+        "noItemsInCart": "No Items In Cart",
         "sizeSelcted": "Size selcted",
         "addOnName": "Add on Name",
         "addOnPrice": "Add on Price"
     },
 
-    "checkout" : {
-        "checkout":"checkout",
-        "chooseNewLocation" : "Choose New Location",
+    "checkout": {
+        "checkout": "checkout",
+        "chooseNewLocation": "Choose New Location",
         "deleteAllCartData": "Delete All Cart Data",
-        "subtotal" : "Subtotal",
+        "subtotal": "Subtotal",
         "delivery": "Delivery",
         "addNewAddress": "Add New Address",
         "noOrdersYet": "No Orders Yet",
         "backToProducts": "back to Add your Products",
         "selectGovernrate": "select governrate",
-        "selectArea":"select area",
-        "steetAddress" : "street address",
-        "phone" : "phone",
-        "createAddress" :"Create address",
+        "selectArea": "select area",
+        "steetAddress": "street address",
+        "phone": "phone",
+        "createAddress": "Create address",
 
-        "couponPlaceholder" : "Enter Coupon",
-        "submitCoupon" :"Apply Coupon",
+        "couponPlaceholder": "Enter Coupon",
+        "submitCoupon": "Apply Coupon",
 
         "discount": "Discount",
 
-        "deliveryTime" : "Delivery Time",
-        "min" : "Min"
+        "deliveryTime": "Delivery Time",
+        "min": "Min"
     },
 
-    "profile" : {
-        "hello" : "Hello",
-        "name" : "Name",
-        "email" : "E-mail",
+    "profile": {
+        "hello": "Hello",
+        "name": "Name",
+        "email": "E-mail",
         "mobile": "Mobile",
-        "editProfile" : "Edit Profile",
-        "edit" : "Edit",
+        "editProfile": "Edit Profile",
+        "edit": "Edit",
 
         "namePlaceholder": "Enter Your Name",
 
         "phonePlaceholder": "Enter Your Phone",
 
-        "emailDescription" : "We'll never share your email with anyone else.",
+        "emailDescription": "We'll never share your email with anyone else.",
 
-        "emailPlaceholder" : "Enter email",
+        "emailPlaceholder": "Enter email",
 
 
-        "orderDetails" : "Order Details",
+        "orderDetails": "Order Details",
         "addressCastoumer": "Address Castoumer",
 
         "myAccount": "My Account",
-        "account" : "Account",
-        "myOrder":"My Order"
+        "account": "Account",
+        "myOrder": "My Order"
 
     }
 

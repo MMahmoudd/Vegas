@@ -13,7 +13,8 @@
         "orderHistory": "تاريخ الطلبات",
         "gallery": "معرض الصور",
         "news": "أخبار",
-        "information": "معلومات"
+        "information": "معلومات",
+        "noData": "لا يوجد بيانات الان"
     },
 
     "home": {
@@ -109,8 +110,8 @@
         "submitCoupon": "إرسال",
         "discount": "الخصم",
 
-        "deliveryTime" : "وقت التوصيل",
-        "min" : "د"
+        "deliveryTime": "وقت التوصيل",
+        "min": "د"
     },
 
     "profile": {

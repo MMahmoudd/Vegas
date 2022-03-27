@@ -121,6 +121,7 @@ const RegisterService = ServiceFactory.get('Register')
         const register = await RegisterService.registerUser(this.form)
         if (register.status === 200) {
           this.registerSuccessMessage = 'Welcome ' + register.data.data.name
+          this.$store.commit('addTokenToState', register.data.token)
           if (this.products.length > 0) {
             setTimeout(() => {
               this.$router.push(this.localePath('/cart'))

@@ -21,6 +21,9 @@ const Login = {
             state.token = ''
             router.push('/login')
         },
+        addTokenToState(state, token) {
+            state.token = token
+        },
         loginErrorMessage(state, error) {
             state.loginErrorMessage = error
         }

@@ -156,6 +156,15 @@ p {
             }
         }
     }
+    .menu-list {
+        list-style-type: none;
+        margin: 0px 0px;
+        padding: 0px;
+
+        li { 
+            margin-bottom: 1rem;
+        }
+    }
     h4 {
         color: $mainColor;
         padding-bottom: 15px;

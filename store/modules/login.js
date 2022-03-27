@@ -19,7 +19,8 @@ const Login = {
         logout(state) {
             localStorage.removeItem('token')
             state.token = ''
-            router.push('/login')
+            this.$cookies.remove('token')
+            this.$router.push('/login')
         },
         addTokenToState(state, token) {
             state.token = token

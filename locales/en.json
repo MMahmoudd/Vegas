@@ -135,7 +135,8 @@
 
         "myAccount": "My Account",
         "account": "Account",
-        "myOrder": "My Order"
+        "myOrder": "My Order",
+        "logout": "Logout"
 
     }
 

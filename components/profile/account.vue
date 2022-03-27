@@ -21,9 +21,9 @@
       <div class="col-md-10">
          {{UserData.phone}}
       </div>
-      <div style="width: 100%" class="d-flex text-center m-auto">
+      <div style="width: 100%" class="text-center m-auto">
         <b-button class="text-center m-auto" @click="openEdit()">{{$t('profile.editProfile')}}</b-button>
-        <b-button @click="logout()" class="btn">{{$t('profile.logout')}}</b-button>
+        <b-button @click="logout()" class="btn m-auto">{{$t('profile.logout')}}</b-button>
       </div>
     </div>
     <b-modal

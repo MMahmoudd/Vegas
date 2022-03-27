@@ -141,7 +141,8 @@
 
         "myAccount": "حسابي",
         "account": "الحساب",
-        "myOrder": "طلباتي"
+        "myOrder": "طلباتي",
+        "logout": "تسجيل خروج"
 
     }
 

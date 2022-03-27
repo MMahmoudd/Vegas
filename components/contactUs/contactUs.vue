@@ -11,7 +11,7 @@
       <div class="contact-form">
             <b-form @submit.prevent="onSubmit()" v-if="show">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <b-form-group
                   id="input-group-1"
                   label-for="input-1"
@@ -25,13 +25,23 @@
                   ></b-form-input>
                 </b-form-group>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <b-form-group id="input-group-2" label-for="input-2">
                   <b-form-input
                     id="input-2"
                     v-model="form.email"
                     type="email"
                     :placeholder="$t('contactUs.emailPlaceholder')"
+                    required
+                  ></b-form-input>
+                </b-form-group>
+              </div>
+              <div class="col-md-4">
+                <b-form-group id="input-group-4" label-for="input-4">
+                  <b-form-input
+                    id="input-4"
+                    v-model="form.phone"
+                    :placeholder="$t('contactUs.phone')"
                     required
                   ></b-form-input>
                 </b-form-group>
@@ -91,7 +101,8 @@ const commonService = ServiceFactory.get('common')
         form: {
           email: '',
           name: '',
-          message: ''
+          message: '',
+          phone: ''
         },
         show: true,
         dismissSecs: 5,
@@ -123,7 +134,8 @@ const commonService = ServiceFactory.get('common')
               this.form = {
                 email: '',
                 name: '',
-                message: ''
+                message: '',
+                phone: ''
               }
               this.registerSuccessMessage = ''
             }, 1500)

@@ -77,7 +77,7 @@ export default {
   },
   methods : {
      async switchLocalePath(lang) {
-      console.log('this.currentLocation', this.$router)
+      // console.log('this.currentLocation', this.$router)
       this.$cookies.set('i18n_redirected', lang)
       this.$i18n.locale = lang
       window.location.href = '/'+lang

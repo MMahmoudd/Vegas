@@ -11,7 +11,6 @@
                         <div class="overlay">
                         <div class="addToCart d-flex justify-content-center">
                           <i class="fas fa-eye" @click="showProductDetails(product)"></i>
-                          <!-- <b-button class="btn" @click="addToCart(item, i)"><i class="fas fa-shopping-cart"></i> Add To Cart</b-button> -->
                         </div>
                       </div>
                       </div>
@@ -21,9 +20,6 @@
                     </div>
               </div>
               </div>
-          <!-- <div v-else>
-            {{$t('global.noData')}}
-          </div> -->
       </div>
     </div>
     <b-modal
@@ -100,7 +96,6 @@
   </div>
 </template>
 <script>
-// import { mapGetters } from "vuex";
 import { ServiceFactory } from '../../services/ServiceFactory'
 const CategoryService = ServiceFactory.get('Category')
 export default {
@@ -133,12 +128,7 @@ export default {
               all.push({categoryName: category.name_translate, products: test})
             }
         });
-        // all.forEach(i => {
-        //   if (i.products.length > 0) {
-            this.finalProducts = all
-            // console.log('this.finalProducts', this.finalProducts)
-        //   }
-        // })
+          this.finalProducts = all
         }
         return this.finalProducts
     },
@@ -146,22 +136,6 @@ export default {
       return this.$store.state.products;
     },
   },
-  watch: {
-
-    // productsState: {
-    //   // This will let Vue know to look inside the array
-    //   deep: true,
-
-    //   // We have to move our method to a handler field
-    //   handler(){
-    //     this.productsState.map(item => {
-    //       if (item.id = this.product.id) {
-    //         this.product.sizes = item.sizes;
-    //       }
-    //     })
-    //   }
-    //   }
-    },
     created () {
       this.fetchAllCategories()
     },
@@ -170,30 +144,13 @@ export default {
         this.dataLoading = true
         const items = await CategoryService.getAllCategories()
         this.categories = items.categories
-        // if (this.categories.length > 0 && this.allProducts.length > 0) {
-        //   this.categoriesWithProducts()
-        //   // console.log('this.allProducts', this.allProducts)
-        // }
         this.dataLoading = false
       },
-      // categoriesWithProducts () {
-      //   const all = []
-      //   this.categories.forEach(category => {
-      //       const test =  this.allProducts.filter((product) => {
-      //           if (product.main_category_id === category.id) {
-      //             return true
-      //           }
-      //       })
-      //     all.push({categoryName: category.name_translate, products: test})
-      //   });
-      //   this.finalProducts = all
-      //   console.log('this.finalProducts', this.finalProducts)
-      // },
     countDownChanged(dismissCountDown) {
         this.dismissCountDown = dismissCountDown
       },
       increaseSelecetdSize(selecetdSize) {
-        console.log(this.selecetdSize)
+        // console.log(this.selecetdSize)
         selecetdSize.quantity +=1
       },
       decreaseSelecetdSize(selecetdSize, i){
@@ -215,7 +172,7 @@ export default {
       }
     },
     showProductDetails(productItem){
-      console.log('test', productItem)
+      // console.log('test', productItem)
       this.showDetails = true
       this.product = productItem
     },

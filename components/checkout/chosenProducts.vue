@@ -95,7 +95,7 @@
             <!-- pricese -->
             <div class="total">
 
-              <discount-text 
+              <discount-text
                 :amount="discount_amount"
                 :type="discount_type"
                 :total="total"
@@ -325,7 +325,7 @@ export default {
     },
     async getCart() {
       const getCart = await Service.getCart();
-      console.log(getCart, 'getCart <<<<')
+      // console.log(getCart, 'getCart <<<<')
       if (getCart.status === true) {
         this.Products = getCart.data;
         this.getAddress();
@@ -407,7 +407,7 @@ export default {
     async getFees(areaId) {
       try {
         const {data} = await Service.getDeliveryFees(areaId)
-        
+
         if(data.status === true) {
           this.deliveryPrice = data.fees[0].price
           this.deliveryTime = data.fees[0].delivery_time

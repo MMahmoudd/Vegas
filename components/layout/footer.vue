@@ -21,7 +21,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="col-md-2">
               <h4>{{$t('global.menu')}}</h4>
 
@@ -42,7 +42,7 @@
               </p>
             </div>
           </div>
-          
+
           <div class="col-md-3">
             <div class="my-account">
               <h4>{{$t('global.pages')}}</h4>

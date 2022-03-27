@@ -47,7 +47,7 @@ export default {
       this.dataLoading = true;
       const items = await CategoryService.getAllCategories();
       this.data = this.chunk(items.categories, 4);
-      console.log(this.data)
+      // console.log(this.data)
       this.dataLoading = false;
     },
 
@@ -63,7 +63,7 @@ export default {
 <style>
 .category-component .carousel-control-next,
  .category-component .carousel-control-prev
- {  
+ {
    width:auto !important;
   }
 

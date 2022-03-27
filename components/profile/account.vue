@@ -124,7 +124,7 @@ export default {
       },
       async getUserData() {
         const UserData = await Service.getUserData()
-        console.log('user data>>>>>', UserData)
+        // console.log('user data>>>>>', UserData)
             if (UserData.data.status === true) {
                 this.UserData = UserData.data.user
             } else {

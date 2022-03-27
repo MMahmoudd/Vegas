@@ -3,13 +3,11 @@
     <h2 class="header-section">{{$t('contactUs.contactUs')}}</h2>
     <div class="container text-left">
       <p class="header-section font-weight-bold">{{$t('contactUs.getInTouch')}}</p>
-      <!-- <p class="content">
-        1-677-124-44227
+      <p class="content">
+        {{$t('contactUs.phone')}}: {{info.phone}}
         <br>
-        184 Main Collins Street West Victoria 8007
-        <br>
-        Mon – Sat 8.00 – 18.00 Sunday CLOSED
-      </p> -->
+        {{$t('contactUs.address')}}: {{info.address}}
+      </p>
       <div class="contact-form">
             <b-form @submit.prevent="onSubmit()" v-if="show">
             <div class="row">
@@ -81,9 +79,15 @@
 <script>
 import { ServiceFactory } from '../../services/ServiceFactory'
 const Service = ServiceFactory.get('pages')
+const commonService = ServiceFactory.get('common')
+
   export default {
     data() {
       return {
+        info : {
+          phone: '',
+          address : ''
+        },
         form: {
           email: '',
           name: '',
@@ -97,7 +101,20 @@ const Service = ServiceFactory.get('pages')
 
       }
     },
+    created () {
+      this.getPhone()
+    },
     methods: {
+      async getPhone () {
+          try {
+            const {data} = await commonService.getSettings()
+            const {settings, status} = data
+            const {phone1 : phone, address} = settings
+            this.info = {phone, address}
+          }catch(err) {
+            console.log(err)
+          }
+},
      async onSubmit() {
         const sendMassage = await Service.sendMassage(this.form)
         if (sendMassage.status === 200) {

@@ -73,7 +73,10 @@
         "namePlaceholder": "الإسم",
         "emailPlaceholder": "البريد الإلكتروني",
         "messagePlaceholder": "الرسالة",
-        "send": "إرسال"
+        "send": "إرسال",
+        "phone": "الهاتف",
+        "address": "العنوان"
+
     },
 
     "branches": {

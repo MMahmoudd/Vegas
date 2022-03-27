@@ -66,14 +66,15 @@
         "noResults": "No Results"
     },
 
-
     "contactUs": {
         "contactUs": "Contact Us",
         "getInTouch": "Get In Touch & Let's Make Something Awesome Aogether.",
         "namePlaceholder": "Name",
         "emailPlaceholder": "Email",
         "messagePlaceholder": "message",
-        "send": "Send"
+        "send": "Send",
+        "phone": "Phone",
+        "address": "Address"
     },
 
     "branches": {

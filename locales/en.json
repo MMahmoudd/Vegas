@@ -7,7 +7,7 @@
         "addToCart": "Add To Cart",
         "home": "Home",
         "menu": "Menu",
-        "pages" : "Pages",
+        "pages": "Pages",
         "contactUs": "Contact US",
         "branches": "Branches",
         "ourBranches": "Our Branches",
@@ -24,10 +24,9 @@
         "category": "Category",
         "spicyZingerWrap": "Spicy Zinger Wrap",
         "orderNow": "Order Now",
-
         "ourPortifolioGallery": "Our Portifolio Gallery",
-
-        "topProducts": "Top Products"
+        "topProducts": "Top Products",
+        "seeMore": "See More"
     },
 
     "login": {
@@ -40,25 +39,20 @@
     "register": {
         "register": "Register",
         "createNew": "Create a new Account",
-
         "nameLabel": "Name",
         "namePlaceholder": "Your Name",
-
         "phoneLabel": "Phone Number",
         "phonePlaceholder": "Your Phone",
-
         "emailDescription": "We'll never share your email with anyone else.",
-
         "emailPlaceholder": "Enter email",
-
         "passwordLabel": "Password",
         "passwordPlaceholder": "Enter Password"
-
     },
 
     "menu": {
         "category": "Category",
-        "menu": "Menu"
+        "menu": "Menu",
+        "all": "All"
     },
 
     "search": {

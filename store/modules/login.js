@@ -6,6 +6,7 @@ const Login = {
         loginErrorMessage: null,
         loginSuccessful: false,
         userData: {},
+        token: '',
 
     },
     mutations: {
@@ -15,10 +16,11 @@ const Login = {
             state.loginSuccessful = false
         },
         // Logout
-        // logout () {
-        //   localStorage.removeItem('token')
-        //   router.push('/login')
-        // },
+        logout(state) {
+            localStorage.removeItem('token')
+            state.token = ''
+            router.push('/login')
+        },
         loginErrorMessage(state, error) {
             state.loginErrorMessage = error
         }
@@ -36,6 +38,7 @@ const Login = {
                     if (response.status === 200) {
                         localStorage.setItem('token', response.data.token)
                         this.$cookies.set('token', response.data.token)
+                        state.token = response.data.token
                         localStorage.setItem('userData', JSON.stringify(response.data.user))
                         this.$router.push(this.localePath('/profile'))
                     } else {

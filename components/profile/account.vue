@@ -21,8 +21,10 @@
       <div class="col-md-10">
          {{UserData.phone}}
       </div>
-
-      <b-button class="text-center m-auto" @click="openEdit()">{{$t('profile.editProfile')}}</b-button>
+      <div style="width: 100%" class="d-flex text-center m-auto">
+        <b-button class="text-center m-auto" @click="openEdit()">{{$t('profile.editProfile')}}</b-button>
+        <b-button @click="logout()" class="btn">{{$t('profile.logout')}}</b-button>
+      </div>
     </div>
     <b-modal
         v-model="showDetails"
@@ -121,6 +123,9 @@ export default {
     methods: {
       openEdit() {
         this.showDetails = true
+      },
+      logout() {
+        this.$store.commit('logout')
       },
       async getUserData() {
         const UserData = await Service.getUserData()

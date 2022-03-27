@@ -7,7 +7,7 @@
         "addToCart": "إضافة",
         "home": "الرئيسية",
         "menu": "القائمة",
-        "pages" : "الصفحات",
+        "pages": "الصفحات",
         "contactUs": "تواصل معنا",
         "branches": "الفروع",
         "ourBranches": "فروعنا",
@@ -24,10 +24,9 @@
         "category": "القسم",
         "spicyZingerWrap": "Spicy Zinger Wrap",
         "orderNow": "اطلب الآن",
-
         "ourPortifolioGallery": "معرض الصور لدينا",
-
-        "topProducts": "أفضل المنتجات"
+        "topProducts": "أفضل المنتجات",
+        "seeMore": "شاهد المزيد"
     },
 
     "login": {
@@ -58,7 +57,8 @@
 
     "menu": {
         "category": "القسم",
-        "menu": "الفائمة"
+        "menu": "الفائمة",
+        "all": "الكل"
     },
 
     "search": {

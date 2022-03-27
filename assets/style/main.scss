@@ -160,8 +160,7 @@ p {
         list-style-type: none;
         margin: 0px 0px;
         padding: 0px;
-
-        li { 
+        li {
             margin-bottom: 1rem;
         }
     }
@@ -607,6 +606,9 @@ p {
         border-color: $mainColor;
         background-color: $mainColor;
         box-shadow: none;
+    }
+    .all {
+        margin-right: 120px;
     }
     .range-filter {
         .range-slider {

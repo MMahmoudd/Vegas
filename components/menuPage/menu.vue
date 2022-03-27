@@ -14,6 +14,11 @@
         <div class="col-md-2">
           <h2 class="header-section text-left">{{$t('menu.category')}}</h2>
           <div class="menue-items pt-5">
+          <div class="all">
+            <b-form-group v-slot="{ ariaDescribedby1 }">
+              <b-form-radio @change="fetchAllItems()" v-model="selected" :aria-describedby="ariaDescribedby1" name="some-radios">{{$t('menu.all')}}</b-form-radio>
+            </b-form-group>
+          </div>
             <div v-for="(item) in categories" :key="item.id">
               <div class="category-item text-left">
                 <b-form-group v-slot="{ ariaDescribedby }">

@@ -54,7 +54,7 @@
                 ></b-form-input>
               </b-form-group>
 
-              <b-form-group class="text-left" id="input-group-2" 
+              <b-form-group class="text-left" id="input-group-2"
               :label="$t('register.passwordLabel')" label-for="input-2">
                 <b-form-input
                   id="input-2"
@@ -121,7 +121,7 @@ const RegisterService = ServiceFactory.get('Register')
         const register = await RegisterService.registerUser(this.form)
         if (register.status === 200) {
           this.registerSuccessMessage = 'Welcome ' + register.data.data.name
-          if (products.length > 0) {
+          if (this.products.length > 0) {
             setTimeout(() => {
               this.$router.push(this.localePath('/cart'))
             }, 1500)
@@ -138,6 +138,3 @@ const RegisterService = ServiceFactory.get('Register')
   }
 </script>
 
-<style>
-
-</style>template>

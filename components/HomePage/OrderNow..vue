@@ -4,9 +4,9 @@
     <div class="container">
     <div class="content">
       <h2 class="orderNow-name">
-        {{$t('home.spicyZingerWrap')}}
+        {{ $t('home.spicyZingerWrap') }}
       </h2>
-      <b-button to="#">{{$t('home.orderNow')}}</b-button>
+      <b-button :to="localePath(`/menu?category=60`)">{{ $t('home.orderNow') }}</b-button>
     </div>
 
     </div>

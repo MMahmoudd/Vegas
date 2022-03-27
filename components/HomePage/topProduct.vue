@@ -4,6 +4,7 @@
       <h2 class="header-section">{{$t('home.topProducts')}}</h2>
       <div class="topProduct-items pt-5">
         <ProductComponent :allProducts="data" />
+        <nuxt-link to="/menu">{{$t('home.seeMore')}}</nuxt-link>
       </div>
     </div>
   </div>

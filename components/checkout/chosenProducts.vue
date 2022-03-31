@@ -102,7 +102,6 @@
               />
 
                 <delivery-price :price="deliveryPrice" />
-
                 <p class="font-weight-bold mr-3">
                   <span class="header-section"
                     >{{ $t("checkout.subtotal") }}:</span
@@ -267,7 +266,7 @@ export default {
     finalDiscount() {
       if (this.discount_amount) {
         if (this.discount_type === "percentage") {
-            return this.total - (this.total * (this.discount_amount / 100))
+            return (this.total * (this.discount_amount / 100))
         } else if (this.discount_type === "fixed") {
             return this.discount_amount
         }
@@ -346,7 +345,7 @@ export default {
 
     },
     async createOrder() {
-      if (this.selectedAddress) {
+      if (this.selectedAddress.id) {
         const data = {
           address_id: this.selectedAddress.id,
           payment_type: this.payment_type,

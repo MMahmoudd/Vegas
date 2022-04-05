@@ -97,11 +97,13 @@
 
   "checkout": {
     "checkout": "الدفع",
+    "tax": "الضريبه المضافه",
+    "service": "الخدمات ",
     "chooseNewLocation": "اختار عنوان جديد",
     "deleteAllCartData": "احذف جميع عناصر السلة",
     "subtotal": "المجموع",
     "delivery": "التوصيل",
-    "tax": "tax",
+
     "addNewAddress": "إضافة عنوان جديد",
     "noOrdersYet": "لا توجد طلبات بعد",
     "backToProducts": "الرجوع لمنتجاتك",

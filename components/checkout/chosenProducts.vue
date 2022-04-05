@@ -103,11 +103,29 @@
               />
 
               <delivery-price :price="deliveryPrice" />
+              <p class="font-weight-bold mr-3" v-if="tax > 0">
+                <span class="header-section">{{ $t("checkout.tax") }} :</span>
+                {{ tax }} %
+              </p>
+              <p class="font-weight-bold mr-3" v-if="service > 0">
+                <span class="header-section">
+                  {{ $t("checkout.service") }} :</span
+                >
+                {{ service }} %
+              </p>
+
               <p class="font-weight-bold mr-3">
                 <span class="header-section"
                   >{{ $t("checkout.subtotal") }}:</span
                 >
-                {{ finalTotal - finalDiscount }}
+                {{
+                  (
+                    finalTotal -
+                    finalDiscount +
+                    ((finalTotal - finalDiscount) * service) / 100 +
+                    ((finalTotal - finalDiscount) * tax) / 100
+                  ).toFixed(1)
+                }}
                 L.E
               </p>
             </div>
@@ -222,6 +240,7 @@ import discountText from "./discount.vue";
 const Service = ServiceFactory.get("Cart");
 const profileService = ServiceFactory.get("profile");
 const ordersService = ServiceFactory.get("orders");
+const commonService = ServiceFactory.get("common");
 
 export default {
   components: { coupon, discountText, DeliveryPrice },
@@ -245,6 +264,8 @@ export default {
     governrate: [],
     area: [],
     product: {},
+    service: 0,
+    tax: 0,
 
     payment_type: "cash",
     deliveryPrice: 0,
@@ -256,6 +277,7 @@ export default {
   }),
   created() {
     this.getCart();
+    this.getSettings();
   },
   computed: {
     total() {
@@ -274,7 +296,7 @@ export default {
     },
 
     finalTotal() {
-      return this.total + (this.deliveryPrice || 0) + (this.total * 14) / 100;
+      return this.total + (this.deliveryPrice || 0);
     },
   },
   watch: {
@@ -414,6 +436,20 @@ export default {
         this.ErrorMessage = err.message;
       }
       // console.log('fees >> ',data)
+    },
+    async getSettings() {
+      try {
+        const response = await commonService.getSettings();
+        console.log("response setting", response.data.settings);
+        this.tax = response.data.settings.tax;
+        this.service = response.data.settings.service;
+
+        if (response !== true) {
+          throw new Error("Error");
+        }
+      } catch (error) {
+        console.log({ error });
+      }
     },
   },
 };

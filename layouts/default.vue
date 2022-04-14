@@ -4,10 +4,17 @@
     <div class="pages">
       <Nuxt />
     </div>
-    <div>
-      <!-- <a class="btn" target="_blank" rel="noopener noreferrer">
-        {{ $t("global.visitLink") }}
-      </a> -->
+    <div class="justify-content-center">
+      <a
+        id="over"
+        href="https://foodclub-eg.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary"
+        style="position: fixed"
+      >
+        foodclub
+      </a>
     </div>
     <FooterComponent />
   </div>

@@ -46,23 +46,26 @@ p {
 }
 
 // Start Default Layout
+
 // Start Navbar
+    // position: absolute;
 .navbar {
-    width: 100%;
+    width: 103%;
     margin: auto;
     height: 55px;
-    top: 25px;
+    top: 0px;
     z-index: 1000;
-    position: absolute;
+        padding: inherit;
+    //border-radius: 35px;
     nav {
-        width: 70%;
+        width: inherit;
         margin: auto;
         position: relative;
-        border-radius: 35px;
-        background-color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(118, 118, 118, 0.6);
         .navbar-brand {
             width: 60px;
-            margin: 7px;
+            margin: 14%;
+            margin-left: 42px;
             img {
                 width: 100%;
             }
@@ -70,9 +73,10 @@ p {
         .navbar-nav {
             justify-content: space-around;
             width: 60%;
+            padding-left: revert;
         }
         .ml-auto {
-            padding-right: 20px;
+            padding-right: 5%;
             justify-content: unset !important;
             width: unset !important;
             .nav-link {
@@ -1131,3 +1135,13 @@ p {
 }
 
 // End gallery-page-component
+//start foodclub
+#over {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  position: fixed;
+  bottom: 5%;
+  overflow: auto;
+}
+//end food club

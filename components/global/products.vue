@@ -23,8 +23,10 @@
                   </div>
                 </div>
               </div>
-              <div class="product-details d-flex justify-content-center">
+
+              <div class="product-details d-flex justify-content-between mt-1">
                 <p>{{ product.name_translate }}</p>
+                <p class="product_price">{{ product.sizes[0].price }} LE</p>
               </div>
             </div>
           </div>
@@ -51,7 +53,7 @@
         <div class="content">
           <h4>{{ product.name_translate }}</h4>
           <p v-html="product.description_translate"></p>
-          <p>{{ $t("sizes") }}:</p>
+          <!-- <p>{{ $t("sizes") }}:</p> -->
           <div class="row">
             <div class="col-md-3" v-for="size in product.sizes" :key="size.id">
               <b-form-group v-slot="{ ariaDescribedby }">

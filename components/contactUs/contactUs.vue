@@ -17,6 +17,18 @@
               <b-form-group id="input-group-1" label-for="input-1">
                 <b-form-input
                   id="input-1"
+                  v-model="form.status"
+                  type="text"
+                  :placeholder="$t('status')"
+                  required
+                ></b-form-input>
+              </b-form-group>
+            </div>
+
+            <div class="col-md-4">
+              <b-form-group id="input-group-1" label-for="input-1">
+                <b-form-input
+                  id="input-1"
                   v-model="form.name"
                   type="text"
                   :placeholder="$t('contactUs.namePlaceholder')"
@@ -41,6 +53,7 @@
                   id="input-4"
                   v-model="form.phone"
                   :placeholder="$t('contactUs.phone')"
+                  oninput="this.value = this.value.replace(/[^0-9.+]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
                   required
                 ></b-form-input>
               </b-form-group>
@@ -102,6 +115,7 @@ export default {
         name: "",
         message: "",
         phone: "",
+        status: "",
       },
       show: true,
       dismissSecs: 5,
@@ -134,6 +148,7 @@ export default {
             name: "",
             message: "",
             phone: "",
+            status: "",
           };
           this.registerSuccessMessage = "";
         }, 1500);

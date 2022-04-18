@@ -17,11 +17,11 @@
         </template>
         <a
           class="btn"
-          :href="image.link"
+          :href="localePath(`/menu?category=60`)"
           target="_blank"
           rel="noopener noreferrer"
         >
-          {{ $t("global.visitLink") }}
+          {{ $t("home.orderNow") }}
         </a>
       </b-carousel-slide>
     </b-carousel>

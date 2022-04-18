@@ -16,7 +16,8 @@
     "gallery": "Gallery",
     "news": "News",
     "information": "Information",
-    "noData": "No data for now"
+    "noData": "No data for now",
+    "event": "event"
   },
 
   "home": {
@@ -46,7 +47,8 @@
     "emailDescription": "We'll never share your email with anyone else.",
     "emailPlaceholder": "Enter email",
     "passwordLabel": "Password",
-    "passwordPlaceholder": "Enter Password"
+    "passwordPlaceholder": "Enter Password",
+    "statusPlaceholder": "status "
   },
 
   "menu": {
@@ -68,7 +70,8 @@
     "messagePlaceholder": "message",
     "send": "Send",
     "phone": "Phone",
-    "address": "Address"
+    "address": "Address",
+    "status": "status"
   },
 
   "branches": {

@@ -16,7 +16,8 @@
     "gallery": "معرض الصور",
     "news": "أخبار",
     "information": "معلومات",
-    "noData": "لا يوجد بيانات الان"
+    "noData": "لا يوجد بيانات الان",
+    "event": "دعوه"
   },
 
   "home": {
@@ -73,7 +74,8 @@
     "messagePlaceholder": "الرسالة",
     "send": "إرسال",
     "phone": "الهاتف",
-    "address": "العنوان"
+    "address": "العنوان",
+    "status": "الحاله"
   },
 
   "branches": {

@@ -1135,13 +1135,23 @@ p {
 }
 
 // End gallery-page-component
+
+
 //start foodclub
 #over {
-  position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
+  bottom: 2.5rem;
+  right: 0.6rem;
   position: fixed;
-  bottom: 5%;
+  width: 7%;
   overflow: auto;
+  border-radius: 50%;
 }
+
+
 //end food club
+// card
+.card {
+  // background-color: #e7d3c2;
+  display: inline-block;
+
+}

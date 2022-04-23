@@ -24,10 +24,12 @@
                 </div>
               </div>
 
-              <div class="product-details d-flex justify-content-between mt-1">
+              <div class="product-details d-flex justify-content-center mt-1">
                 <p>{{ product.name_translate }}</p>
-                <p class="product_price">{{ product.sizes[0].price }} LE</p>
               </div>
+              <p class="product_price">
+                <strong>( {{ product.sizes[0].price }} LE ) </strong>
+              </p>
             </div>
           </div>
         </div>
@@ -65,7 +67,7 @@
                 >
                   {{ size.name }}
                   <span class="price"
-                    >{{ " " + size.price }} L.E</span
+                    >( {{ " " + size.price }} L.E )</span
                   ></b-form-radio
                 >
               </b-form-group>
@@ -98,7 +100,9 @@
             >
               <b-form-checkbox :value="addon">
                 {{ addon.name_translate }}
-                <span class="price"> {{ "  " + addon.price }}L.E</span>
+                <span class="price"
+                  ><strong> ( {{ "  " + addon.price }}L.E )s </strong></span
+                >
               </b-form-checkbox>
             </b-form-checkbox-group>
           </b-form-group>
@@ -196,16 +200,24 @@ export default {
       this.selecetdSize = {
         selectedAddons: [],
       };
+      this.showDetails = false;
     },
     decrease() {
       if (this.product.quantity >= 1) {
         this.$store.commit("decrease", this.selecetdSize);
       }
     },
+    // showProductDetails(productItem) {
+    //   // console.log('test', productItem)
+    //   this.showDetails = true;
+    //   this.product = productItem;
+    // },
     showProductDetails(productItem) {
-      // console.log('test', productItem)
       this.showDetails = true;
       this.product = productItem;
+      this.selecetdSize = {
+        selectedAddons: [],
+      };
     },
     close() {
       this.selecetdSize.quantity = 1;

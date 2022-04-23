@@ -16,8 +16,9 @@
           <img class="d-block img-fluid" :src="image.image" alt="image slot" />
         </template>
         <a
+          v-if="image.link"
           class="btn"
-          :href="localePath(`/menu?category=60`)"
+          :href="image.link"
           target="_blank"
           rel="noopener noreferrer"
         >

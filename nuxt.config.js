@@ -46,6 +46,10 @@ export default {
   // plugins: [
   //     { src: '~/plugins/i18n.js' },
   // ],
+  plugins: [
+        // { src: '~/plugins/i18n.js' },
+        { src: '~/plugins/map', ssr: false }
+    ],
   // i18n : {
   //     skipSettingLocaleOnNavigate: true,
   // },

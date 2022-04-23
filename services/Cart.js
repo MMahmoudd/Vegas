@@ -5,7 +5,7 @@ const resource = `${API_URL}`
 
 export default {
     sendCartData(data) {
-        return Service.post(`${resource}/cart`, data, {
+        return Service.post(`${resource}/cart?restaurant_id=2`, data, {
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
                 },
@@ -19,7 +19,7 @@ export default {
             })
     },
     getCart() {
-        return Service.get(`${resource}/cart`, {
+        return Service.get(`${resource}/cart?restaurant_id=2`, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token'),
             },
@@ -42,7 +42,7 @@ export default {
         })
     },
     resetCart() {
-        return Service.post(`${resource}/empty_cart`, {
+        return Service.post(`${resource}/empty_cart?restaurant_id=2`, {
                 _method: 'DELETE'
             }, {
                 headers: {

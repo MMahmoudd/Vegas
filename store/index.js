@@ -34,10 +34,10 @@ export const mutations = {
     //     increase(state,productData,true)
     // },
     addItem(state, productData) {
-        const hasProduct = state.products.findIndex(item => item.id === productData.id)
-        if (hasProduct > -1) {} else {
+        // const hasProduct = state.products.findIndex(item => item.id === productData.id)
+        // if (hasProduct > -1) {} else {
             state.products.push(productData)
-        }
+        // }
         state.products.map(item => {
             if (item.id === productData.id) {
                 item.quantity = productData.quantity

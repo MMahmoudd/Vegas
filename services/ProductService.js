@@ -20,7 +20,8 @@ export default {
                                 size.quantity = 1;
                                 size.total_price = size.price;
                                 size.item_image = item.image;
-                                size.item_name = item.name_translate;
+                              size.item_name = item.name_translate;
+                              //  size.item_name = item.name_ar;
                                 size.totalPriceWithAddons = 0
                                 return size;
                             })
@@ -50,7 +51,8 @@ export default {
                                 size.quantity = 1;
                                 size.total_price = size.price;
                                 size.item_image = item.image;
-                                size.item_name = item.name_translate;
+                              size.item_name = item.name_translate;
+                                // size.item_name = item.name_ar;
                                 size.totalPriceWithAddons = 0
                                 return size;
                             })
@@ -90,7 +92,8 @@ export default {
                                 size.quantity = 1;
                                 size.total_price = size.price;
                                 size.item_image = item.image;
-                                size.item_name = item.name_translate;
+                              size.item_name = item.name_translate;
+                                // size.item_name = item.name_ar;
                                 size.totalPriceWithAddons = 0
                                 return size;
                             })

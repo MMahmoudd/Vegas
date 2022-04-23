@@ -1,27 +1,15 @@
 <template>
   <div class="contact-us-component">
-    <h2 class="header-section">{{ $t("contactUs.contactUs") }}</h2>
+    <h2 class="header-section">{{ $t("global.partener") }}</h2>
     <div class="container text-left">
       <p class="header-section font-weight-bold">
         {{ $t("contactUs.getInTouch") }}
       </p>
-      <!-- <p class="content">
-        {{ $t("contactUs.phone") }}: {{ info.phone }}
-        <br />
-        {{ $t("contactUs.address") }}: {{ info.address }}
-      </p> -->
+      <!-- <p class="content">{{ $t("contactUs.phone") }}: {{ info.phone }}</p> -->
+
       <div class="contact-form">
         <b-form @submit.prevent="onSubmit()" v-if="show">
           <div class="row">
-            <div class="col-md-4">
-              <b-form-select
-                v-model="form.type"
-                :options="types"
-                style="border: 1px solid #a3080b"
-              >
-              </b-form-select>
-            </div>
-
             <div class="col-md-4">
               <b-form-group id="input-group-1" label-for="input-1">
                 <b-form-input
@@ -44,28 +32,20 @@
                 ></b-form-input>
               </b-form-group>
             </div>
-
             <div class="col-md-4">
               <b-form-group id="input-group-4" label-for="input-4">
                 <b-form-input
                   id="input-4"
                   v-model="form.phone"
                   :placeholder="$t('contactUs.phone')"
-                  oninput="this.value = this.value.replace(/[^0-9.+]/g, '');
-                   this.value = this.value.replace(/(\..*)\./g, '$1');"
                   required
-                ></b-form-input>
-              </b-form-group>
-            </div>
-            <div class="col-12">
-              <b-form-group id="input-group-3" label-for="textarea">
-                <b-form-textarea
-                  id="textarea"
-                  v-model="form.message"
-                  :placeholder="$t('contactUs.messagePlaceholder')"
-                  rows="3"
-                  max-rows="6"
-                ></b-form-textarea>
+                  oninput="
+                    this.value = this.value.replace(/[^0-9.+]/g, '');
+                    this.value = this.value.replace(/(\..*)\./g, '$1');
+                  "
+                >
+                  ></b-form-input
+                >
               </b-form-group>
             </div>
           </div>
@@ -112,14 +92,8 @@ export default {
       form: {
         email: "",
         name: "",
-        message: "",
         phone: "",
-        type: "",
       },
-      types: [
-        { text: "suggestion", value: "suggestion" },
-        { text: "complaint", value: "complaint" },
-      ],
       show: true,
       dismissSecs: 5,
       dismissCountDown: 0,
@@ -141,17 +115,16 @@ export default {
         console.log(err);
       }
     },
+
     async onSubmit() {
-      const sendMassage = await Service.sendMassage(this.form);
+      const sendMassage = await Service.sendMassagePartener(this.form);
       if (sendMassage.status === 200) {
         this.registerSuccessMessage = "Message Sent Successfully";
         setTimeout(() => {
           this.form = {
             email: "",
             name: "",
-            message: "",
             phone: "",
-            status: "",
           };
           this.registerSuccessMessage = "";
         }, 1500);

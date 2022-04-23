@@ -1,6 +1,6 @@
 {
   "global": {
-    "visitLink": "visit link",
+    "visitLink": "Visit Link",
     "itemAdded": "Item Added To Your Cart",
     "goToCart": "Go To Your Cart",
     "goToHome": "Go To Home Page",
@@ -8,7 +8,7 @@
     "home": "Home",
     "menu": "Menu",
     "pages": "Pages",
-    "contactUs": "Contact US",
+    "contactUs": "Contact Us",
     "branches": "Branches",
     "ourBranches": "Our Branches",
     "myAccount": "My Account",
@@ -16,8 +16,9 @@
     "gallery": "Gallery",
     "news": "News",
     "information": "Information",
-    "noData": "No data for now",
-    "event": "event"
+    "noData": "No Data For Now",
+    "event": "Events",
+    "partener": "Became a Partner"
   },
 
   "home": {
@@ -32,8 +33,8 @@
 
   "login": {
     "login": "Login",
-    "emailDescription": "We'll never share your email with anyone else.",
-    "emailPlaceholder": "Enter email",
+    "emailDescription": "We'll Never Share Your Email With anyone else.",
+    "emailPlaceholder": "Enter Email",
     "passwordPlaceholder": "Enter Password"
   },
 
@@ -45,10 +46,10 @@
     "phoneLabel": "Phone Number",
     "phonePlaceholder": "Your Phone",
     "emailDescription": "We'll never share your email with anyone else.",
-    "emailPlaceholder": "Enter email",
+    "emailPlaceholder": "Enter Email",
     "passwordLabel": "Password",
     "passwordPlaceholder": "Enter Password",
-    "statusPlaceholder": "status "
+    "statusPlaceholder": "Status "
   },
 
   "menu": {
@@ -58,32 +59,32 @@
   },
 
   "search": {
-    "results": "research results",
+    "results": "Research Results",
     "noResults": "No Results"
   },
 
   "contactUs": {
     "contactUs": "Contact Us",
-    "getInTouch": "Get In Touch & Let's Make Something Awesome Aogether.",
+    "getInTouch": "Get In Touch & Let's Make Something Awesome Together.",
     "namePlaceholder": "Name",
     "emailPlaceholder": "Email",
-    "messagePlaceholder": "message",
+    "messagePlaceholder": "Message",
     "send": "Send",
     "phone": "Phone",
     "address": "Address",
-    "status": "status"
+    "status": "Status"
   },
 
   "branches": {
     "branches": "Branches",
-    "workdays": "workdays",
-    "timesofWork": "Times of Work",
+    "workdays": "Workdays",
+    "timesofWork": "Working Time",
     "noBranchesYet": "No Branches Yet"
   },
 
   "cart": {
     "myCart": "My Cart",
-    "backToShop": "back to shop",
+    "backToShop": "Back to shop",
     "subtotal": "Subtotal",
     "continue": "Continue",
     "noItemsInCart": "No Items In Cart",
@@ -93,21 +94,21 @@
   },
 
   "checkout": {
-    "tax": "tax",
-    "service": "service ",
-    "checkout": "checkout",
+    "tax": "Tax",
+    "service": "Service ",
+    "checkout": "Checkout",
     "chooseNewLocation": "Choose New Location",
     "deleteAllCartData": "Delete All Cart Data",
     "subtotal": "Subtotal",
     "delivery": "Delivery",
     "addNewAddress": "Add New Address",
     "noOrdersYet": "No Orders Yet",
-    "backToProducts": "back to Add your Products",
-    "selectGovernrate": "select governrate",
-    "selectArea": "select area",
-    "steetAddress": "street address",
-    "phone": "phone",
-    "createAddress": "Create address",
+    "backToProducts": "Back To Add Your Products",
+    "selectGovernrate": "Select Governrate",
+    "selectArea": "Select Area",
+    "steetAddress": "Street Address",
+    "phone": "Phone",
+    "createAddress": "Create Address",
 
     "couponPlaceholder": "Enter Coupon",
     "submitCoupon": "Apply Coupon",
@@ -130,9 +131,9 @@
 
     "phonePlaceholder": "Enter Your Phone",
 
-    "emailDescription": "We'll never share your email with anyone else.",
+    "emailDescription": "We'll never share your Email with anyone else.",
 
-    "emailPlaceholder": "Enter email",
+    "emailPlaceholder": "Enter Email",
 
     "orderDetails": "Order Details",
     "addressCastoumer": "Address Castoumer",

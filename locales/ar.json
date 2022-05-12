@@ -18,7 +18,8 @@
     "information": "معلومات",
     "noData": "لا يوجد بيانات الان",
     "event": "المناسبات",
-    "partener": "كن شريك "
+    "partener": "كن شريك ",
+    "GoToMap": "اذهب إلى الخريطة"
   },
 
   "home": {
@@ -99,6 +100,10 @@
   },
 
   "checkout": {
+    "payment":"الدفع",
+    "date":"التاريخ",
+    "Thankyou":"شكرا لك",
+    "PaymentReceived":"تلقى الدفع ",
     "checkout": "الدفع",
     "tax": "الضريبه المضافه",
     "service": "الخدمات ",

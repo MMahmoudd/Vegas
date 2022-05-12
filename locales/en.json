@@ -18,9 +18,9 @@
     "information": "Information",
     "noData": "No Data For Now",
     "event": "Events",
-    "partener": "Became a Partner"
+    "partener": "Become a Partner",
+    "GoToMap": "Go To Map"
   },
-
   "home": {
     "sizes": "Sizes",
     "category": "Category",
@@ -30,14 +30,12 @@
     "topProducts": "Top Products",
     "seeMore": "See More"
   },
-
   "login": {
     "login": "Login",
     "emailDescription": "We'll Never Share Your Email With anyone else.",
     "emailPlaceholder": "Enter Email",
     "passwordPlaceholder": "Enter Password"
   },
-
   "register": {
     "register": "Register",
     "createNew": "Create a new Account",
@@ -51,18 +49,15 @@
     "passwordPlaceholder": "Enter Password",
     "statusPlaceholder": "Status "
   },
-
   "menu": {
     "category": "Category",
     "menu": "Menu",
     "all": "All"
   },
-
   "search": {
     "results": "Research Results",
     "noResults": "No Results"
   },
-
   "contactUs": {
     "contactUs": "Contact Us",
     "getInTouch": "Get In Touch & Let's Make Something Awesome Together.",
@@ -74,14 +69,12 @@
     "address": "Address",
     "status": "Status"
   },
-
   "branches": {
     "branches": "Branches",
     "workdays": "Workdays",
     "timesofWork": "Working Time",
     "noBranchesYet": "No Branches Yet"
   },
-
   "cart": {
     "myCart": "My Cart",
     "backToShop": "Back to shop",
@@ -92,8 +85,12 @@
     "addOnName": "Add on Name",
     "addOnPrice": "Add on Price"
   },
-
   "checkout": {
+    "Thankyou": "Thank you",
+    "PaymentReceived": "Payment Received",
+    "total": "Total",
+    "payment": "payment",
+    "date": "Date",
     "tax": "Tax",
     "service": "Service ",
     "checkout": "Checkout",
@@ -109,16 +106,12 @@
     "steetAddress": "Street Address",
     "phone": "Phone",
     "createAddress": "Create Address",
-
     "couponPlaceholder": "Enter Coupon",
     "submitCoupon": "Apply Coupon",
-
     "discount": "Discount",
-
     "deliveryTime": "Delivery Time",
     "min": "Min"
   },
-
   "profile": {
     "hello": "Hello",
     "name": "Name",
@@ -126,18 +119,12 @@
     "mobile": "Mobile",
     "editProfile": "Edit Profile",
     "edit": "Edit",
-
     "namePlaceholder": "Enter Your Name",
-
     "phonePlaceholder": "Enter Your Phone",
-
     "emailDescription": "We'll never share your Email with anyone else.",
-
     "emailPlaceholder": "Enter Email",
-
     "orderDetails": "Order Details",
     "addressCastoumer": "Address Castoumer",
-
     "myAccount": "My Account",
     "account": "Account",
     "myOrder": "My Order",

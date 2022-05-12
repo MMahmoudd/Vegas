@@ -44,7 +44,7 @@
             <div class="cart-image">
               <img :src="item.cartable.image" alt="product-image" />
             </div>
-            <div class="cart-details row">
+            <div class="cart-details row d-flex align-content-center flex-wrap">
               <p class="font-weight-bold text-left col-sm-3">
                 {{ item.cartable.name_translate }}
               </p>

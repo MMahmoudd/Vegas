@@ -106,6 +106,12 @@
             </b-form-checkbox-group>
           </b-form-group>
         </div>
+        <!-- <div class="m-1 " >   <b-form-textarea
+    id="textarea-rows"
+   :placeholder="$t('AddComment')"
+    v-model="type_id"
+    rows="2"
+  ></b-form-textarea></div> -->
       </div>
       <div
         v-if="selecetdSize.id || selecetdSize.price == 0"
@@ -165,6 +171,12 @@ export default {
           if (test.length > 0) {
             all.push({ categoryName: category.name_translate, products: test });
           }
+          this.allProducts.sort(function (a, b) {
+            return a.name_translate.localeCompare(b.name_translate);
+          });
+          this.categories.sort((a, b) =>
+            a.name_translate.localeCompare(b.name_translate)
+          );
         });
         this.finalProducts = all;
       }

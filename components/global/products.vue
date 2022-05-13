@@ -64,6 +64,7 @@
                   :aria-describedby="ariaDescribedby"
                   name="some-radios"
                   :value="size"
+                  @change="resetType()"
                 >
                   <span v-if="$i18n.locale == 'en'"> {{ size.name }}</span>
                   <span v-if="$i18n.locale == 'ar'"> {{ size.name_ar }}</span>
@@ -82,11 +83,11 @@
             }}</span>
             <i
               class="minus fas fa-minus"
-              @click="decreaseSelecetdSize(selecetdSize, i)"
+              @click="decreaseSelecetdSize(selecetdSize)"
             ></i>
           </div>
           <br>
-          <div class="row">
+          <div class="row" v-if="selecetdSize.quantity >= 0">
             <div class="col-md-3" v-for="(type) in product.types" :key="type.id">
               <b-form-group v-slot="{ ariaDescribedby1 }">
                 <b-form-radio
@@ -105,17 +106,9 @@
                 class="quantity text-center"
               >
               <p>{{ selecetdSize.type_id.name_translate + ' ' + $t('global.pieces')}}</p>
-                <i
-                  class="add fas fa-plus disabled"
-                  @click="increasePieces(selecetdSize)"
-                ></i>
                 <span class="font-weight-bold mx-2">
-                  {{ selecetdSize.type_id.pieces = selecetdSize.quantity }}
+                  {{ selecetdSize.type_id.pieces = selecetdSize.pieces * selecetdSize.quantity }}
                 </span>
-                <i
-                  class="minus fas fa-minus disabled"
-                  @click="decreasePieces(selecetdSize)"
-                ></i>
               </div>
               <div
                 v-if="selecetdSize.type_id.name_translate === 'Mixed'"
@@ -254,6 +247,7 @@ export default {
         });
         this.finalProducts = all;
       }
+      console.log('this.finalProducts', this.finalProducts)
       return this.finalProducts;
     },
   },
@@ -261,6 +255,14 @@ export default {
     this.fetchAllCategories();
   },
   methods: {
+    resetType () {
+      console.log('this.selecetdSize', this.selecetdSize)
+      this.selecetdSize.quantity = 1
+      if (this.selecetdSize.type_id) {
+        this.selecetdSize.type_id.regularPieces = 0;
+        this.selecetdSize.type_id.spicyPieces = 0;
+      }
+    },
     async fetchAllCategories() {
       this.dataLoading = true;
       const items = await CategoryService.getAllCategories();
@@ -280,7 +282,7 @@ export default {
     },
     increaseRegularPieces (Pieces) {
       console.log('Pieces', Pieces)
-      Pieces.type_id.pieces = Pieces.quantity
+      Pieces.type_id.pieces = Pieces.quantity * Pieces.pieces
       if ((Pieces.type_id.regularPieces + Pieces.type_id.spicyPieces) < Pieces.type_id.pieces ) {
         Pieces.type_id.regularPieces += 1;
       }
@@ -291,7 +293,8 @@ export default {
       }
     },
     increaseSpicyPieces (Pieces) {
-      Pieces.type_id.pieces = Pieces.quantity
+      console.log('Pieces', Pieces)
+      Pieces.type_id.pieces = Pieces.quantity * Pieces.pieces
       if ((Pieces.type_id.regularPieces + Pieces.type_id.spicyPieces) < Pieces.type_id.pieces) {
         Pieces.type_id.spicyPieces += 1;
       }
@@ -302,12 +305,13 @@ export default {
       }
     },
     increaseSelecetdSize(selecetdSize) {
+      console.log('selecetdSize', selecetdSize)
       selecetdSize.quantity += 1;
       if (selecetdSize.type_id) {
         selecetdSize.type_id.pieces += 1;
       }
     },
-    decreaseSelecetdSize(selecetdSize, i) {
+    decreaseSelecetdSize(selecetdSize) {
       if (selecetdSize.quantity >= 2) {
         selecetdSize.quantity -= 1;
         if (selecetdSize.type_id) {
@@ -323,6 +327,7 @@ export default {
       this.selecetdSize = {
         selectedAddons: [],
         type_id: {},
+        comment: ''
       };
       this.showDetails = false;
     },

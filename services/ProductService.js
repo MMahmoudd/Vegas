@@ -52,7 +52,7 @@ export default {
                                 size.total_price = size.price;
                                 size.item_image = item.image;
                                 size.item_name = item.name_translate;
-                                // size.item_name = item.name_ar;
+                                size.pieces = item.pieces
                                 size.totalPriceWithAddons = 0
                                 return size;
                             })

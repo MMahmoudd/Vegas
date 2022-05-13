@@ -57,7 +57,7 @@
           <p v-html="product.description_translate"></p>
           <!-- <p>{{ $t("sizes") }}:</p> -->
           <div class="row">
-            <div class="col-md-3" v-for="size in product.sizes" :key="size">
+            <div class="col-md-3" v-for="size in product.sizes" :key="size.id">
               <b-form-group v-slot="{ ariaDescribedby }">
                 <b-form-radio
                   v-model="selecetdSize"
@@ -85,6 +85,73 @@
               @click="decreaseSelecetdSize(selecetdSize, i)"
             ></i>
           </div>
+          <br>
+          <div class="row">
+            <div class="col-md-3" v-for="(type) in product.types" :key="type.id">
+              <b-form-group v-slot="{ ariaDescribedby1 }">
+                <b-form-radio
+                  v-model="selecetdSize.type_id"
+                  :aria-describedby="ariaDescribedby1"
+                  name="type-radios"
+                  :value="type"
+                >
+                  <span>{{ type.name_translate }}</span>
+                </b-form-radio>
+              </b-form-group>
+            </div>
+            <div class="col-12" v-if="selecetdSize.type_id">
+              <div
+                v-if="selecetdSize.type_id.name_translate === 'Regular' || selecetdSize.type_id.name_translate === 'Spicy'"
+                class="quantity text-center"
+              >
+              <p>{{ selecetdSize.type_id.name_translate + ' ' + $t('global.pieces')}}</p>
+                <i
+                  class="add fas fa-plus disabled"
+                  @click="increasePieces(selecetdSize)"
+                ></i>
+                <span class="font-weight-bold mx-2">
+                  {{ selecetdSize.type_id.pieces = selecetdSize.quantity }}
+                </span>
+                <i
+                  class="minus fas fa-minus disabled"
+                  @click="decreasePieces(selecetdSize)"
+                ></i>
+              </div>
+              <div
+                v-if="selecetdSize.type_id.name_translate === 'Mixed'"
+                class="quantity text-center d-flex justify-content-center"
+              >
+              <div class="Regular mx-2">
+                <p>{{ 'Regular' + ' ' + $t('global.pieces')}}</p>
+                <i
+                  class="add fas fa-plus"
+                  @click="increaseRegularPieces(selecetdSize)"
+                ></i>
+                <span class="font-weight-bold mx-2">
+                  {{ selecetdSize.type_id.regularPieces }}
+                </span>
+                <i
+                  class="minus fas fa-minus"
+                  @click="decreaseRegularPieces(selecetdSize)"
+                ></i>
+              </div>
+              <div class="Spicy mx-2">
+                <p>{{ 'Spicy' + ' ' + $t('global.pieces')}}</p>
+                <i
+                  class="add fas fa-plus"
+                  @click="increaseSpicyPieces(selecetdSize)"
+                ></i>
+                <span class="font-weight-bold mx-2">
+                  {{ selecetdSize.type_id.spicyPieces }}
+                </span>
+                <i
+                  class="minus fas fa-minus"
+                  @click="decreaseSpicyPieces(selecetdSize)"
+                ></i>
+              </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <hr />
@@ -106,12 +173,17 @@
             </b-form-checkbox-group>
           </b-form-group>
         </div>
-        <!-- <div class="m-1 " >   <b-form-textarea
-    id="textarea-rows"
-   :placeholder="$t('AddComment')"
-    v-model="type_id"
-    rows="2"
-  ></b-form-textarea></div> -->
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <b-form-textarea
+            id="textarea-rows"
+            :placeholder="$t('global.addComment')"
+            v-model="selecetdSize.comment"
+            rows="3"
+            class="my-3"
+          />
+        </div>
       </div>
       <div
         v-if="selecetdSize.id || selecetdSize.price == 0"
@@ -156,6 +228,8 @@ export default {
     dismissCountDown: 0,
     selecetdSize: {
       selectedAddons: [],
+      type_id: {},
+      comment: '',
     },
   }),
   computed: {
@@ -180,6 +254,7 @@ export default {
         });
         this.finalProducts = all;
       }
+      console.log('this.finalProducts', this.finalProducts)
       return this.finalProducts;
     },
   },
@@ -196,19 +271,60 @@ export default {
     countDownChanged(dismissCountDown) {
       this.dismissCountDown = dismissCountDown;
     },
+    increasePieces (Pieces) {
+      Pieces.type_id.pieces += 1;
+    },
+    decreasePieces (Pieces) {
+      if (Pieces.type_id.pieces >= 2) {
+        Pieces.type_id.pieces -= 1;
+      }
+    },
+    increaseRegularPieces (Pieces) {
+      console.log('Pieces', Pieces)
+      Pieces.type_id.pieces = Pieces.quantity
+      if ((Pieces.type_id.regularPieces + Pieces.type_id.spicyPieces) < Pieces.type_id.pieces ) {
+        Pieces.type_id.regularPieces += 1;
+      }
+    },
+    decreaseRegularPieces (Pieces) {
+      if (Pieces.type_id.regularPieces >= 2) {
+        Pieces.type_id.regularPieces -= 1;
+      }
+    },
+    increaseSpicyPieces (Pieces) {
+      Pieces.type_id.pieces = Pieces.quantity
+      if ((Pieces.type_id.regularPieces + Pieces.type_id.spicyPieces) < Pieces.type_id.pieces) {
+        Pieces.type_id.spicyPieces += 1;
+      }
+    },
+    decreaseSpicyPieces (Pieces) {
+      if (Pieces.type_id.spicyPieces >= 2) {
+        Pieces.type_id.spicyPieces -= 1;
+      }
+    },
     increaseSelecetdSize(selecetdSize) {
       selecetdSize.quantity += 1;
+      if (selecetdSize.type_id) {
+        selecetdSize.type_id.pieces += 1;
+      }
     },
     decreaseSelecetdSize(selecetdSize, i) {
       if (selecetdSize.quantity >= 2) {
         selecetdSize.quantity -= 1;
+        if (selecetdSize.type_id) {
+          selecetdSize.type_id.pieces -= 1;
+            selecetdSize.type_id.spicyPieces = 0;
+            selecetdSize.type_id.regularPieces = 0;
+        }
       }
     },
     increase() {
+      console.log('this.selecetdSize', this.selecetdSize)
       this.$store.commit("addItem", this.selecetdSize);
       this.dismissCountDown = this.dismissSecs;
       this.selecetdSize = {
         selectedAddons: [],
+        type_id: {},
       };
       this.showDetails = false;
     },

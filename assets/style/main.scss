@@ -46,16 +46,15 @@ p {
 }
 
 // Start Default Layout
-
 // Start Navbar
-    // position: absolute;
+// position: absolute;
 .navbar {
     width: 103%;
     margin: auto;
     height: 90px;
     top: 0px;
     z-index: 1000;
-        padding: inherit;
+    padding: inherit;
     //border-radius: 35px;
     nav {
         width: inherit;
@@ -809,6 +808,7 @@ p {
         width: 100%;
         padding-top: 20px;
         .back {
+            cursor: pointer;
             font-weight: bold;
             a {
                 text-decoration: none;
@@ -1135,31 +1135,28 @@ p {
 }
 
 // End gallery-page-component
-
-
 //start foodclub
 #over {
-  bottom: 2.5rem;
-  right: 0.6rem;
-  position: fixed;
-  width: 7%;
-  overflow: auto;
-  border-radius: 50%;
-}
-#over1 {
-  bottom: 8.5rem;
-  right: 0.9rem;
-  position: fixed;
-  width: 4%;
-  overflow: auto;
-  border-radius: 50%;
+    bottom: 2.5rem;
+    right: 0.6rem;
+    position: fixed;
+    width: 7%;
+    overflow: auto;
+    border-radius: 50%;
 }
 
+#over1 {
+    bottom: 8.5rem;
+    right: 0.9rem;
+    position: fixed;
+    width: 4%;
+    overflow: auto;
+    border-radius: 50%;
+}
 
 //end food club
 // card
 .card {
-  // background-color: #e7d3c2;
-  display: inline-block;
-
+    // background-color: #e7d3c2;
+    display: inline-block;
 }

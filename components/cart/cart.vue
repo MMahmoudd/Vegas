@@ -182,6 +182,7 @@ export default {
   }),
   computed: {
     products() {
+      console.log('this.$store.state.products', this.$store.state.products)
       return this.$store.state.products;
     },
     total() {
@@ -222,6 +223,9 @@ export default {
             qty: item.quantity,
             size_name: item.name,
             addons: item.selectedAddons || [],
+            type_id: item.type_id.id,
+            comment: item.comment,
+            pieces: item.type_id.name_translate === "Mixed" ? `${item.type_id.spicyPieces} spicy and ${item.type_id.regularPieces} regular` : item.type_id.pieces
           };
         });
         const formData = new FormData();

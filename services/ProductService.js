@@ -20,8 +20,8 @@ export default {
                                 size.quantity = 1;
                                 size.total_price = size.price;
                                 size.item_image = item.image;
-                              size.item_name = item.name_translate;
-                              //  size.item_name = item.name_ar;
+                                size.item_name = item.name_translate;
+                                //  size.item_name = item.name_ar;
                                 size.totalPriceWithAddons = 0
                                 return size;
                             })
@@ -51,11 +51,19 @@ export default {
                                 size.quantity = 1;
                                 size.total_price = size.price;
                                 size.item_image = item.image;
-                              size.item_name = item.name_translate;
+                                size.item_name = item.name_translate;
                                 // size.item_name = item.name_ar;
                                 size.totalPriceWithAddons = 0
                                 return size;
                             })
+                            if (item.types.length > 0) {
+                                item.types.map(type => {
+                                    type.pieces = item.pieces
+                                    type.regularPieces = 0
+                                    type.spicyPieces = 0
+                                    return type
+                                })
+                            }
                             if (item.addson.length > 0) {
                                 item.addson.map(addon => {
                                     addon.item_id = item.id
@@ -92,7 +100,7 @@ export default {
                                 size.quantity = 1;
                                 size.total_price = size.price;
                                 size.item_image = item.image;
-                              size.item_name = item.name_translate;
+                                size.item_name = item.name_translate;
                                 // size.item_name = item.name_ar;
                                 size.totalPriceWithAddons = 0
                                 return size;

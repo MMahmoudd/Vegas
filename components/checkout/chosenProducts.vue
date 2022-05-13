@@ -85,9 +85,9 @@
             class="tatal-details d-flex justify-content-between align-items-start"
           >
             <div class="back">
-              <nuxt-link :to="localePath('/')"
+              <a @click="resetCartData()"
                 ><i class="fas fa-arrow-left"></i>
-                {{ $t("cart.backToShop") }}</nuxt-link
+                {{ $t("cart.backToShop") }}</a
               >
             </div>
             <b-button class="delete" @click="resetCart()">
@@ -411,6 +411,12 @@ export default {
           this.Products.splice(index, 1);
         }
         this.getCart();
+      }
+    },
+    async resetCartData() {
+      const reset = await Service.resetCart();
+      if (reset.data.status === true) {
+        this.$router.push(this.localePath("/"));
       }
     },
     async resetCart() {

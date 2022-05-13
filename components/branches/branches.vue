@@ -91,7 +91,6 @@ export default {
         item.position = { lat: +item.lat, lng: +item.long };
       });
 
-      console.log("this.data", this.data);
       this.dataLoading = false;
     },
   },

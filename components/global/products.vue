@@ -254,7 +254,6 @@ export default {
         });
         this.finalProducts = all;
       }
-      console.log('this.finalProducts', this.finalProducts)
       return this.finalProducts;
     },
   },
@@ -319,7 +318,6 @@ export default {
       }
     },
     increase() {
-      console.log('this.selecetdSize', this.selecetdSize)
       this.$store.commit("addItem", this.selecetdSize);
       this.dismissCountDown = this.dismissSecs;
       this.selecetdSize = {

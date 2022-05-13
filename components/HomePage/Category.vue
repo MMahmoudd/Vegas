@@ -47,7 +47,6 @@ export default {
       this.dataLoading = true;
       const items = await CategoryService.getAllCategories();
       this.data = this.chunk(items.categories, 4);
-      // console.log(this.data)
       this.dataLoading = false;
     },
 

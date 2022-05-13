@@ -9,7 +9,7 @@
           <div
             class="menue-items col-md-3"
             v-for="product in item.products"
-            :key="product"
+            :key="product.id"
           >
             <div class="product-item" @click="showProductDetails(product)">
               <div class="product-image">
@@ -57,7 +57,7 @@
           <p v-html="product.description_translate"></p>
           <!-- <p>{{ $t("sizes") }}:</p> -->
           <div class="row">
-            <div class="col-md-3" v-for="size in product.sizes" :key="size.id">
+            <div class="col-md-3" v-for="size in product.sizes" :key="size">
               <b-form-group v-slot="{ ariaDescribedby }">
                 <b-form-radio
                   v-model="selecetdSize"
@@ -168,9 +168,6 @@ export default {
       }
       return this.finalProducts;
     },
-    // productsState() {
-    //   return this.$store.state.products;
-    // },
   },
   created() {
     this.fetchAllCategories();
@@ -206,13 +203,12 @@ export default {
         this.$store.commit("decrease", this.selecetdSize);
       }
     },
-    // showProductDetails(productItem) {
-    //   // console.log('test', productItem)
-    //   this.showDetails = true;
-    //   this.product = productItem;
-    // },
     showProductDetails(productItem) {
+      this.selecetdSize = {
+        selectedAddons: [],
+      }
       this.showDetails = true;
+      this.product = {}
       this.product = productItem;
     },
     close() {

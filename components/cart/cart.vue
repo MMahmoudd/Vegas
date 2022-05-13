@@ -14,7 +14,7 @@
             <!--<img :src="allProducts.filter(product => item.item_id === product.id)[0].image" alt="product-image">-->
             <img :src="item.item_image" alt="product-image" />
           </div>
-          <div class="cart-details row">
+          <div class="cart-details row d-flex align-content-center flex-wrap">
             <p
               class="font-weight-bold text-left col-sm-3"
               @click="showProductDetails(item)"
@@ -36,6 +36,47 @@
             <p class="font-weight-bold col-sm-2 text-right">
               {{ item.totalPriceWithAddons }}LE
             </p>
+            <b-container
+              class="bv-example-row"
+              style="margin: 4px"
+              v-for="addon in item.selectedAddons"
+              :key="addon.id"
+            >
+              <div
+                class="border"
+                style="
+                  border: 1px solid #a3080b !important ;
+                  border-radius: 12px;
+                  -webkit-border-radius: 10px;
+                  -moz-border-radius: 10px;
+                  -ms-border-radius: 10px;
+                  -o-border-radius: 10px;
+                "
+              >
+                <b-row>
+                  <b-col>
+                    <p class="col-md-7">
+                      {{ $t("cart.addOnName") }}:
+                      <span class="price"
+                        ><strong style="color: #a3080b">{{
+                          addon.name_translate
+                        }}</strong></span
+                      >
+                    </p></b-col
+                  >
+                  <b-col
+                    ><p class="col-md-6">
+                      {{ $t("cart.addOnPrice") }}:
+                      <span class="price"
+                        ><strong style="color: #a3080b">{{
+                          addon.price
+                        }}</strong></span
+                      >
+                    </p></b-col
+                  >
+                </b-row>
+              </div>
+            </b-container>
           </div>
           <b-button class="delete" @click="deleteProductFromCart(item)">
             x

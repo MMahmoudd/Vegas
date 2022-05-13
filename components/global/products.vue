@@ -65,11 +65,10 @@
                   name="some-radios"
                   :value="size"
                 >
-                  {{ size.name }}
-                  <span class="price"
-                    >( {{ " " + size.price }} L.E )</span
-                  ></b-form-radio
-                >
+                  <span v-if="$i18n.locale == 'en'"> {{ size.name }}</span>
+                  <span v-if="$i18n.locale == 'ar'"> {{ size.name_ar }}</span>
+                  <span class="price">( {{ " " + size.price }} L.E )</span>
+                </b-form-radio>
               </b-form-group>
             </div>
           </div>
@@ -101,14 +100,23 @@
               <b-form-checkbox :value="addon">
                 {{ addon.name_translate }}
                 <span class="price"
-                  ><strong> ( {{ "  " + addon.price }}L.E )s </strong></span
+                  ><strong> ( {{ "  " + addon.price }}L.E ) </strong></span
                 >
               </b-form-checkbox>
             </b-form-checkbox-group>
           </b-form-group>
         </div>
+        <!-- <div class="m-1 " >   <b-form-textarea
+    id="textarea-rows"
+   :placeholder="$t('AddComment')"
+    v-model="type_id"
+    rows="2"
+  ></b-form-textarea></div> -->
       </div>
-      <div v-if="selecetdSize.id" class="row actions">
+      <div
+        v-if="selecetdSize.id || selecetdSize.price == 0"
+        class="row actions"
+      >
         <b-button class="btn" @click="increase()"
           ><i class="fas fa-shopping-cart"></i>
           {{ $t("global.addToCart") }}
@@ -163,6 +171,12 @@ export default {
           if (test.length > 0) {
             all.push({ categoryName: category.name_translate, products: test });
           }
+          this.allProducts.sort(function (a, b) {
+            return a.name_translate.localeCompare(b.name_translate);
+          });
+          this.categories.sort((a, b) =>
+            a.name_translate.localeCompare(b.name_translate)
+          );
         });
         this.finalProducts = all;
       }
